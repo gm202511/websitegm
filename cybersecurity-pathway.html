@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cybersecurity Pathway | IT Foundations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+    color: white;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align: center;
+    padding: 70px 25px;
+    animation: fadeIn 1.2s ease;
+}
+
+header h1 {
+    font-size: 2.7em;
+}
+
+header p {
+    font-size: 1.15em;
+    opacity: 0.9;
+}
+
+/* ---------- SECTION ---------- */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 25px;
+}
+
+/* ---------- PATHWAY STEPS ---------- */
+.step {
+    background: rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    animation: slideUp 0.9s ease;
+}
+
+.step h2 {
+    color: #00eaff;
+    margin-top: 0;
+}
+
+.icon {
+    font-size: 2.2em;
+    margin-bottom: 10px;
+}
+
+.step ul {
+    padding-left: 20px;
+    line-height: 1.6em;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.cta button {
+    background: #00eaff;
+    color: #001f2f;
+    border: none;
+    padding: 15px 32px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cta button:hover {
+    background: #00c4d8;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9em;
+    opacity: 0.75;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🛡️ Cybersecurity Pathway</h1>
+    <p>
+        A structured learning path aligned to CompTIA Security+ and real‑world security roles
+    </p>
+</header>
+
+<section>
+
+    <div class="step">
+        <div class="icon">🧱</div>
+        <h2>Step 1: Cybersecurity Foundations</h2>
+        <p>
+            Before securing systems, you must understand what you’re protecting and why.
+        </p>
+        <ul>
+            <li>What cybersecurity is (and isn’t)</li>
+            <li>Threats vs vulnerabilities vs risk</li>
+            <li>Basic security terminology</li>
+            <li>The CIA triad (Confidentiality, Integrity, Availability)</li>
+        </ul>
+        <p><strong>Outcome:</strong> You understand how security fits into IT as a whole.</p>
+    </div>
+
+    <div class="step">
+        <div class="icon">🐟</div>
+        <h2>Step 2: Threats, Attacks & Vulnerabilities</h2>
+        <p>
+            Learn how attackers think and the most common ways systems and users are compromised.
+        </p>
+        <ul>
+            <li>Malware types (virus, ransomware, trojan)</li>
+            <li>Phishing and social engineering</li>
+            <li>Password attacks</li>
+            <li>Vulnerabilities and exploits</li>
+        </ul>
+        <p><strong>Outcome:</strong> You can identify how attacks happen and how users are targeted.</p>
+    </div>
+
+    <div class="step">
+        <div class="icon">🏗️</div>
+        <h2>Step 3: Secure Architecture & Design</h2>
+        <p>
+            Security works best when it is designed into systems from the start.
+        </p>
+        <ul>
+            <li>Defense in depth</li>
+            <li>Least privilege</li>
+            <li>Segmentation</li>
+            <li>Secure network design</li>
+        </ul>
+        <p><strong>Outcome:</strong> You understand how to design systems securely, not patch later.</p>
+    </div>
+
+    <div class="step">
+        <div class="icon">🔐</div>
+        <h2>Step 4: Security Implementation</h2>
+        <p>
+            This step focuses on applying security controls in real environments.
+        </p>
+        <ul>
+            <li>Authentication and authorization</li>
+            <li>Multi‑factor authentication</li>
+            <li>Encryption basics</li>
+            <li>Endpoint and network security tools</li>
+        </ul>
+        <p><strong>Outcome:</strong> You can explain how security controls are actually implemented.</p>
+    </div>
+
+    <div class="step">
+        <div class="icon">🚨</div>
+        <h2>Step 5: Operations & Incident Response</h2>
+        <p>
+            Security is ongoing. This step focuses on monitoring, responding, and recovering.
+        </p>
+        <ul>
+            <li>Incident response lifecycle</li>
+            <li>Logging and monitoring</li>
+            <li>Containment and recovery</li>
+            <li>Post‑incident analysis</li>
+        </ul>
+        <p><strong>Outcome:</strong> You understand how organizations respond to security incidents.</p>
+    </div>
+
+    <div class="step">
+        <div class="icon">📜</div>
+        <h2>Step 6: Governance, Risk & Compliance</h2>
+        <p>
+            Security decisions are tied to policies, laws, and risk management.
+        </p>
+        <ul>
+            <li>Risk assessment</li>
+            <li>Security policies</li>
+            <li>Compliance basics</li>
+            <li>Security awareness</li>
+        </ul>
+        <p><strong>Outcome:</strong> You understand why security rules exist and how risk is managed.</p>
+    </div>
+
+    <div class="cta">
+        <h2>Start the Cybersecurity Pathway</h2>
+        <p>
+            Begin with foundations, progress through each step, and build real cybersecurity skills.
+        </p>
+        <button onclick="alert('Lessons and practice tests coming soon!')">
+            🚀 Begin Learning
+        </button>
+    </div>
+
+</section>
+
+<footer>
+    © 2026 IT Foundations • Cybersecurity Pathway
+</footer>
+
+</body>
+</html>

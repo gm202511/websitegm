@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Learn with GM| Learn Technology the Right Way</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
+    color: white;
+}
+
+/* ---------- HEADER ---------- */
+header {
+    text-align: center;
+    padding: 70px 25px;
+    animation: fadeIn 1.2s ease;
+}
+
+header h1 {
+    font-size: 2.8em;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.9;
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+    max-width: 1100px;
+    margin: auto;
+    padding: 50px 25px;
+}
+
+/* ---------- CARDS ---------- */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+    animation: slideUp 0.9s ease;
+}
+
+.card h2 {
+    color: #00eaff;
+}
+
+.icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+/* ---------- CTA ---------- */
+.cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta button {
+    background: #00eaff;
+    color: #001f2f;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.cta button:hover {
+    background: #00c4d8;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9em;
+    opacity: 0.75;
+}
+
+/* ---------- ANIMATIONS ---------- */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>💻 Learn With GM </h1>
+    <p>Real‑world technology education built by an industry professional and licensed educator</p>
+</header>
+
+<section>
+    <div class="cards">
+
+        <div class="card">
+            <div class="icon">🎓</div>
+            <h2>Who Built This?</h2>
+            <p>
+                I’m a <strong>licensed teacher in Massachusetts</strong> teaching
+                <strong>Information Systems, Services & Networking (ISSN)</strong>.
+            </p>
+            <p>
+                Before entering education, I worked directly in the IT industry in roles including:
+            </p>
+            <ul>
+                <li>Help Desk Manager</li>
+                <li>Project Manager</li>
+                <li>Cybersecurity Analyst</li>
+            </ul>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤼</div>
+            <h2>The Coaching Mindset</h2>
+            <p>
+                I also bring over <strong>15 years of coaching experience</strong> as a wrestling coach.
+            </p>
+            <p>
+                Coaching taught me that real growth comes from structure, repetition,
+                accountability, and learning how to perform under pressure — the same
+                skills required for success in IT.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">❤️</div>
+            <h2>Why This Site Exists</h2>
+            <p>
+                I have a strong passion for technology and an equally strong passion
+                for teaching people how technology actually works in the real world.
+            </p>
+            <p>
+                Too many learners are overwhelmed by jargon. This site is built to
+                remove that barrier and replace it with clarity and confidence.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">📚</div>
+            <h2>What You’ll Learn</h2>
+            <p>
+                This platform provides lessons, guided practice, and exam‑style questions
+                to help you grow your IT skills and prepare for certifications.
+            </p>
+            <p>
+                Learning content is aligned to industry‑recognized certifications such as:
+            </p>
+            <ul>
+                <li>CompTIA A+</li>
+                <li>CompTIA Network+</li>
+                <li>CompTIA Security+</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div class="cta">
+        <h2>Learn IT the Right Way</h2>
+        <p>
+            Whether you’re a student, career‑changer, or professional, this site is
+            built to help you learn, practice, and succeed in information technology.
+        </p>
+        <button onclick="alert('Lessons and practice tests coming soon!')">
+            🚀 Get Started
+        </button>
+    </div>
+</section>
+
+<footer>
+    © 2026 IT Foundations • Built by an Educator • Informed by Industry
+</footer>
+
+</body>
+</html>
