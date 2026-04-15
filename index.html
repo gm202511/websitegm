@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IT Foundations | Learn Information Technology the Right Way</title>
+<title>IT Foundations | Learn IT the Right Way</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* ---------- GLOBAL ---------- */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
@@ -14,7 +13,7 @@ body {
     color: white;
 }
 
-/* ---------- NAVIGATION ---------- */
+/* NAVIGATION */
 .nav {
     display: flex;
     justify-content: center;
@@ -27,18 +26,16 @@ body {
     color: #00eaff;
     text-decoration: none;
     font-weight: bold;
-    font-size: 1.05em;
 }
 
 .nav a:hover {
     text-decoration: underline;
 }
 
-/* ---------- HEADER ---------- */
+/* HERO */
 header {
     text-align: center;
     padding: 70px 25px;
-    animation: fadeIn 1.2s ease;
 }
 
 header h1 {
@@ -51,48 +48,21 @@ header p {
     opacity: 0.9;
 }
 
-/* ---------- SECTIONS ---------- */
+/* MAIN */
 section {
-    max-width: 1100px;
+    max-width: 1000px;
     margin: auto;
-    padding: 50px 25px;
+    padding: 40px 25px;
 }
 
-/* ---------- CARDS ---------- */
-.cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 25px;
-}
-
-.card {
-    background: rgba(255,255,255,0.1);
-    border-radius: 18px;
-    padding: 25px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
-    animation: slideUp 0.9s ease;
-}
-
-.card h2 {
-    color: #00eaff;
-    margin-top: 0;
-}
-
-.icon {
-    font-size: 2.4em;
-    margin-bottom: 10px;
-}
-
-/* ---------- CTA ---------- */
 .cta {
     text-align: center;
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
-.cta-button {
+.cta a {
     display: inline-block;
-    margin-top: 15px;
-    padding: 15px 34px;
+    padding: 16px 34px;
     background: #00eaff;
     color: #001f2f;
     font-size: 1.1em;
@@ -101,121 +71,41 @@ section {
     text-decoration: none;
 }
 
-.cta-button:hover {
+.cta a:hover {
     background: #00c4d8;
-}
-
-/* ---------- FOOTER ---------- */
-footer {
-    text-align: center;
-    padding: 30px;
-    font-size: 0.9em;
-    opacity: 0.75;
-}
-
-/* ---------- ANIMATIONS ---------- */
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-@keyframes slideUp {
-    from { transform: translateY(20px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- ✅ NAVIGATION -->
+<!-- ✅ NAV -->
 <nav class="nav">
     <a href="/">Home</a>
     <a href="/pathways/">Pathways</a>
-    <a href="/lessons/">Lessons</a>
-    <a href="/practice/">Practice</a>
-    <a href="/about.html">About</a>
 </nav>
 
 <!-- ✅ HERO -->
 <header>
     <h1>💻 IT Foundations</h1>
-    <p>Industry‑aligned IT education built by an educator, coach, and security professional</p>
+    <p>
+        Structured IT learning aligned to real careers and industry certifications
+    </p>
 </header>
 
-<!-- ✅ MAIN CONTENT -->
+<!-- ✅ CONTENT -->
 <section>
+    <p>
+        IT Foundations helps students, career‑changers, and professionals learn
+        information technology the right way — with clear lessons, structured pathways,
+        and practical understanding.
+    </p>
 
-    <div class="cards">
-
-        <div class="card">
-            <div class="icon">🎓</div>
-            <h2>Built by Experience</h2>
-            <p>
-                This platform was created by a <strong>licensed Massachusetts educator</strong>
-                teaching <strong>Information Systems, Services & Networking (ISSN)</strong>,
-                with real‑world experience as a:
-            </p>
-            <ul>
-                <li>Help Desk Manager</li>
-                <li>Project Manager</li>
-                <li>Cybersecurity Analyst</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <div class="icon">🤼</div>
-            <h2>The Coaching Mindset</h2>
-            <p>
-                With over <strong>15 years of wrestling coaching experience</strong>,
-                learning here is structured, progressive, and focused on mastery —
-                not memorization.
-            </p>
-            <p>
-                Just like training, IT skills are built through repetition,
-                feedback, and problem‑solving.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🧠</div>
-            <h2>What You’ll Learn</h2>
-            <p>
-                Lessons and practice are aligned to <strong>industry certifications</strong>,
-                helping you build useful, test‑ready skills.
-            </p>
-            <ul>
-                <li>CompTIA A+</li>
-                <li>CompTIA Network+</li>
-                <li>CompTIA Security+</li>
-            </ul>
-        </div>
-
-        <div class="card">
-            <div class="icon">📚</div>
-            <h2>How This Site Works</h2>
-            <ul>
-                <li>Follow structured learning pathways</li>
-                <li>Learn concepts clearly and logically</li>
-                <li>Practice with exam‑style questions</li>
-                <li>Understand why answers are right or wrong</li>
-            </ul>
-        </div>
-
-    </div>
-
-    <!-- ✅ CTA -->
     <div class="cta">
-        <h2>Start Learning the Right Way</h2>
-        <p>Choose a pathway and begin building real IT skills.</p>
-        <a href="/pathways/" class="cta-button">🎯 View Learning Pathways</a>
+        <!-- ✅ THIS IS THE PATHWAYS BUTTON -->
+        <a href="/pathways/">🎯 View Learning Pathways</a>
     </div>
-
 </section>
-
-<footer>
-    © 2026 IT Foundations • Learn • Practice • Succeed
-</footer>
 
 </body>
 </html>
