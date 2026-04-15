@@ -2,15 +2,36 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Learn with GM| Learn Technology the Right Way</title>
+<title>IT Foundations | Learn Information Technology the Right Way</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* ---------- GLOBAL ---------- */
 body {
     margin: 0;
     font-family: "Segoe UI", Arial, sans-serif;
     background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
     color: white;
+}
+
+/* ---------- NAVIGATION ---------- */
+.nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 16px;
+    background: rgba(0,0,0,0.45);
+}
+
+.nav a {
+    color: #00eaff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.05em;
+}
+
+.nav a:hover {
+    text-decoration: underline;
 }
 
 /* ---------- HEADER ---------- */
@@ -54,30 +75,33 @@ section {
 
 .card h2 {
     color: #00eaff;
+    margin-top: 0;
 }
 
 .icon {
-    font-size: 2.5em;
+    font-size: 2.4em;
     margin-bottom: 10px;
 }
 
 /* ---------- CTA ---------- */
 .cta {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 50px;
 }
 
-.cta button {
+.cta-button {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 15px 34px;
     background: #00eaff;
     color: #001f2f;
-    border: none;
-    padding: 15px 30px;
     font-size: 1.1em;
+    font-weight: bold;
     border-radius: 10px;
-    cursor: pointer;
+    text-decoration: none;
 }
 
-.cta button:hover {
+.cta-button:hover {
     background: #00c4d8;
 }
 
@@ -104,23 +128,33 @@ footer {
 
 <body>
 
+<!-- ✅ NAVIGATION -->
+<nav class="nav">
+    <a href="/">Home</a>
+    <a href="/pathways/">Pathways</a>
+    <a href="/lessons/">Lessons</a>
+    <a href="/practice/">Practice</a>
+    <a href="/about.html">About</a>
+</nav>
+
+<!-- ✅ HERO -->
 <header>
-    <h1>💻 Learn With GM </h1>
-    <p>Real‑world technology education built by an industry professional and licensed educator</p>
+    <h1>💻 IT Foundations</h1>
+    <p>Industry‑aligned IT education built by an educator, coach, and security professional</p>
 </header>
 
+<!-- ✅ MAIN CONTENT -->
 <section>
+
     <div class="cards">
 
         <div class="card">
             <div class="icon">🎓</div>
-            <h2>Who Built This?</h2>
+            <h2>Built by Experience</h2>
             <p>
-                I’m a <strong>licensed teacher in Massachusetts</strong> teaching
-                <strong>Information Systems, Services & Networking (ISSN)</strong>.
-            </p>
-            <p>
-                Before entering education, I worked directly in the IT industry in roles including:
+                This platform was created by a <strong>licensed Massachusetts educator</strong>
+                teaching <strong>Information Systems, Services & Networking (ISSN)</strong>,
+                with real‑world experience as a:
             </p>
             <ul>
                 <li>Help Desk Manager</li>
@@ -133,37 +167,22 @@ footer {
             <div class="icon">🤼</div>
             <h2>The Coaching Mindset</h2>
             <p>
-                I also bring over <strong>15 years of coaching experience</strong> as a wrestling coach.
+                With over <strong>15 years of wrestling coaching experience</strong>,
+                learning here is structured, progressive, and focused on mastery —
+                not memorization.
             </p>
             <p>
-                Coaching taught me that real growth comes from structure, repetition,
-                accountability, and learning how to perform under pressure — the same
-                skills required for success in IT.
+                Just like training, IT skills are built through repetition,
+                feedback, and problem‑solving.
             </p>
         </div>
 
         <div class="card">
-            <div class="icon">❤️</div>
-            <h2>Why This Site Exists</h2>
-            <p>
-                I have a strong passion for technology and an equally strong passion
-                for teaching people how technology actually works in the real world.
-            </p>
-            <p>
-                Too many learners are overwhelmed by jargon. This site is built to
-                remove that barrier and replace it with clarity and confidence.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📚</div>
+            <div class="icon">🧠</div>
             <h2>What You’ll Learn</h2>
             <p>
-                This platform provides lessons, guided practice, and exam‑style questions
-                to help you grow your IT skills and prepare for certifications.
-            </p>
-            <p>
-                Learning content is aligned to industry‑recognized certifications such as:
+                Lessons and practice are aligned to <strong>industry certifications</strong>,
+                helping you build useful, test‑ready skills.
             </p>
             <ul>
                 <li>CompTIA A+</li>
@@ -172,33 +191,31 @@ footer {
             </ul>
         </div>
 
+        <div class="card">
+            <div class="icon">📚</div>
+            <h2>How This Site Works</h2>
+            <ul>
+                <li>Follow structured learning pathways</li>
+                <li>Learn concepts clearly and logically</li>
+                <li>Practice with exam‑style questions</li>
+                <li>Understand why answers are right or wrong</li>
+            </ul>
+        </div>
+
     </div>
 
+    <!-- ✅ CTA -->
     <div class="cta">
-        <h2>Learn IT the Right Way</h2>
-        <p>
-            Whether you’re a student, career‑changer, or professional, this site is
-            built to help you learn, practice, and succeed in information technology.
-        </p>
-        <button onclick="alert('Lessons and practice tests coming soon!')">
-            🚀 Get Started
-        </button>
+        <h2>Start Learning the Right Way</h2>
+        <p>Choose a pathway and begin building real IT skills.</p>
+        <a href="/pathways/" class="cta-button">🎯 View Learning Pathways</a>
     </div>
+
 </section>
 
 <footer>
-    © 2026 IT Foundations • Built by an Educator • Informed by Industry
+    © 2026 IT Foundations • Learn • Practice • Succeed
 </footer>
 
 </body>
-    
-<nav class="nav">
-    <a href="/index.html">Home</a>
-    <a href="/pathways/">Pathways</a>
-    <a href="/lessons/">Lessons</a>
-    <a href="/practice/">Practice</a>
-    <a href="/about.html">About</a>
-</nav>
-``
-
 </html>
