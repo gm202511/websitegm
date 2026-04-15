@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>IT Foundations | Learn IT the Right Way</title>
+<title>IT Foundations | Learn Information Technology the Right Way</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -14,28 +14,29 @@ body {
 }
 
 /* NAVIGATION */
-.nav {
+nav {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 16px;
+    padding: 18px;
     background: rgba(0,0,0,0.45);
 }
 
-.nav a {
+nav a {
     color: #00eaff;
     text-decoration: none;
     font-weight: bold;
+    font-size: 1.05em;
 }
 
-.nav a:hover {
+nav a:hover {
     text-decoration: underline;
 }
 
 /* HERO */
 header {
     text-align: center;
-    padding: 70px 25px;
+    padding: 80px 25px;
 }
 
 header h1 {
@@ -46,23 +47,50 @@ header h1 {
 header p {
     font-size: 1.2em;
     opacity: 0.9;
+    max-width: 800px;
+    margin: auto;
 }
 
-/* MAIN */
+/* CONTENT */
 section {
-    max-width: 1000px;
+    max-width: 1200px;
     margin: auto;
     padding: 40px 25px;
 }
 
+/* CARDS */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255,255,255,0.1);
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+}
+
+.card h2 {
+    margin-top: 0;
+    color: #00eaff;
+}
+
+.icon {
+    font-size: 2.2em;
+    margin-bottom: 8px;
+}
+
+/* CTA */
 .cta {
     text-align: center;
-    margin-top: 40px;
+    margin: 60px 0 20px;
 }
 
 .cta a {
     display: inline-block;
-    padding: 16px 34px;
+    padding: 16px 36px;
     background: #00eaff;
     color: #001f2f;
     font-size: 1.1em;
@@ -74,38 +102,49 @@ section {
 .cta a:hover {
     background: #00c4d8;
 }
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 30px;
+    font-size: 0.9em;
+    opacity: 0.75;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ✅ NAV -->
-<nav class="nav">
+<!-- NAV -->
+<nav>
     <a href="/">Home</a>
     <a href="/pathways/">Pathways</a>
 </nav>
 
-<!-- ✅ HERO -->
+<!-- HERO -->
 <header>
     <h1>💻 IT Foundations</h1>
     <p>
-        Structured IT learning aligned to real careers and industry certifications
+        Structured, industry‑aligned IT education built by a licensed Massachusetts educator
+        with real‑world experience in help desk leadership, project management, and cybersecurity.
     </p>
 </header>
 
-<!-- ✅ CONTENT -->
+<!-- MAIN CONTENT -->
 <section>
-    <p>
-        IT Foundations helps students, career‑changers, and professionals learn
-        information technology the right way — with clear lessons, structured pathways,
-        and practical understanding.
-    </p>
 
-    <div class="cta">
-        <!-- ✅ THIS IS THE PATHWAYS BUTTON -->
-        <a href="/pathways/">🎯 View Learning Pathways</a>
-    </div>
-</section>
+    <div class="grid">
 
-</body>
-</html>
+        <div class="card">
+            <div class="icon">🎓</div>
+            <h2>Built on Experience</h2>
+            <p>
+                This platform is built from both industry and classroom experience —
+                combining real IT roles with over 15 years of coaching and teaching.
+            </p>
+        </div>
+
+        <div class="card">
+            <div class="icon">🤼</div>
+            <h2>The Coaching Approach</h2>
+            <p>
