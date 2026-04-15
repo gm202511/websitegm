@@ -22,9 +22,9 @@ nav {
 
 nav a {
     color: #00eaff;
-    text-decoration: none;
-    font-weight: bold;
     margin: 0 20px;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 /* LAYOUT */
@@ -42,13 +42,12 @@ h2 {
     color: #00eaff;
 }
 
-/* SECTIONS */
+/* LEARNING SECTIONS */
 .section {
     background: rgba(255,255,255,0.1);
     padding: 28px;
     border-radius: 16px;
-    margin-top: 35px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    margin-top: 40px;
 }
 
 .section ul {
@@ -58,9 +57,9 @@ h2 {
 
 /* VIDEO */
 .video {
-    margin-top: 20px;
     position: relative;
     padding-top: 56.25%;
+    margin-top: 20px;
 }
 
 .video iframe {
@@ -71,10 +70,39 @@ h2 {
     height: 100%;
 }
 
-/* CALLOUT */
-.callout {
+/* QUIZ */
+.quiz {
     margin-top: 20px;
     padding: 15px;
+    background: rgba(0,0,0,0.35);
+    border-radius: 10px;
+}
+
+.quiz button {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px;
+    background: #1c2541;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.quiz button:hover {
+    background: #00eaff;
+    color: #001f2f;
+}
+
+.feedback {
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* NEXT STEPS */
+.next-steps {
+    margin-top: 50px;
+    padding: 20px;
     background: rgba(0,0,0,0.35);
     border-left: 4px solid #00eaff;
 }
@@ -84,130 +112,135 @@ h2 {
 <body>
 
 <nav>
-    <a href="/">Home</a>
-    <a href="/pathways/">Pathways</a>
+    /Home</a>
+    /pathways/Pathways</a>
 </nav>
 
 <main>
 
 <h1>🛡️ Cybersecurity Pathway</h1>
-<p style="text-align:center; max-width:800px; margin:auto;">
-Learn how systems are attacked, defended, monitored, and protected — using concepts aligned to CompTIA Security+ and real‑world IT roles.
+<p style="text-align:center; max-width:850px; margin:auto;">
+Learn how systems are attacked, defended, and recovered — aligned to CompTIA Security+
+and real cybersecurity careers.
 </p>
 
 <!-- SECTION 1 -->
 <div class="section">
-    <h2>1️⃣ What Is Cybersecurity?</h2>
-    <p>
-        Cybersecurity focuses on protecting systems, networks, and data from unauthorized access,
-        misuse, and attacks.
-    </p>
+<h2>1️⃣ What Is Cybersecurity?</h2>
+<p>Cybersecurity protects systems, networks, and data from unauthorized access and misuse.</p>
 
-    <ul>
-        <li>Confidentiality, Integrity, Availability (CIA)</li>
-        <li>Why security is needed in every organization</li>
-        <li>How cybersecurity fits into IT careers</li>
-    </ul>
+<div class="video">
+https://www.youtube.com/embed/3Kq1MIfTWCE</iframe>
+</div>
 
-    <div class="video">
-        <iframe src="https://www.youtube.com/embed/3Kq1MIfTWCE"
-                title="CrashCourse Cybersecurity Intro"
-                allowfullscreen></iframe>
-    </div>
-
-    <div class="callout">
-        <strong>Security+ Focus:</strong><br>
-        CIA Triad concepts appear constantly on the exam.
-    </div>
+<div class="quiz">
+<strong>Quick Check:</strong>
+<button onclick="check(this, true, 'Cybersecurity focuses on protecting systems and data.')">
+Protecting systems and data
+</button>
+<button onclick="check(this, false, 'Cybersecurity is not about building hardware.')">
+Building computers
+</button>
+<div class="feedback"></div>
+</div>
 </div>
 
 <!-- SECTION 2 -->
 <div class="section">
-    <h2>2️⃣ Threats, Attacks, and Social Engineering</h2>
-    <p>
-        Many attacks succeed not because systems fail, but because people are manipulated.
-    </p>
+<h2>2️⃣ Threats & Social Engineering</h2>
+<p>Many attacks succeed by manipulating people rather than exploiting software.</p>
 
-    <ul>
-        <li>Malware types (virus, ransomware, trojan)</li>
-        <li>Phishing and social engineering</li>
-        <li>Password and credential attacks</li>
-    </ul>
+<div class="video">
+https://www.youtube.com/embed/1u2QkHM8CTo</iframe>
+</div>
 
-    <div class="video">
-        <iframe src="https://www.youtube.com/embed/1u2QkHM8CTo"
-                title="Social Engineering Explained"
-                allowfullscreen></iframe>
-    </div>
-
-    <div class="callout">
-        <strong>Think Like an Attacker:</strong><br>
-        If exploiting a human is easier than exploiting software — attackers pick the human.
-    </div>
+<div class="quiz">
+<strong>Quick Check:</strong>
+<button onclick="check(this, true, 'Phishing targets people, not systems.')">
+Phishing targets user behavior
+</button>
+<button onclick="check(this, false, 'Phishing does not require advanced tools.')">
+Phishing requires advanced hacking
+</button>
+<div class="feedback"></div>
+</div>
 </div>
 
 <!-- SECTION 3 -->
 <div class="section">
-    <h2>3️⃣ Defense, Controls, and Secure Design</h2>
-    <p>
-        Security works best when layered and designed into systems from the beginning.
-    </p>
+<h2>3️⃣ Defense & Security Controls</h2>
+<p>Security relies on multiple controls working together.</p>
 
-    <ul>
-        <li>Defense in depth</li>
-        <li>Least privilege</li>
-        <li>Authentication vs authorization</li>
-    </ul>
-
-    <div class="video">
-        <iframe src="https://www.youtube.com/embed/sMzZ9qrpR3s"
-                title="Defense in Depth Explained"
-                allowfullscreen></iframe>
-    </div>
+<div class="video">
+https://www.youtube.com/embed/sMzZ9qrpR3s</iframe>
 </div>
 
-<!-- SECTION 4 -->
-<div class="section">
-    <h2>4️⃣ Incident Response & Operations</h2>
-    <p>
-        Security incidents will happen. Planning and response determine impact.
-    </p>
-
-    <ul>
-        <li>Preparation</li>
-        <li>Detection and analysis</li>
-        <li>Containment, eradication, recovery</li>
-    </ul>
-
-    <div class="video">
-        <iframe src="https://www.youtube.com/embed/F1YN9sNYk-w"
-                title="Incident Response Lifecycle"
-                allowfullscreen></iframe>
-    </div>
+<div class="quiz">
+<strong>Quick Check:</strong>
+<button onclick="check(this, true, 'Defense in depth means multiple layers.')">
+Use multiple layers of protection
+</button>
+<button onclick="check(this, false, 'No single tool stops all attacks.')">
+One tool is enough
+</button>
+<div class="feedback"></div>
+</div>
 </div>
 
-<!-- CAREERS -->
+<!-- GAMES -->
 <div class="section">
-    <h2>5️⃣ Cybersecurity Careers</h2>
+<h2>🎮 Cybersecurity Games (Roblox)</h2>
 
-    <ul>
-        <li>Security Analyst</li>
-        <li>SOC Analyst</li>
-        <li>Cybersecurity Technician</li>
-        <li>Penetration Tester (advanced)</li>
-    </ul>
+<p>
+<strong>Hack a Cat</strong> focuses on phishing and social engineering — teaching players
+to recognize manipulation.
+</p>
+https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat
+Play Hack a Cat</a>
 
-    <div class="callout">
-        <strong>Reality Check:</strong><br>
-        Most cybersecurity professionals begin in IT support or networking roles.
-    </div>
+<p style="margin-top:15px;">
+<strong>Revive Atlantis</strong> reinforces systems thinking and decision‑making in
+technology environments.
+</p>
+https://www.roblox.com/discover/?Keyword=Revive%20Atlantis
+Play Revive Atlantis</a>
+
+<div class="quiz">
+<strong>Reflection:</strong>
+<button onclick="check(this, true, 'Attackers often target human trust.')">
+These games show how people can be the weakest link
+</button>
+<button onclick="check(this, false, 'Cybersecurity always involves complex tools.')">
+Cybersecurity is only technical hacking
+</button>
+<div class="feedback"></div>
+</div>
+</div>
+
+<!-- NEXT STEPS -->
+<div class="next-steps">
+<h2>✅ Next Steps</h2>
+<ul>
+<li>Move on to the <strong>Network+</strong> pathway</li>
+<li>Complete practice quizzes on threats and attacks</li>
+<li>Begin Security+ exam preparation when ready</li>
+</ul>
 </div>
 
 <p style="margin-top:40px;">
-    <a href="/pathways/" style="color:#00eaff;">← Back to Pathways</a>
+/pathways/← Back to Pathways</a>
 </p>
 
 </main>
+
+<script>
+function check(button, correct, explanation) {
+    const feedback = button.parentElement.querySelector('.feedback');
+    feedback.innerHTML = correct 
+        ? "✅ Correct. " + explanation 
+        : "❌ Incorrect. " + explanation;
+}
+</script>
 
 </body>
 </html>
