@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network+ Pathway | IT Foundations</title>
+<style>
+:root{
+  --bg:#0a192f;
+  --bg2:#112240;
+  --panel:rgba(255,255,255,0.08);
+  --accent:#64ffda;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --correct:#16a34a;
+  --incorrect:#dc2626;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,var(--bg),var(--bg2),#1e3a5f);
+  color:var(--text);
+  line-height:1.6;
+}
+nav{
+  background:rgba(0,0,0,.72);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:16px 24px;
+}
+nav .links{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  gap:32px;
+}
+nav a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:bold;
+}
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px 60px;
+}
+h1{text-align:center;margin-bottom:10px;}
+.subtitle{text-align:center;color:var(--muted);max-width:850px;margin:0 auto 40px;}
+.section{
+  background:var(--panel);
+  padding:28px;
+  border-radius:18px;
+  margin-bottom:32px;
+}
+.section h2{color:var(--accent);margin-top:0;}
+.video-wrap{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  overflow:hidden;
+  border-radius:12px;
+  margin:20px 0;
+  background:#000;
+}
+.video-wrap iframe{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  border:none;
+}
+.quiz{
+  background:rgba(0,0,0,.35);
+  padding:18px;
+  border-radius:12px;
+  margin-top:20px;
+}
+.question{
+  margin-bottom:20px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.question:last-child{border-bottom:none;margin-bottom:0;}
+.answers button{
+  display:block;
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#112240;
+  color:#fff;
+  cursor:pointer;
+  text-align:left;
+}
+.answers button:hover:not(:disabled){
+  background:var(--accent);
+  color:#06243a;
+}
+.answers button:disabled{opacity:.75;cursor:not-allowed;}
+.feedback{
+  margin-top:10px;
+  display:none;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+}
+.feedback.correct{
+  display:block;
+  background:rgba(22,163,74,.15);
+  border-left:4px solid var(--correct);
+}
+.feedback.incorrect{
+  display:block;
+  background:rgba(220,38,38,.15);
+  border-left:4px solid var(--incorrect);
+}
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+.tool-card{
+  background:rgba(0,0,0,.3);
+  padding:18px;
+  border-radius:12px;
+}
+.tool-card h3{margin-top:0;color:var(--accent);}
+.tool-card a{color:var(--accent);font-weight:bold;text-decoration:none;}
+.next{
+  background:rgba(0,0,0,.35);
+  border-left:4px solid var(--accent);
+  padding:22px;
+  border-radius:12px;
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/pathways/">Pathways</a>
+  </div>
+</nav>
+
+<main>
+  <h1>🌐 CompTIA Network+ Pathway</h1>
+  <p class="subtitle">Learn how networks operate, how devices communicate, and how to troubleshoot and secure wired and wireless networks.</p>
+
+  <section class="section">
+    <h2>Networking Basics</h2>
+    <p>Network+ begins with the basic concepts of how computers communicate. Students learn about networks, IP addresses, routers, switches, and how data travels between devices.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/qiQR5rTSshw" title="Networking Basics" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What is a network?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'A network is a group of connected devices that can share information.')">A group of connected devices</button>
+          <button onclick="answer(this,false,'A monitor only displays information.')">A type of monitor</button>
+          <button onclick="answer(this,false,'A printer is only one device, not a network.')">A printer</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. Which device connects a local network to the internet?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'A router connects your local network to the internet.')">Router</button>
+          <button onclick="answer(this,false,'A keyboard is an input device.')">Keyboard</button>
+          <button onclick="answer(this,false,'A monitor displays information.')">Monitor</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. What is an IP address used for?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'An IP address identifies a device on a network.')">Identifying a device on a network</button>
+          <button onclick="answer(this,false,'IP addresses are not passwords.')">Logging in</button>
+          <button onclick="answer(this,false,'IP addresses do not provide electricity.')">Powering devices</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Wired & Wireless Networks</h2>
+    <p>Students learn the difference between wired Ethernet networks and wireless Wi‑Fi networks. Network+ covers cables, speeds, wireless standards, and common networking hardware.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/VwN91x5i25g" title="Wired and Wireless Networks" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. Which cable is commonly used in Ethernet networks?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Ethernet networks commonly use Cat5e or Cat6 cables.')">Cat6 cable</button>
+          <button onclick="answer(this,false,'HDMI is used for displays.')">HDMI cable</button>
+          <button onclick="answer(this,false,'USB is usually for connecting peripherals.')">USB cable</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. What device provides Wi‑Fi to wireless devices?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'A wireless access point provides Wi‑Fi.')">Wireless access point</button>
+          <button onclick="answer(this,false,'A printer does not provide Wi‑Fi.')">Printer</button>
+          <button onclick="answer(this,false,'A mouse is an input device.')">Mouse</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. Which is usually faster and more reliable?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Wired Ethernet connections are generally faster and more reliable.')">Wired Ethernet</button>
+          <button onclick="answer(this,false,'Wi‑Fi is convenient, but not usually as reliable.')">Wireless Wi‑Fi</button>
+          <button onclick="answer(this,false,'Bluetooth is slower and shorter range.')">Bluetooth</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Network Devices & Ports</h2>
+    <p>Network technicians must recognize the purpose of common network devices and ports. Students learn about switches, routers, modems, and common ports such as HTTP, HTTPS, and DNS.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/kf2P0hS2xvQ" title="Network Devices and Ports" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What does a switch do?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'A switch connects multiple devices on the same local network.')">Connects devices on a local network</button>
+          <button onclick="answer(this,false,'A switch does not print documents.')">Prints documents</button>
+          <button onclick="answer(this,false,'A switch is not used for sound.')">Plays audio</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. Which port is commonly used for secure websites?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'HTTPS commonly uses port 443.')">443</button>
+          <button onclick="answer(this,false,'Port 80 is used for HTTP, not HTTPS.')">80</button>
+          <button onclick="answer(this,false,'Port 21 is used for FTP.')">21</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. What does DNS do?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'DNS translates names like google.com into IP addresses.')">Turns website names into IP addresses</button>
+          <button onclick="answer(this,false,'DNS does not send electricity.')">Powers the network</button>
+          <button onclick="answer(this,false,'DNS is not used to create passwords.')">Creates passwords</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Troubleshooting Networks</h2>
+    <p>Network+ technicians follow a troubleshooting process to solve network problems. Students learn to check cables, test connectivity, and identify the cause of an issue.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/N4R2J1Kjv2I" title="Network Troubleshooting" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What is the first thing to check if a computer cannot connect to the network?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Always start by checking the simplest things, such as cables and Wi‑Fi.')">Check the cable or Wi‑Fi connection</button>
+          <button onclick="answer(this,false,'Replacing the whole computer is not the first step.')">Replace the computer</button>
+          <button onclick="answer(this,false,'Buying a new router is not the first step.')">Buy a new router</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. What does the ping command do?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Ping tests whether another device can be reached on the network.')">Tests whether another device can be reached</button>
+          <button onclick="answer(this,false,'Ping does not install programs.')">Installs software</button>
+          <button onclick="answer(this,false,'Ping does not create new accounts.')">Creates user accounts</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. Why is it important to test one change at a time?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Changing one thing at a time helps you know what solved the issue.')">So you know what fixed the problem</button>
+          <button onclick="answer(this,false,'Changing everything at once makes troubleshooting harder.')">Because changing everything is easier</button>
+          <button onclick="answer(this,false,'Guessing is not a good troubleshooting method.')">To make a random guess</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>Hands-On Network+ Learning Tools</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>Cisco Packet Tracer</h3>
+        <p>Design and test virtual networks with routers, switches, and PCs.</p>
+        <a href="https://www.netacad.com/courses/packet-tracer" target="_blank" rel="noopener noreferrer">Open Packet Tracer</a>
+      </div>
+      <div class="tool-card">
+        <h3>TestOut Network Pro</h3>
+        <p>Interactive labs and lessons aligned to CompTIA Network+ topics.</p>
+        <a href="https://w3.testout.com/" target="_blank" rel="noopener noreferrer">Open TestOut Network Pro</a>
+      </div>
+      <div class="tool-card">
+        <h3>Professor Messer Network+</h3>
+        <p>Free short videos covering all CompTIA Network+ certification objectives.</p>
+        <a href="https://www.professormesser.com/network-plus/n10-009/n10-009-training-course/" target="_blank" rel="noopener noreferrer">Watch Network+ Videos</a>
+      </div>
+      <div class="tool-card">
+        <h3>Wireshark</h3>
+        <p>Capture and analyze network traffic to understand how data moves across a network.</p>
+        <a href="https://www.wireshark.org/" target="_blank" rel="noopener noreferrer">Open Wireshark</a>
+      </div>
+      <div class="tool-card">
+        <h3>Roblox: Internet Cafe Simulator</h3>
+        <p>Practice managing computers, networks, and connected devices in a virtual environment.</p>
+        <a href="https://www.roblox.com/discover/?Keyword=Internet%20Cafe%20Simulator" target="_blank" rel="noopener noreferrer">Open Internet Cafe Simulator</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="next">
+    <h2>Next Steps</h2>
+    <ul>
+      <li>Practice building networks in Cisco Packet Tracer.</li>
+      <li>Move into the Cybersecurity pathway to learn how to secure networks.</li>
+      <li>Use Wireshark to explore how devices communicate.</li>
+      <li>Begin preparing for the CompTIA Network+ certification exam.</li>
+    </ul>
+  </section>
+</main>
+
+<script>
+function answer(button, correct, explanation){
+  const question = button.closest('.question');
+  const buttons = question.querySelectorAll('button');
+  const feedback = question.querySelector('.feedback');
+  buttons.forEach(btn => btn.disabled = true);
+  feedback.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
+  feedback.textContent = (correct ? 'Correct. ' : 'Incorrect. ') + explanation;
+}
+</script>
+
+</body>
+</html>
