@@ -10,7 +10,7 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
-    color: white;
+    color: #ffffff;
 }
 
 /* NAV */
@@ -19,7 +19,6 @@ nav {
     padding: 16px;
     background: rgba(0,0,0,0.45);
 }
-
 nav a {
     color: #00eaff;
     margin: 0 20px;
@@ -37,12 +36,11 @@ main {
 h1 {
     text-align: center;
 }
-
 h2 {
     color: #00eaff;
 }
 
-/* LEARNING SECTIONS */
+/* SECTION */
 .section {
     background: rgba(255,255,255,0.1);
     padding: 28px;
@@ -50,24 +48,15 @@ h2 {
     margin-top: 40px;
 }
 
-.section ul {
-    padding-left: 20px;
-    line-height: 1.6em;
-}
-
 /* VIDEO */
 .video {
-    position: relative;
-    padding-top: 56.25%;
     margin-top: 20px;
 }
-
 .video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
-    height: 100%;
+    height: 420px;
+    border: none;
+    border-radius: 10px;
 }
 
 /* QUIZ */
@@ -77,30 +66,37 @@ h2 {
     background: rgba(0,0,0,0.35);
     border-radius: 10px;
 }
-
+.quiz p {
+    margin: 10px 0;
+}
 .quiz button {
     display: block;
     width: 100%;
-    margin-top: 10px;
+    margin-top: 8px;
     padding: 10px;
     background: #1c2541;
     color: white;
     border: none;
     cursor: pointer;
 }
-
 .quiz button:hover {
     background: #00eaff;
     color: #001f2f;
 }
-
 .feedback {
     margin-top: 10px;
     font-style: italic;
 }
 
+/* LINKS */
+a.resource {
+    color: #00eaff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 /* NEXT STEPS */
-.next-steps {
+.next {
     margin-top: 50px;
     padding: 20px;
     background: rgba(0,0,0,0.35);
@@ -112,35 +108,44 @@ h2 {
 <body>
 
 <nav>
-    /Home</a>
-    /pathways/Pathways</a>
+    <a href="/">Home</a>
+    <a href="/pathways/">Pathways</a>
 </nav>
 
 <main>
 
 <h1>🛡️ Cybersecurity Pathway</h1>
-<p style="text-align:center; max-width:850px; margin:auto;">
-Learn how systems are attacked, defended, and recovered — aligned to CompTIA Security+
-and real cybersecurity careers.
+<p style="text-align:center; max-width:800px; margin:auto;">
+Learn how systems are attacked, defended, and recovered — aligned to CompTIA Security+ and real IT security roles.
 </p>
 
 <!-- SECTION 1 -->
 <div class="section">
-<h2>1️⃣ What Is Cybersecurity?</h2>
-<p>Cybersecurity protects systems, networks, and data from unauthorized access and misuse.</p>
+<h2>1️⃣ Cybersecurity Foundations</h2>
+
+<p>
+Cybersecurity is the practice of protecting systems, networks, and data from unauthorized access, misuse, and damage.
+</p>
 
 <div class="video">
-https://www.youtube.com/embed/3Kq1MIfTWCE</iframe>
+<iframe src="https://www.youtube.com/embed/3Kq1MIfTWCE" allowfullscreen></iframe>
 </div>
 
 <div class="quiz">
-<strong>Quick Check:</strong>
-<button onclick="check(this, true, 'Cybersecurity focuses on protecting systems and data.')">
-Protecting systems and data
+<p><strong>Check Your Understanding</strong></p>
+
+<button onclick="check(this, true, 'Correct. Security focuses on protecting data, systems, and users.')">
+Protecting data, systems, and users
 </button>
-<button onclick="check(this, false, 'Cybersecurity is not about building hardware.')">
-Building computers
+
+<button onclick="check(this, false, 'Incorrect. Hardware building is not cybersecurity.')">
+Building computers and hardware
 </button>
+
+<button onclick="check(this, false, 'Incorrect. Programming alone is not cybersecurity.')">
+Writing application code
+</button>
+
 <div class="feedback"></div>
 </div>
 </div>
@@ -148,97 +153,120 @@ Building computers
 <!-- SECTION 2 -->
 <div class="section">
 <h2>2️⃣ Threats & Social Engineering</h2>
-<p>Many attacks succeed by manipulating people rather than exploiting software.</p>
+
+<p>
+Attackers often exploit people instead of technology. Social engineering targets trust, fear, and curiosity.
+</p>
 
 <div class="video">
-https://www.youtube.com/embed/1u2QkHM8CTo</iframe>
+<iframe src="https://www.youtube.com/embed/1u2QkHM8CTo" allowfullscreen></iframe>
 </div>
 
 <div class="quiz">
-<strong>Quick Check:</strong>
-<button onclick="check(this, true, 'Phishing targets people, not systems.')">
-Phishing targets user behavior
+<p><strong>Check Your Understanding</strong></p>
+
+<button onclick="check(this, true, 'Correct. Phishing manipulates human behavior.')">
+Phishing targets users, not systems
 </button>
-<button onclick="check(this, false, 'Phishing does not require advanced tools.')">
-Phishing requires advanced hacking
+
+<button onclick="check(this, false, 'Incorrect. Most phishing requires little technical skill.')">
+Phishing requires advanced hacking skills
 </button>
+
+<button onclick="check(this, false, 'Incorrect. Malware is not required for phishing.')">
+Phishing always involves malware
+</button>
+
 <div class="feedback"></div>
 </div>
 </div>
 
 <!-- SECTION 3 -->
 <div class="section">
-<h2>3️⃣ Defense & Security Controls</h2>
-<p>Security relies on multiple controls working together.</p>
+<h2>3️⃣ Defense in Depth & Security Controls</h2>
+
+<p>
+No single security control can stop every attack. Security relies on multiple layered defenses.
+</p>
 
 <div class="video">
-https://www.youtube.com/embed/sMzZ9qrpR3s</iframe>
+<iframe src="https://www.youtube.com/embed/sMzZ9qrpR3s" allowfullscreen></iframe>
 </div>
 
 <div class="quiz">
-<strong>Quick Check:</strong>
-<button onclick="check(this, true, 'Defense in depth means multiple layers.')">
-Use multiple layers of protection
+<p><strong>Check Your Understanding</strong></p>
+
+<button onclick="check(this, true, 'Correct. Defense in depth uses multiple layers.')">
+Using multiple security layers
 </button>
-<button onclick="check(this, false, 'No single tool stops all attacks.')">
-One tool is enough
+
+<button onclick="check(this, false, 'Incorrect. A single tool is never enough.')">
+Using one security tool
 </button>
+
+<button onclick="check(this, false, 'Incorrect. Security is not only reactive.')">
+Only responding after an attack
+</button>
+
 <div class="feedback"></div>
 </div>
 </div>
 
 <!-- GAMES -->
 <div class="section">
-<h2>🎮 Cybersecurity Games (Roblox)</h2>
+<h2>🎮 Cybersecurity Simulations (Roblox)</h2>
 
 <p>
-<strong>Hack a Cat</strong> focuses on phishing and social engineering — teaching players
-to recognize manipulation.
+<strong>Hack a Cat</strong> teaches phishing and social engineering by putting players into realistic decision‑making scenarios.
 </p>
-https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat
-Play Hack a Cat</a>
 
-<p style="margin-top:15px;">
-<strong>Revive Atlantis</strong> reinforces systems thinking and decision‑making in
-technology environments.
+<a class="resource" href="https://www.roblox.com/search?q=Hack%20a%20Cat" target="_blank">
+Play Hack a Cat on Roblox
+</a>
+
+<p style="margin-top:20px;">
+<strong>Revive Atlantis</strong> focuses on systems thinking, consequences, and decision‑making in simulated environments.
 </p>
-https://www.roblox.com/discover/?Keyword=Revive%20Atlantis
-Play Revive Atlantis</a>
+
+<a class="resource" href="https://www.roblox.com/search?q=Revive%20Atlantis" target="_blank">
+Play Revive Atlantis on Roblox
+</a>
 
 <div class="quiz">
-<strong>Reflection:</strong>
-<button onclick="check(this, true, 'Attackers often target human trust.')">
-These games show how people can be the weakest link
+<p><strong>Reflection</strong></p>
+
+<button onclick="check(this, true, 'Correct. Human behavior is a major attack surface.')">
+People can be the weakest link in security
 </button>
-<button onclick="check(this, false, 'Cybersecurity always involves complex tools.')">
-Cybersecurity is only technical hacking
+
+<button onclick="check(this, false, 'Incorrect. Tools alone do not solve security problems.')">
+Technology alone solves cybersecurity
 </button>
+
 <div class="feedback"></div>
 </div>
 </div>
 
-<!-- NEXT STEPS -->
-<div class="next-steps">
+<!-- NEXT -->
+<div class="next">
 <h2>✅ Next Steps</h2>
 <ul>
-<li>Move on to the <strong>Network+</strong> pathway</li>
-<li>Complete practice quizzes on threats and attacks</li>
-<li>Begin Security+ exam preparation when ready</li>
+<li>Move on to the <strong>Network+</strong> pathway to strengthen networking fundamentals</li>
+<li>Complete a phishing practice quiz</li>
+<li>Begin Security+ exam preparation modules</li>
 </ul>
 </div>
 
 <p style="margin-top:40px;">
-/pathways/← Back to Pathways</a>
+<a class="resource" href="/pathways/">← Back to Pathways</a>
 </p>
 
 </main>
 
 <script>
-function check(button, correct, explanation) {
-    const feedback = button.parentElement.querySelector('.feedback');
-    feedback.innerHTML = correct 
-        ? "✅ Correct. " + explanation 
-        : "❌ Incorrect. " + explanation;
+function check(btn, correct, msg) {
+    const feedback = btn.parentElement.querySelector(".feedback");
+    feedback.innerHTML = correct ? "✅ " + msg : "❌ " + msg;
 }
 </script>
 
