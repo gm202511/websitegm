@@ -8,16 +8,14 @@
 <style>
 body {
     margin: 0;
-    font-family: "Segoe UI", Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background: linear-gradient(135deg, #0b132b, #1c2541, #3a506b);
     color: white;
 }
 
 /* NAV */
 nav {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
+    text-align: center;
     padding: 16px;
     background: rgba(0,0,0,0.45);
 }
@@ -26,6 +24,7 @@ nav a {
     color: #00eaff;
     text-decoration: none;
     font-weight: bold;
+    margin: 0 20px;
 }
 
 /* LAYOUT */
@@ -35,7 +34,6 @@ main {
     padding: 40px 25px;
 }
 
-/* HEADERS */
 h1 {
     text-align: center;
 }
@@ -44,11 +42,11 @@ h2 {
     color: #00eaff;
 }
 
-/* SECTION CARDS */
+/* SECTIONS */
 .section {
     background: rgba(255,255,255,0.1);
     padding: 28px;
-    border-radius: 18px;
+    border-radius: 16px;
     margin-top: 35px;
     box-shadow: 0 15px 30px rgba(0,0,0,0.4);
 }
@@ -71,32 +69,14 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    border: none;
 }
 
 /* CALLOUT */
 .callout {
-    background: rgba(0,0,0,0.3);
+    margin-top: 20px;
     padding: 15px;
-    border-left: 4px solid #00eaff;
-    margin-top: 20px;
-}
-
-/* CHECK */
-.check {
-    margin-top: 20px;
     background: rgba(0,0,0,0.35);
-    padding: 15px;
-    border-radius: 10px;
-}
-
-/* FOOTER LINK */
-.next {
-    margin-top: 20px;
-    display: inline-block;
-    color: #00eaff;
-    font-weight: bold;
-    text-decoration: none;
+    border-left: 4px solid #00eaff;
 }
 </style>
 </head>
@@ -112,32 +92,32 @@ h2 {
 
 <h1>🛡️ Cybersecurity Pathway</h1>
 <p style="text-align:center; max-width:800px; margin:auto;">
-Learn how systems are attacked, defended, monitored, and protected — using real‑world concepts
-aligned to the CompTIA Security+ mindset.
+Learn how systems are attacked, defended, monitored, and protected — using concepts aligned to CompTIA Security+ and real‑world IT roles.
 </p>
 
 <!-- SECTION 1 -->
 <div class="section">
     <h2>1️⃣ What Is Cybersecurity?</h2>
     <p>
-        Cybersecurity is the practice of protecting systems, networks, and data from
-        unauthorized access, misuse, and attacks.
+        Cybersecurity focuses on protecting systems, networks, and data from unauthorized access,
+        misuse, and attacks.
     </p>
 
     <ul>
-        <li>Why cybersecurity exists</li>
-        <li>The difference between threats, vulnerabilities, and risk</li>
-        <li>The role of security in IT careers</li>
+        <li>Confidentiality, Integrity, Availability (CIA)</li>
+        <li>Why security is needed in every organization</li>
+        <li>How cybersecurity fits into IT careers</li>
     </ul>
 
     <div class="video">
-        <iframe src="https://www.youtube.com/embed/inWWhr5tnEA" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/3Kq1MIfTWCE"
+                title="CrashCourse Cybersecurity Intro"
+                allowfullscreen></iframe>
     </div>
 
     <div class="callout">
-        <strong>Security+ Exam Tip:</strong><br>
-        If a question mentions protecting data, users, or systems — you are in the
-        security domain, not general IT support.
+        <strong>Security+ Focus:</strong><br>
+        CIA Triad concepts appear constantly on the exam.
     </div>
 </div>
 
@@ -145,22 +125,24 @@ aligned to the CompTIA Security+ mindset.
 <div class="section">
     <h2>2️⃣ Threats, Attacks, and Social Engineering</h2>
     <p>
-        Most successful attacks do not exploit computers — they exploit people.
+        Many attacks succeed not because systems fail, but because people are manipulated.
     </p>
 
     <ul>
-        <li>Malware (viruses, ransomware, trojans)</li>
+        <li>Malware types (virus, ransomware, trojan)</li>
         <li>Phishing and social engineering</li>
-        <li>Why users are the biggest target</li>
+        <li>Password and credential attacks</li>
     </ul>
 
     <div class="video">
-        <iframe src="https://www.youtube.com/embed/2cH57oVVB9o" allowfullscreen></iframe>
+        <iframe src="https://www.youtube.com/embed/1u2QkHM8CTo"
+                title="Social Engineering Explained"
+                allowfullscreen></iframe>
     </div>
 
-    <div class="check">
-        <strong>Knowledge Check:</strong><br>
-        Why is phishing often more effective than technical attacks?
+    <div class="callout">
+        <strong>Think Like an Attacker:</strong><br>
+        If exploiting a human is easier than exploiting software — attackers pick the human.
     </div>
 </div>
 
@@ -168,7 +150,7 @@ aligned to the CompTIA Security+ mindset.
 <div class="section">
     <h2>3️⃣ Defense, Controls, and Secure Design</h2>
     <p>
-        Good security is layered. No single tool can protect everything.
+        Security works best when layered and designed into systems from the beginning.
     </p>
 
     <ul>
@@ -178,44 +160,35 @@ aligned to the CompTIA Security+ mindset.
     </ul>
 
     <div class="video">
-        <iframe src="https://www.youtube.com/embed/j5C6X9vOEkU" allowfullscreen></iframe>
-    </div>
-
-    <div class="callout">
-        <strong>Real‑World Insight:</strong><br>
-        This is where cybersecurity meets networking and systems administration.
+        <iframe src="https://www.youtube.com/embed/sMzZ9qrpR3s"
+                title="Defense in Depth Explained"
+                allowfullscreen></iframe>
     </div>
 </div>
 
 <!-- SECTION 4 -->
 <div class="section">
-    <h2>4️⃣ Incident Response & Security Operations</h2>
+    <h2>4️⃣ Incident Response & Operations</h2>
     <p>
-        Security incidents will happen. What matters is how organizations respond.
+        Security incidents will happen. Planning and response determine impact.
     </p>
 
     <ul>
-        <li>Incident response lifecycle</li>
-        <li>Detection, containment, and recovery</li>
-        <li>Learning from incidents</li>
+        <li>Preparation</li>
+        <li>Detection and analysis</li>
+        <li>Containment, eradication, recovery</li>
     </ul>
 
     <div class="video">
-        <iframe src="https://www.youtube.com/embed/dTQ1RZ-M7kU" allowfullscreen></iframe>
-    </div>
-
-    <div class="check">
-        <strong>Think Like a Analyst:</strong><br>
-        Why is preparation considered part of incident response?
+        <iframe src="https://www.youtube.com/embed/F1YN9sNYk-w"
+                title="Incident Response Lifecycle"
+                allowfullscreen></iframe>
     </div>
 </div>
 
-<!-- SECTION 5 -->
+<!-- CAREERS -->
 <div class="section">
     <h2>5️⃣ Cybersecurity Careers</h2>
-    <p>
-        Cybersecurity roles exist at every level of experience.
-    </p>
 
     <ul>
         <li>Security Analyst</li>
@@ -225,17 +198,16 @@ aligned to the CompTIA Security+ mindset.
     </ul>
 
     <div class="callout">
-        <strong>Pathway Guidance:</strong><br>
-        Most cybersecurity professionals start in IT support or networking roles.
+        <strong>Reality Check:</strong><br>
+        Most cybersecurity professionals begin in IT support or networking roles.
     </div>
 </div>
 
-<a class="next" href="/pathways/">
-← Back to Pathways
-</a>
+<p style="margin-top:40px;">
+    <a href="/pathways/" style="color:#00eaff;">← Back to Pathways</a>
+</p>
 
 </main>
 
 </body>
 </html>
-``
