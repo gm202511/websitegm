@@ -1,1 +1,368 @@
+<!DOCTYPE html>
+
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A+ Pathway | IT Foundations</title>
+<style>
+:root{
+  --bg:#0f172a;
+  --bg2:#1e293b;
+  --panel:rgba(255,255,255,0.08);
+  --accent:#38bdf8;
+  --text:#f8fafc;
+  --muted:#cbd5e1;
+  --correct:#16a34a;
+  --incorrect:#dc2626;
+}
+*{box-sizing:border-box;}
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,var(--bg),var(--bg2),#334155);
+  color:var(--text);
+  line-height:1.6;
+}
+nav{
+  background:rgba(0,0,0,.7);
+  position:sticky;
+  top:0;
+  z-index:1000;
+  padding:16px 24px;
+}
+nav .links{
+  max-width:1100px;
+  margin:auto;
+  display:flex;
+  justify-content:center;
+  gap:32px;
+}
+nav a{
+  color:var(--accent);
+  text-decoration:none;
+  font-weight:bold;
+}
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px 60px;
+}
+h1{text-align:center;margin-bottom:10px;}
+.subtitle{text-align:center;color:var(--muted);max-width:800px;margin:0 auto 40px;}
+.section{
+  background:var(--panel);
+  padding:28px;
+  border-radius:18px;
+  margin-bottom:32px;
+}
+.section h2{color:var(--accent);margin-top:0;}
+.video-wrap{
+  position:relative;
+  width:100%;
+  padding-bottom:56.25%;
+  margin:20px 0;
+  overflow:hidden;
+  border-radius:12px;
+  background:#000;
+}
+.video-wrap iframe{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  border:none;
+}
+.quiz{
+  background:rgba(0,0,0,.35);
+  padding:18px;
+  border-radius:12px;
+  margin-top:20px;
+}
+.question{
+  margin-bottom:20px;
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+.question:last-child{border-bottom:none;margin-bottom:0;}
+.answers button{
+  display:block;
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  background:#1e293b;
+  color:#fff;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  text-align:left;
+}
+.answers button:hover:not(:disabled){
+  background:var(--accent);
+  color:#082f49;
+}
+.answers button:disabled{opacity:.75;cursor:not-allowed;}
+.feedback{
+  margin-top:10px;
+  display:none;
+  padding:10px;
+  border-radius:8px;
+  font-weight:bold;
+}
+.feedback.correct{
+  display:block;
+  background:rgba(22,163,74,.15);
+  border-left:4px solid var(--correct);
+}
+.feedback.incorrect{
+  display:block;
+  background:rgba(220,38,38,.15);
+  border-left:4px solid var(--incorrect);
+}
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:18px;
+}
+.tool-card{
+  background:rgba(0,0,0,.3);
+  padding:18px;
+  border-radius:12px;
+}
+.tool-card h3{margin-top:0;color:var(--accent);}
+.tool-card a{color:var(--accent);font-weight:bold;text-decoration:none;}
+.next{
+  background:rgba(0,0,0,.35);
+  border-left:4px solid var(--accent);
+  padding:22px;
+  border-radius:12px;
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="links">
+    <a href="/">Home</a>
+    <a href="/pathways/">Pathways</a>
+  </div>
+</nav>
+
+
+<main>
+  <h1>💻 CompTIA A+ Pathway</h1>
+  <p class="subtitle">Learn the core skills needed for PC hardware, operating systems, troubleshooting, and entry-level IT support.</p>
+
+
+  <section class="section">
+    <h2>PC Hardware Basics</h2>
+    <p>CompTIA A+ begins with understanding the parts inside a computer. Students learn the purpose of the CPU, RAM, motherboard, storage drives, and power supply.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/ExxFxD4OSZ0" title="Computer Hardware Basics" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What does RAM do in a computer?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'RAM temporarily stores data that the computer is currently using.')">Temporarily stores data in use</button>
+          <button onclick="answer(this,false,'The CPU processes instructions, not RAM.')">Processes instructions</button>
+          <button onclick="answer(this,false,'The power supply provides electricity.')">Provides electricity</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. Which component is considered the brain of the computer?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'The CPU is the brain of the computer.')">CPU</button>
+          <button onclick="answer(this,false,'The monitor only displays information.')">Monitor</button>
+          <button onclick="answer(this,false,'The hard drive stores files.')">Hard Drive</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. What does the power supply do?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'The power supply sends electricity to the components.')">Provides power to the computer</button>
+          <button onclick="answer(this,false,'Storage drives save files, not power.')">Stores files</button>
+          <button onclick="answer(this,false,'Cooling fans move air, not electricity.')">Cools the computer</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Operating Systems</h2>
+    <p>IT technicians need to understand how operating systems work. A+ covers Windows, macOS, Linux, and mobile operating systems.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/26QPDBe-NB8" title="Operating Systems" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What is an operating system?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'An operating system manages hardware and software resources.')">Software that manages the computer</button>
+          <button onclick="answer(this,false,'The monitor is hardware, not an operating system.')">The screen of the computer</button>
+          <button onclick="answer(this,false,'RAM is a hardware component.')">Temporary memory</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. Which operating system is most common on PCs?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Windows is the most common operating system on PCs.')">Windows</button>
+          <button onclick="answer(this,false,'iOS is used on Apple mobile devices.')">iOS</button>
+          <button onclick="answer(this,false,'Android is used on many smartphones.')">Android</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. What does restarting a computer often help fix?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Restarting can solve temporary software issues.')">Temporary software problems</button>
+          <button onclick="answer(this,false,'Restarting will not fix a broken screen.')">A cracked monitor</button>
+          <button onclick="answer(this,false,'Restarting will not replace missing hardware.')">A missing keyboard</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Troubleshooting & Repair</h2>
+    <p>A+ technicians follow a step-by-step troubleshooting process: identify the problem, test possible solutions, implement the fix, and verify that it worked.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/sFqg2mQjM3Y" title="Troubleshooting Process" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What is the first step in troubleshooting?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'The first step is identifying the problem.')">Identify the problem</button>
+          <button onclick="answer(this,false,'You should not replace parts immediately.')">Replace parts immediately</button>
+          <button onclick="answer(this,false,'Restarting may help, but first identify the issue.')">Restart without checking</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. Why should you test a possible solution before changing many things?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Testing one change at a time helps you find the actual cause.')">So you know what fixed the issue</button>
+          <button onclick="answer(this,false,'Changing many things at once makes troubleshooting harder.')">Because changing everything is easier</button>
+          <button onclick="answer(this,false,'Guessing is not a good troubleshooting method.')">To make a random guess</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. After a repair, what should you do?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'You should verify that the problem is fixed.')">Test and verify the solution</button>
+          <button onclick="answer(this,false,'You should not ignore the result.')">Leave without checking</button>
+          <button onclick="answer(this,false,'Turning it off does not confirm the issue is solved.')">Shut the computer down immediately</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Networking Basics</h2>
+    <p>A+ introduces networking concepts such as IP addresses, routers, switches, and how devices communicate on a network.</p>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/qiQR5rTSshw" title="Networking Basics" allowfullscreen></iframe>
+    </div>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What device connects a home network to the internet?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'A router connects your local network to the internet.')">Router</button>
+          <button onclick="answer(this,false,'A monitor displays information.')">Monitor</button>
+          <button onclick="answer(this,false,'A keyboard is an input device.')">Keyboard</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>2. What is an IP address used for?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'An IP address identifies a device on a network.')">Identifying a device on a network</button>
+          <button onclick="answer(this,false,'An IP address is not a password.')">Logging into a computer</button>
+          <button onclick="answer(this,false,'An IP address does not power a computer.')">Providing electricity</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+      <div class="question">
+        <p>3. Which device allows multiple wired devices to connect together?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'A switch connects multiple devices on a local network.')">Switch</button>
+          <button onclick="answer(this,false,'A printer only prints documents.')">Printer</button>
+          <button onclick="answer(this,false,'A webcam records video.')">Webcam</button>
+        </div>
+        <div class="feedback"></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="section">
+    <h2>Hands-On Learning Tools</h2>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>PC Building Simulator</h3>
+        <p>Practice assembling and troubleshooting virtual computers.</p>
+        <a href="https://store.steampowered.com/app/621060/PC_Building_Simulator/" target="_blank" rel="noopener noreferrer">Open PC Building Simulator</a>
+      </div>
+      <div class="tool-card">
+        <h3>TestOut PC Pro</h3>
+        <p>Interactive labs and lessons aligned to CompTIA A+ topics.</p>
+        <a href="https://w3.testout.com/" target="_blank" rel="noopener noreferrer">Open TestOut PC Pro</a>
+      </div>
+      <div class="tool-card">
+        <h3>Cisco Packet Tracer</h3>
+        <p>Build and test simple networks while learning basic networking concepts.</p>
+        <a href="https://www.netacad.com/courses/packet-tracer" target="_blank" rel="noopener noreferrer">Open Packet Tracer</a>
+      </div>
+      <div class="tool-card">
+        <h3>Professor Messer A+</h3>
+        <p>Free short videos that match CompTIA A+ certification topics.</p>
+        <a href="https://www.professormesser.com/free-a-plus-training/a-plus-videos/" target="_blank" rel="noopener noreferrer">Watch A+ Videos</a>
+      </div>
+      <div class="tool-card">
+        <h3>PC Tycoon (Roblox)</h3>
+        <p>Build and upgrade virtual computers in Roblox while learning about hardware components and system performance.</p>
+        <a href="https://www.roblox.com/games/5824792748/PC-Tycoon" target="_blank" rel="noopener noreferrer">Open PC Tycoon</a>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="next">
+    <h2>Next Steps</h2>
+    <ul>
+      <li>Practice taking apart and rebuilding a computer safely.</li>
+      <li>Move into the Network+ pathway to learn more about networking.</li>
+      <li>Complete additional labs using TestOut or PC Building Simulator.</li>
+      <li>Begin preparing for the CompTIA A+ certification exams.</li>
+    </ul>
+  </section>
+</main>
+
+
+<script>
+function answer(button, correct, explanation){
+  const question = button.closest('.question');
+  const buttons = question.querySelectorAll('button');
+  const feedback = question.querySelector('.feedback');
+  buttons.forEach(btn => btn.disabled = true);
+  feedback.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
+  feedback.textContent = (correct ? 'Correct. ' : 'Incorrect. ') + explanation;
+}
+</script>
+
+
+</body>
+</html>
 
