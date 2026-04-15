@@ -1,76 +1,63 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Cybersecurity Pathway | IT Foundations</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+<title>Cybersecurity Pathway | IT Foundations</title>
 <style>
 :root{
-  --bg1:#0b132b;
+  --bg:#0b132b;
   --bg2:#1c2541;
-  --bg3:#3a506b;
   --panel:rgba(255,255,255,0.08);
-  --panel-dark:rgba(0,0,0,0.35);
   --accent:#00eaff;
-  --accent-dark:#009fb3;
   --text:#ffffff;
   --muted:#cbd5e1;
   --correct:#16a34a;
   --incorrect:#dc2626;
 }
 
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 body{
   margin:0;
   font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,var(--bg1),var(--bg2),var(--bg3));
+  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
   color:var(--text);
-  line-height:1.7;
+  line-height:1.6;
 }
 
 nav{
-  background:rgba(0,0,0,0.65);
-  backdrop-filter:blur(8px);
+  background:rgba(0,0,0,.7);
   padding:16px 24px;
   position:sticky;
   top:0;
   z-index:1000;
-  border-bottom:1px solid rgba(255,255,255,0.08);
 }
 
-nav .nav-links{
+nav .links{
   max-width:1100px;
   margin:auto;
   display:flex;
-  justify-content:center;
   gap:30px;
+  justify-content:center;
 }
 
 nav a{
   color:var(--accent);
-  font-weight:bold;
   text-decoration:none;
-  transition:.2s;
-}
-
-nav a:hover{
-  color:#fff;
+  font-weight:bold;
 }
 
 main{
   max-width:1100px;
   margin:auto;
-  padding:40px 25px 60px;
+  padding:40px 20px 60px;
 }
 
 h1{
   text-align:center;
   margin-bottom:10px;
-  font-size:2.8rem;
 }
 
 .subtitle{
@@ -80,38 +67,29 @@ h1{
   margin:0 auto 40px;
 }
 
-h2{
+.section{
+  background:var(--panel);
+  padding:28px;
+  border-radius:18px;
+  margin-bottom:35px;
+}
+
+.section h2{
   color:var(--accent);
   margin-top:0;
 }
 
-.section{
-  background:var(--panel);
-  padding:30px;
-  border-radius:18px;
-  margin-top:35px;
-  border:1px solid rgba(255,255,255,0.08);
-  box-shadow:0 8px 24px rgba(0,0,0,0.3);
-}
-
-.section p{
-  color:#edf2f7;
-}
-
-.video{
-  margin:22px 0 28px;
-}
-
-.video-wrapper{
+.video-wrap{
   position:relative;
   width:100%;
   padding-bottom:56.25%;
-  overflow:hidden;
+  margin:20px 0;
   border-radius:14px;
+  overflow:hidden;
   background:#000;
 }
 
-.video-wrapper iframe{
+.video-wrap iframe{
   position:absolute;
   top:0;
   left:0;
@@ -121,52 +99,34 @@ h2{
 }
 
 .quiz{
-  margin-top:20px;
-  background:var(--panel-dark);
+  background:rgba(0,0,0,.35);
+  border-radius:12px;
   padding:18px;
-  border-radius:14px;
-}
-
-.quiz h3{
-  margin-top:0;
-  color:#fff;
-  font-size:1.05rem;
+  margin-top:20px;
 }
 
 .question{
   margin-bottom:22px;
-  padding-bottom:18px;
-  border-bottom:1px solid rgba(255,255,255,0.08);
+  padding-bottom:16px;
+  border-bottom:1px solid rgba(255,255,255,.08);
 }
 
 .question:last-child{
   border-bottom:none;
   margin-bottom:0;
-  padding-bottom:0;
-}
-
-.question p{
-  margin-bottom:10px;
-  font-weight:bold;
-}
-
-.answers{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
 }
 
 .answers button{
+  display:block;
   width:100%;
-  padding:12px 14px;
+  margin-top:10px;
+  padding:12px;
   border:none;
   border-radius:10px;
   background:#1c2541;
   color:white;
   cursor:pointer;
   text-align:left;
-  transition:.2s;
-  font-size:0.95rem;
 }
 
 .answers button:hover:not(:disabled){
@@ -175,416 +135,327 @@ h2{
 }
 
 .answers button:disabled{
-  opacity:0.7;
+  opacity:.75;
   cursor:not-allowed;
-}
-
-.answers button.correct-selected{
-  background:var(--correct);
-  color:#fff;
-}
-
-.answers button.incorrect-selected{
-  background:var(--incorrect);
-  color:#fff;
 }
 
 .feedback{
   margin-top:10px;
-  padding:10px 12px;
-  border-radius:8px;
   display:none;
+  padding:10px;
+  border-radius:8px;
   font-weight:bold;
 }
 
 .feedback.correct{
   display:block;
-  background:rgba(22,163,74,0.15);
+  background:rgba(22,163,74,.15);
   border-left:4px solid var(--correct);
   color:#bbf7d0;
 }
 
 .feedback.incorrect{
   display:block;
-  background:rgba(220,38,38,0.15);
+  background:rgba(220,38,38,.15);
   border-left:4px solid var(--incorrect);
   color:#fecaca;
 }
 
-.game-card{
-  background:rgba(0,0,0,0.28);
+.tools-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+  margin-top:20px;
+}
+
+.tool-card{
+  background:rgba(0,0,0,.3);
   padding:18px;
-  border-radius:14px;
-  margin-top:18px;
-}
-
-.game-card h3{
-  margin-top:0;
-  color:#fff;
-}
-
-.game-card a{
-  display:inline-block;
-  margin-top:10px;
-  color:var(--accent);
-  text-decoration:none;
-  font-weight:bold;
-}
-
-.game-card a:hover{
-  color:#fff;
-}
-
-.next{
-  margin-top:45px;
-  padding:24px;
-  background:rgba(0,0,0,0.35);
-  border-left:5px solid var(--accent);
   border-radius:12px;
 }
 
-.next ul{
-  padding-left:20px;
+.tool-card h3{
+  margin-top:0;
+  color:var(--accent);
 }
 
-.next li{
-  margin-bottom:10px;
+.tool-card a{
+  color:var(--accent);
+  font-weight:bold;
+  text-decoration:none;
 }
 
-@media (max-width:700px){
-  h1{
-    font-size:2rem;
-  }
-
-  .section{
-    padding:22px;
-  }
-
-  nav .nav-links{
-    gap:18px;
-    flex-wrap:wrap;
-  }
+.next{
+  background:rgba(0,0,0,.35);
+  border-left:4px solid var(--accent);
+  padding:22px;
+  border-radius:12px;
 }
+
+ul{padding-left:20px;}
+li{margin-bottom:8px;}
 </style>
 </head>
-
 <body>
 
 <nav>
-  <div class="nav-links">
+  <div class="links">
     <a href="/">Home</a>
     <a href="/pathways/">Pathways</a>
   </div>
 </nav>
 
 <main>
+  <h1>🛡️ Cybersecurity Pathway</h1>
+  <p class="subtitle">Build the foundational skills needed to recognize threats, protect systems, and respond to security incidents.</p>
 
-<h1>🛡️ Cybersecurity Pathway</h1>
-<p class="subtitle">
-Learn the core concepts of cybersecurity, how attackers operate, and the steps professionals take to defend systems and respond to incidents.
-</p>
+  <section class="section">
+    <h2>Cybersecurity Foundations</h2>
+    <p>Cybersecurity protects computers, networks, and data from unauthorized access. Students begin by learning the CIA Triad: confidentiality, integrity, and availability.</p>
 
-<!-- Cybersecurity Foundations -->
-<section class="section">
-  <h2>Cybersecurity Foundations</h2>
-  <p>
-    Cybersecurity is the practice of protecting computers, networks, accounts, and data from unauthorized access or damage.
-    Cybersecurity professionals focus on keeping information confidential, accurate, and available when needed.
-  </p>
-
-  <div class="video">
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/inWWhr5tnEA"
-        title="Cybersecurity Foundations"
-        allowfullscreen></iframe>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/ooJSgsB5fIE" title="Cybersecurity Basics" allowfullscreen></iframe>
     </div>
-  </div>
 
-  <div class="quiz">
-    <h3>Check Your Understanding</h3>
-
-    <div class="question">
-      <p>1. What is the main goal of cybersecurity?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'Cybersecurity is designed to protect systems, networks, and data from threats.')">Protect systems, networks, and data</button>
-        <button onclick="answer(this,false,'Building hardware is part of IT, but not the main goal of cybersecurity.')">Build new computers</button>
-        <button onclick="answer(this,false,'Cybersecurity is broader than simply installing software.')">Install programs on computers</button>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What does cybersecurity protect?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Cybersecurity protects systems, networks, and data.')">Systems, networks, and data</button>
+          <button onclick="answer(this,false,'Incorrect. Cybersecurity is broader than just hardware.')">Only computer hardware</button>
+          <button onclick="answer(this,false,'Incorrect. Cybersecurity is not limited to coding.')">Only software programs</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>2. Which of the following is part of the CIA Triad?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'Speed is important, but it is not one of the CIA Triad principles.')">Speed</button>
-        <button onclick="answer(this,true,'Confidentiality is one of the three main principles in cybersecurity.')">Confidentiality</button>
-        <button onclick="answer(this,false,'Convenience is not part of the CIA Triad.')">Convenience</button>
+      <div class="question">
+        <p>2. Which is part of the CIA Triad?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Confidentiality is part of the CIA Triad.')">Confidentiality</button>
+          <button onclick="answer(this,false,'Incorrect. Speed is not part of the CIA Triad.')">Speed</button>
+          <button onclick="answer(this,false,'Incorrect. Convenience is not part of the CIA Triad.')">Convenience</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>3. Which job role is most directly related to cybersecurity?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'A graphic designer creates visual content rather than securing systems.')">Graphic Designer</button>
-        <button onclick="answer(this,true,'A security analyst monitors and protects systems from attacks.')">Security Analyst</button>
-        <button onclick="answer(this,false,'An accountant manages finances, not cybersecurity defenses.')">Accountant</button>
+      <div class="question">
+        <p>3. Why is availability important?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Users need systems and data available when needed.')">People need access when they need it</button>
+          <button onclick="answer(this,false,'Incorrect. Availability is not about deleting files.')">It removes old files</button>
+          <button onclick="answer(this,false,'Incorrect. Availability is not about internet speed.')">It makes Wi‑Fi faster</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Threats & Social Engineering -->
-<section class="section">
-  <h2>Threats &amp; Social Engineering</h2>
-  <p>
-    Many attacks focus on people rather than technology. Social engineering tricks users into giving away passwords,
-    clicking dangerous links, or sharing information. Phishing emails, fake websites, and suspicious text messages are common examples.
-  </p>
+  <section class="section">
+    <h2>Threats & Social Engineering</h2>
+    <p>Attackers often target people instead of technology. Social engineering includes phishing emails, fake login pages, and urgent messages designed to trick users.</p>
 
-  <div class="video">
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/3Kq1MIfTWCE"
-        title="Threats and Social Engineering"
-        allowfullscreen></iframe>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/XBkzBrXlle0" title="Phishing and Social Engineering" allowfullscreen></iframe>
     </div>
-  </div>
 
-  <div class="quiz">
-    <h3>Check Your Understanding</h3>
-
-    <div class="question">
-      <p>1. What is phishing?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'Phishing is an attempt to trick people into giving away information or clicking harmful links.')">A fake message designed to steal information</button>
-        <button onclick="answer(this,false,'Phishing does not involve repairing computers.')">A way to repair broken computers</button>
-        <button onclick="answer(this,false,'Programming is unrelated to phishing attacks.')">A coding technique</button>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What is phishing?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Phishing tries to steal information using fake messages.')">A fake message trying to steal information</button>
+          <button onclick="answer(this,false,'Incorrect. Phishing is not repairing a computer.')">Fixing a computer</button>
+          <button onclick="answer(this,false,'Incorrect. Phishing is not a programming language.')">A programming language</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>2. Which message is most likely to be a phishing attempt?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'This message is normal and does not show common phishing signs.')">Your teacher reminds you about homework tomorrow</button>
-        <button onclick="answer(this,true,'Urgent messages asking for passwords are common phishing tactics.')">Your bank says your account is locked and asks for your password immediately</button>
-        <button onclick="answer(this,false,'A schedule update is not typically a phishing attempt.')">Your coach sends the practice schedule</button>
+      <div class="question">
+        <p>2. Which is a warning sign of a phishing email?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Urgent requests for passwords are suspicious.')">It urgently asks for your password</button>
+          <button onclick="answer(this,false,'Incorrect. A normal homework reminder is not phishing.')">A reminder about class</button>
+          <button onclick="answer(this,false,'Incorrect. A lunch menu is not a phishing sign.')">A school lunch menu</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>3. What should you do if you receive a suspicious email?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'Clicking the link could expose your device or account.')">Click the link to see what happens</button>
-        <button onclick="answer(this,true,'You should avoid clicking links and report the suspicious message.')">Do not click anything and report it</button>
-        <button onclick="answer(this,false,'Replying can confirm your account is active to attackers.')">Reply with your password</button>
+      <div class="question">
+        <p>3. What should you do with a suspicious email?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Do not click anything and report it.')">Report it and do not click links</button>
+          <button onclick="answer(this,false,'Incorrect. Clicking links can expose you to malware.')">Click the link to see if it works</button>
+          <button onclick="answer(this,false,'Incorrect. Never send your password.')">Reply with your password</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Defense in Depth -->
-<section class="section">
-  <h2>Defense in Depth &amp; Security Controls</h2>
-  <p>
-    Defense in depth means using multiple layers of protection instead of relying on only one tool.
-    Firewalls, strong passwords, multi-factor authentication, antivirus software, and security policies work together to reduce risk.
-  </p>
+  <section class="section">
+    <h2>Defense in Depth & Security Controls</h2>
+    <p>Security works best when there are multiple layers of protection. Firewalls, strong passwords, antivirus software, and multi-factor authentication all work together.</p>
 
-  <div class="video">
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/1u2QkHM8CTo"
-        title="Defense in Depth"
-        allowfullscreen></iframe>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/5cL9g3N8Q4M" title="Defense in Depth" allowfullscreen></iframe>
     </div>
-  </div>
 
-  <div class="quiz">
-    <h3>Check Your Understanding</h3>
-
-    <div class="question">
-      <p>1. What does "defense in depth" mean?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'Defense in depth means using several layers of security together.')">Using multiple layers of security</button>
-        <button onclick="answer(this,false,'Relying on one password alone is not enough.')">Using only a strong password</button>
-        <button onclick="answer(this,false,'Turning off security features makes systems less secure.')">Disabling security tools</button>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What is defense in depth?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. It means using multiple layers of security.')">Using multiple layers of security</button>
+          <button onclick="answer(this,false,'Incorrect. One password alone is not enough.')">Using only one password</button>
+          <button onclick="answer(this,false,'Incorrect. Turning off security makes systems weaker.')">Turning off security tools</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>2. Which of the following is an example of a security control?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'A gaming headset is not a cybersecurity control.')">Gaming headset</button>
-        <button onclick="answer(this,true,'Multi-factor authentication adds another layer of protection.')">Multi-factor authentication</button>
-        <button onclick="answer(this,false,'Desktop wallpaper is unrelated to security.')">Desktop wallpaper</button>
+      <div class="question">
+        <p>2. Which is a security control?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Multi-factor authentication is a security control.')">Multi-factor authentication</button>
+          <button onclick="answer(this,false,'Incorrect. A monitor is hardware, not a security control.')">Computer monitor</button>
+          <button onclick="answer(this,false,'Incorrect. A wallpaper does not improve security.')">Desktop wallpaper</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>3. Why is multi-factor authentication useful?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'MFA requires more than one way to prove identity, making accounts harder to compromise.')">It makes accounts harder to break into</button>
-        <button onclick="answer(this,false,'MFA usually adds another step rather than removing one.')">It removes the need for passwords</button>
-        <button onclick="answer(this,false,'MFA does not make logging in faster.')">It makes logging in instant</button>
+      <div class="question">
+        <p>3. Why is multi-factor authentication useful?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. It makes it harder for attackers to access accounts.')">It adds another layer of account protection</button>
+          <button onclick="answer(this,false,'Incorrect. MFA does not replace passwords.')">It removes the need for passwords</button>
+          <button onclick="answer(this,false,'Incorrect. MFA does not make logins faster.')">It makes logging in faster</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Incident Response -->
-<section class="section">
-  <h2>Incident Response</h2>
-  <p>
-    Incident response is the process of reacting to a security event. Security teams identify the problem,
-    contain it, remove the threat, recover systems, and learn from the incident to prevent it from happening again.
-  </p>
+  <section class="section">
+    <h2>Incident Response</h2>
+    <p>When a security incident happens, organizations follow a process: identify the issue, contain it, remove the threat, recover, and review what happened.</p>
 
-  <div class="video">
-    <div class="video-wrapper">
-      <iframe src="https://www.youtube.com/embed/Dk-ZqQ-bfy4"
-        title="Incident Response"
-        allowfullscreen></iframe>
+    <div class="video-wrap">
+      <iframe src="https://www.youtube.com/embed/KYLS6m2q0mY" title="Incident Response" allowfullscreen></iframe>
     </div>
-  </div>
 
-  <div class="quiz">
-    <h3>Check Your Understanding</h3>
-
-    <div class="question">
-      <p>1. What is the first step after discovering a cybersecurity incident?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'The first step is to identify and understand the incident.')">Identify and investigate the incident</button>
-        <button onclick="answer(this,false,'Ignoring the problem allows the threat to continue.')">Ignore it and wait</button>
-        <button onclick="answer(this,false,'Deleting everything immediately can destroy evidence.')">Delete all files right away</button>
+    <div class="quiz">
+      <div class="question">
+        <p>1. What should happen first after discovering a cyber incident?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. The incident should be identified and investigated first.')">Identify and investigate the incident</button>
+          <button onclick="answer(this,false,'Incorrect. Ignoring it makes the problem worse.')">Ignore it</button>
+          <button onclick="answer(this,false,'Incorrect. Deleting everything can remove evidence.')">Delete all files</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>2. What does "containment" mean during incident response?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'Containment is not about replacing every computer.')">Buying new equipment</button>
-        <button onclick="answer(this,true,'Containment means stopping the incident from spreading further.')">Preventing the attack from spreading</button>
-        <button onclick="answer(this,false,'Containment is different from writing new software.')">Installing a new video game</button>
+      <div class="question">
+        <p>2. What does containment mean?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Containment stops the incident from spreading.')">Stop the attack from spreading</button>
+          <button onclick="answer(this,false,'Incorrect. Containment is not buying new equipment.')">Buy new computers</button>
+          <button onclick="answer(this,false,'Incorrect. Containment is not installing games.')">Install more software</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>3. Why is it important to review an incident afterward?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'Security teams should always learn from incidents.')">Because the incident no longer matters</button>
-        <button onclick="answer(this,true,'Reviewing the incident helps improve future defenses.')">To improve security in the future</button>
-        <button onclick="answer(this,false,'Blaming people is not the goal of incident response.')">To find someone to blame</button>
+      <div class="question">
+        <p>3. Why review an incident after it ends?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Reviewing incidents helps improve future security.')">To improve future security</button>
+          <button onclick="answer(this,false,'Incorrect. Incidents should always be reviewed.')">Because it no longer matters</button>
+          <button onclick="answer(this,false,'Incorrect. The goal is improvement, not blame.')">To blame someone</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- Cybersecurity Simulations -->
-<section class="section">
-  <h2>Cybersecurity Simulations</h2>
+  <section class="section">
+    <h2>Cybersecurity Simulations</h2>
 
-  <div class="game-card">
-    <h3>Hack a Cat (KnowBe4)</h3>
-    <p>
-      This Roblox cybersecurity simulation teaches students how phishing, suspicious links,
-      and social engineering attacks work. Players practice recognizing threats and making safe decisions.
-    </p>
-    <a href="https://www.roblox.com/games/11153963444/Hack-a-Cat" target="_blank" rel="noopener noreferrer">
-      Launch Hack a Cat
-    </a>
-  </div>
-
-  <div class="game-card">
-    <h3>Revive Atlantis</h3>
-    <p>
-      Revive Atlantis challenges students to solve problems related to technology, systems, and digital safety.
-      It encourages critical thinking and shows how decisions can affect a larger network or community.
-    </p>
-    <a href="https://www.roblox.com/games/13219559453/Revive-Atlantis" target="_blank" rel="noopener noreferrer">
-      Launch Revive Atlantis
-    </a>
-  </div>
-
-  <div class="quiz">
-    <h3>Reflection Quiz</h3>
-
-    <div class="question">
-      <p>1. What lesson does Hack a Cat mainly teach?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'Hack a Cat mainly focuses on phishing and social engineering awareness.')">How to recognize phishing and suspicious messages</button>
-        <button onclick="answer(this,false,'The game is not focused on sports.')">How to play sports</button>
-        <button onclick="answer(this,false,'The game does not teach hardware repair.')">How to repair a computer</button>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>Hack a Cat</h3>
+        <p>Practice identifying phishing and social engineering attacks in a Roblox cybersecurity game.</p>
+        <a href="https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat" target="_blank" rel="noopener noreferrer">Open Hack a Cat</a>
       </div>
-      <div class="feedback"></div>
-    </div>
 
-    <div class="question">
-      <p>2. Why are cybersecurity simulations useful?</p>
-      <div class="answers">
-        <button onclick="answer(this,false,'Reading is useful, but simulations provide hands-on experience.')">Because students only need to read about security</button>
-        <button onclick="answer(this,true,'Simulations allow students to practice decisions in a safe environment.')">They provide hands-on practice in a safe setting</button>
-        <button onclick="answer(this,false,'Cybersecurity is useful for many careers, not just gaming.')">They are only useful for video game careers</button>
+      <div class="tool-card">
+        <h3>Revive Atlantis</h3>
+        <p>Use problem-solving and digital safety skills in a Roblox simulation focused on systems and decisions.</p>
+        <a href="https://www.roblox.com/discover/?Keyword=Revive%20Atlantis" target="_blank" rel="noopener noreferrer">Open Revive Atlantis</a>
       </div>
-      <div class="feedback"></div>
     </div>
 
-    <div class="question">
-      <p>3. Which statement is most accurate after completing the games?</p>
-      <div class="answers">
-        <button onclick="answer(this,true,'Cybersecurity depends on both technology and good decision-making by people.')">People and technology both matter in cybersecurity</button>
-        <button onclick="answer(this,false,'Technology alone cannot solve every problem.')">Technology always solves every problem</button>
-        <button onclick="answer(this,false,'People can still make mistakes that create risks.')">Human actions never create security problems</button>
+    <div class="quiz">
+      <div class="question">
+        <p>What is the biggest lesson from these simulations?</p>
+        <div class="answers">
+          <button onclick="answer(this,true,'Correct. Cybersecurity depends on both people and technology.')">People and technology both affect security</button>
+          <button onclick="answer(this,false,'Incorrect. Technology alone is not enough.')">Technology solves every problem</button>
+        </div>
+        <div class="feedback"></div>
       </div>
-      <div class="feedback"></div>
     </div>
-  </div>
-</section>
+  </section>
 
-<div class="next">
-  <h2>Next Steps</h2>
-  <p>
-    After completing this pathway, continue building your skills with more advanced networking and cybersecurity topics.
-  </p>
-  <ul>
-    <li>Move into the Network+ pathway to learn how networks operate and how they are secured.</li>
-    <li>Practice identifying phishing messages and creating stronger passwords.</li>
-    <li>Explore additional labs and simulations to build real-world experience.</li>
-    <li>Begin preparing for certifications such as Security+ after strengthening your networking knowledge.</li>
-  </ul>
-</div>
+  <section class="section">
+    <h2>Additional Cybersecurity Learning Tools</h2>
 
+    <div class="tools-grid">
+      <div class="tool-card">
+        <h3>TryHackMe</h3>
+        <p>Interactive beginner-friendly cybersecurity labs with guided lessons.</p>
+        <a href="https://tryhackme.com" target="_blank" rel="noopener noreferrer">Visit TryHackMe</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>CyberStart America</h3>
+        <p>Practice challenges and competitions designed for students learning cybersecurity.</p>
+        <a href="https://www.cyberstartamerica.org" target="_blank" rel="noopener noreferrer">Visit CyberStart</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Khan Academy Internet Safety</h3>
+        <p>Short lessons on internet safety, passwords, privacy, and protecting personal information.</p>
+        <a href="https://www.khanacademy.org/computing/computers-and-internet" target="_blank" rel="noopener noreferrer">Visit Khan Academy</a>
+      </div>
+
+      <div class="tool-card">
+        <h3>Google Interland</h3>
+        <p>An interactive browser game that teaches digital citizenship and online safety.</p>
+        <a href="https://beinternetawesome.withgoogle.com/en_us/interland" target="_blank" rel="noopener noreferrer">Visit Interland</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="next">
+    <h2>Next Steps</h2>
+    <ul>
+      <li>Continue into the Network+ pathway to understand how networks operate.</li>
+      <li>Practice identifying phishing emails and building strong passwords.</li>
+      <li>Use TryHackMe or CyberStart to gain more hands-on experience.</li>
+      <li>After more practice, begin exploring Security+ topics and certification preparation.</li>
+    </ul>
+  </section>
 </main>
 
 <script>
-function answer(button, isCorrect, explanation){
+function answer(button, correct, explanation){
   const question = button.closest('.question');
   const buttons = question.querySelectorAll('button');
   const feedback = question.querySelector('.feedback');
 
-  buttons.forEach(btn => {
-    btn.disabled = true;
-  });
+  buttons.forEach(btn => btn.disabled = true);
 
-  if(isCorrect){
-    button.classList.add('correct-selected');
-    feedback.className = 'feedback correct';
-    feedback.innerHTML = 'Correct! ' + explanation;
-  } else {
-    button.classList.add('incorrect-selected');
-    feedback.className = 'feedback incorrect';
-    feedback.innerHTML = 'Incorrect. ' + explanation;
-  }
+  feedback.className = 'feedback ' + (correct ? 'correct' : 'incorrect');
+  feedback.textContent = (correct ? 'Correct. ' : 'Incorrect. ') + explanation;
 }
 </script>
 
 </body>
 </html>
+```
