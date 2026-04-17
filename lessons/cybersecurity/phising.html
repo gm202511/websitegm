@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phishing Detection Practice | IT Foundations</title>
+
+<style>
+:root{
+  --panel: rgba(255,255,255,0.08);
+  --accent: #00eaff;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --correct: #16a34a;
+  --incorrect: #dc2626;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+  color:var(--text);
+  line-height:1.6;
+}
+
+nav{
+  background:rgba(0,0,0,.7);
+  padding:16px;
+}
+
+nav .links{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+nav a{
+  color:var(--accent);
+  font-weight:bold;
+  text-decoration:none;
+}
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1{text-align:center;}
+.subtitle{text-align:center;color:var(--muted);max-width:900px;margin:10px auto 20px;}
+
+.scoreboard{
+  text-align:center;
+  margin:20px auto 40px;
+  padding:16px;
+  max-width:400px;
+  background:rgba(0,0,0,.35);
+  border-radius:12px;
+  font-size:1.1rem;
+}
+
+.section{
+  background:var(--panel);
+  padding:28px;
+  border-radius:18px;
+  margin-bottom:40px;
+}
+
+.section h2{color:var(--accent);}
+
+.email{
+  background:rgba(0,0,0,.35);
+  padding:20px;
+  border-radius:12px;
+  font-family:monospace;
+}
+
+.quiz{margin-top:20px;}
+
+.answers button{
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#1c2541;
+  color:white;
+  cursor:pointer;
+  text-align:left;
+}
+
+.answers button:hover:not(:disabled){
+  background:var(--accent);
+  color:#001f2f;
+}
+
+.answers button:disabled{opacity:.7;}
+
+.feedback{
+  display:none;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.feedback.correct{display:block;color:#bbf7d0;}
+.feedback.incorrect{display:block;color:#fecaca;}
+
+.nav-buttons{
+  display:flex;
+  gap:24px;
+  justify-content:center;
+  margin:50px 0;
+}
+
+.nav-buttons a{
+  padding:14px 22px;
+  border-radius:12px;
+  font-weight:bold;
+  text-decoration:none;
+}
+
+.back{background:#1c2541;color:white;}
+.next{background:linear-gradient(135deg,#00eaff,#38bdf8);color:#001f2f;}
+</style>
+</head>
+
+<body>
+
+<nav>
+  <div class="links">
+    <a href="/pathways/cybersecurity.html">Cybersecurity Pathway</a>
+  </div>
+</nav>
+
+<main>
+
+<h1>🎣 Phishing Detection Practice</h1>
+<p class="subtitle">
+Read these messages like they came from your real inbox. Decide carefully.
+</p>
+
+<div class="scoreboard">
+Score: <span id="score">0</span> / 10
+</div>
+
+<section class="section">
+<h2>Mini‑Lesson</h2>
+<ul>
+  <li>🚩 Pressure, urgency, or threats</li>
+  <li>🚩 Requests for passwords or verification</li>
+  <li>🚩 Slightly incorrect sender domains</li>
+  <li>✅ Legitimate messages explain context calmly</li>
+</ul>
+</section>
+
+<!-- SCENARIOS -->
+
+<section class="section">
+<h2>Scenarios</h2>
+
+<!-- 1 -->
+<div class="email">
+From: School IT Support &lt;support@school‑helpdesk.com&gt;  
+Subject: Action Required – Account Access  
+
+Hello,
+
+We detected unusual login activity on your school account earlier today.
+For your security, please verify your credentials as soon as possible to
+prevent temporary account suspension.
+
+If you do not respond within 30 minutes, your account may be restricted.
+
+Thank you for your cooperation,  
+School IT Support Team
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 2 -->
+<div class="email">
+From: Ms. Reynolds &lt;reynolds@school.edu&gt;  
+Subject: Project Reminder  
+
+Hi everyone,
+
+This is just a reminder that your final projects are due by the end of class
+on Friday. Please reach out if you have any questions or need clarification.
+
+Thanks,  
+Ms. Reynolds
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Legitimate</button>
+    <button onclick="answer(this,false)">Phishing</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 3 -->
+<div class="email">
+From: Amazon Billing &lt;billing@amaz0n‑secure.com&gt;  
+Subject: Payment Issue Detected  
+
+Dear Customer,
+
+We were unable to process your recent payment.
+Please update your billing information to avoid service interruption.
+
+Amazon Customer Support
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 4 -->
+<div class="email">
+Text Message:  
+"Your bank detected suspicious activity on your account. Please verify your
+information immediately to prevent card suspension."
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 5 -->
+<div class="email">
+From: IT Department &lt;it@school.edu&gt;  
+Subject: Scheduled Maintenance Notice  
+
+This message is to inform you that scheduled maintenance will occur tonight.
+No action is required. Systems may be briefly unavailable.
+
+– IT Department
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Legitimate</button>
+    <button onclick="answer(this,false)">Phishing</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 6 -->
+<div class="email">
+Text Message:  
+"Congratulations! You’ve been selected to receive a free gift card.
+Claim now before the offer expires."
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 7 -->
+<div class="email">
+From: Google Security &lt;no‑reply@support‑google.com&gt;  
+Subject: New Sign‑In Alert  
+
+We noticed a new sign‑in from an unfamiliar device.
+Follow the link below to secure your Google account.
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 8 -->
+<div class="email">
+Text Message:  
+"Friend request waiting. Sign in to view details."
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 9 -->
+<div class="email">
+From: Office 365 Admin &lt;o365@secure‑office.com&gt;  
+Subject: Mailbox Quota Exceeded  
+
+Your mailbox has exceeded its storage limit.
+Click below to increase capacity.
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+<hr>
+
+<!-- 10 -->
+<div class="email">
+From: District Tech Office &lt;admin@district‑tech.org&gt;  
+Subject: Device Policy Update  
+
+We have updated the district’s device usage policy.
+Please review it during your next login session.
+
+Technology Services
+</div>
+<div class="quiz">
+  <div class="answers">
+    <button onclick="answer(this,true)">Phishing</button>
+    <button onclick="answer(this,false)">Legitimate</button>
+  </div>
+  <div class="feedback"></div>
+</div>
+
+</section>
+
+<div class="nav-buttons">
+  <a href="/pathways/cybersecurity.html" class="back">← Back to Cybersecurity</a>
+  <a href="/lessons/cybersecurity/threats.html" class="next">Next Lesson →</a>
+</div>
+
+</main>
+
+<script>
+let score = 0;
+const scoreSpan = document.getElementById("score");
+
+function answer(btn,isCorrect){
+  const quiz = btn.closest(".quiz");
+  quiz.querySelectorAll("button").forEach(b=>b.disabled=true);
+  const feedback = quiz.querySelector(".feedback");
+
+  if(isCorrect){
+    score++;
+    scoreSpan.textContent = score;
+    feedback.textContent = "✅ Correct";
+    feedback.className = "feedback correct";
+  } else {
+    feedback.textContent = "❌ Incorrect";
+    feedback.className = "feedback incorrect";
+  }
+}
+</script>
+
+</body>
+</html>
