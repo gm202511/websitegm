@@ -7,26 +7,25 @@
 
 <style>
 :root{
-  --panel:rgba(255,255,255,0.08);
-  --accent:#00eaff;
-  --text:#ffffff;
-  --muted:#cbd5e1;
-  --correct:#16a34a;
-  --incorrect:#dc2626;
+  --panel: rgba(255,255,255,0.08);
+  --accent: #00eaff;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --correct: #16a34a;
+  --incorrect: #dc2626;
 }
 
-*{box-sizing:border-box;}
+* { box-sizing: border-box; }
 
 body{
   margin:0;
-  font-family:Arial,sans-serif;
-  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
-  color:var(--text);
-  line-height:1.6;
+  font-family:Arial, sans-serif;
+  background: linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+  color: var(--text);
 }
 
 nav{
-  background:rgba(0,0,0,.7);
+  background: rgba(0,0,0,.7);
   padding:16px;
 }
 
@@ -37,7 +36,7 @@ nav .links{
 }
 
 nav a{
-  color:var(--accent);
+  color: var(--accent);
   font-weight:bold;
   text-decoration:none;
 }
@@ -49,40 +48,39 @@ main{
 }
 
 h1{text-align:center;}
-.subtitle{text-align:center;color:var(--muted);max-width:850px;margin:10px auto 40px;}
+.subtitle{text-align:center;color:var(--muted);margin-bottom:40px;}
 
 .section{
-  background:var(--panel);
+  background: var(--panel);
   padding:28px;
   border-radius:18px;
   margin-bottom:40px;
 }
 
-.section h2{color:var(--accent);margin-top:0;}
+.section h2{color:var(--accent);}
 
 .video-wrap{
-  position:relative;
-  width:100%;
-  padding-bottom:56.25%;
+  position: relative;
+  padding-bottom: 56.25%;
   margin:20px 0;
+  background:#000;
   border-radius:14px;
   overflow:hidden;
-  background:#000;
 }
 
 .video-wrap iframe{
   position:absolute;
-  inset:0;
+  top:0;
+  left:0;
   width:100%;
   height:100%;
   border:none;
 }
 
 .quiz{
-  background:rgba(0,0,0,.35);
+  background: rgba(0,0,0,.35);
   padding:18px;
   border-radius:12px;
-  margin-top:20px;
 }
 
 .question{margin-bottom:18px;}
@@ -96,7 +94,6 @@ h1{text-align:center;}
   background:#1c2541;
   color:white;
   cursor:pointer;
-  text-align:left;
 }
 
 .answers button:hover:not(:disabled){
@@ -104,9 +101,14 @@ h1{text-align:center;}
   color:#001f2f;
 }
 
-.answers button:disabled{opacity:.7;}
+.answers button:disabled{opacity:.6;}
 
-.feedback{margin-top:10px;display:none;font-weight:bold;}
+.feedback{
+  display:none;
+  margin-top:10px;
+  font-weight:bold;
+}
+
 .feedback.correct{display:block;color:#bbf7d0;}
 .feedback.incorrect{display:block;color:#fecaca;}
 
@@ -121,8 +123,6 @@ h1{text-align:center;}
   text-decoration:none;
 }
 
-.lesson-link:hover{transform:translateY(-2px);}
-
 .tools-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
@@ -136,14 +136,7 @@ h1{text-align:center;}
 }
 
 .tool-card h3{color:var(--accent);}
-.tool-card a{color:var(--accent);font-weight:bold;text-decoration:none;}
-
-.next{
-  background:rgba(0,0,0,.35);
-  border-left:4px solid var(--accent);
-  padding:22px;
-  border-radius:12px;
-}
+.tool-card a{color:var(--accent);font-weight:bold;}
 </style>
 </head>
 
@@ -163,7 +156,7 @@ h1{text-align:center;}
 Build the foundational skills needed to recognize threats, protect systems, and respond to security incidents.
 </p>
 
-<!-- CYBERSECURITY FOUNDATIONS -->
+<!-- FOUNDATIONS -->
 <section class="section">
 <h2>Cybersecurity Foundations</h2>
 
@@ -173,23 +166,23 @@ Build the foundational skills needed to recognize threats, protect systems, and 
 
 <div class="quiz">
   <div class="question">
-    <p>1. What does cybersecurity protect?</p>
+    <p>What does cybersecurity protect?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Cybersecurity protects systems, networks, and data.')">Systems, networks, and data</button>
-      <button onclick="answer(this,false,'Technology alone is not enough.')">Technology solves every problem</button>
+      <button onclick="answer(this,true,'Correct.')">Systems, networks, and data</button>
+      <button onclick="answer(this,false,'Incorrect.')">Technology solves everything</button>
     </div>
     <div class="feedback"></div>
   </div>
 </div>
 
-<a href="/lessons/cybersecurity/foundations.html" class="lesson-link">
-▶ Start Lesson: Cybersecurity Foundations (CIA Triad)
+<a class="lesson-link" href="/lessons/cybersecurity/foundations.html">
+▶ Start Lesson: Cybersecurity Foundations
 </a>
 </section>
 
-<!-- THREATS & SOCIAL ENGINEERING -->
+<!-- THREATS -->
 <section class="section">
-<h2>Threats &amp; Social Engineering</h2>
+<h2>Threats & Social Engineering</h2>
 
 <div class="video-wrap">
   <iframe src="https://www.youtube.com/embed/XBkzBrXlle0" allowfullscreen></iframe>
@@ -197,37 +190,37 @@ Build the foundational skills needed to recognize threats, protect systems, and 
 
 <div class="quiz">
   <div class="question">
-    <p>1. What is phishing?</p>
+    <p>What is phishing?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Phishing uses fake messages to steal information.')">Fake message to steal info</button>
-      <button onclick="answer(this,false,'Phishing is not computer repair.')">Fixing a computer</button>
+      <button onclick="answer(this,true,'Correct.')">Fake message to steal data</button>
+      <button onclick="answer(this,false,'Incorrect.')">Computer repair</button>
     </div>
     <div class="feedback"></div>
   </div>
 
   <div class="question">
-    <p>2. Which is a warning sign?</p>
+    <p>Phishing usually relies on what?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Urgency is a common phishing tactic.')">Urgent demand</button>
-      <button onclick="answer(this,false,'Normal reminders are not phishing.')">Normal reminder</button>
+      <button onclick="answer(this,true,'Correct.')">Urgency and fear</button>
+      <button onclick="answer(this,false,'Incorrect.')">Strong passwords</button>
     </div>
     <div class="feedback"></div>
   </div>
 
   <div class="question">
-    <p>3. Best response?</p>
+    <p>Correct response to phishing?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Report it and do not click.')">Report & don’t click</button>
-      <button onclick="answer(this,false,'Clicking may cause harm.')">Click the link</button>
+      <button onclick="answer(this,true,'Correct.')">Report it</button>
+      <button onclick="answer(this,false,'Incorrect.')">Click links</button>
     </div>
     <div class="feedback"></div>
   </div>
 </div>
 </section>
 
-<!-- DEFENSE IN DEPTH -->
+<!-- DEFENSE -->
 <section class="section">
-<h2>Defense in Depth &amp; Security Controls</h2>
+<h2>Defense in Depth</h2>
 
 <div class="video-wrap">
   <iframe src="https://www.youtube.com/embed/1nUXQHr4l9g" allowfullscreen></iframe>
@@ -235,28 +228,28 @@ Build the foundational skills needed to recognize threats, protect systems, and 
 
 <div class="quiz">
   <div class="question">
-    <p>1. What is defense in depth?</p>
+    <p>Defense in depth means?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Multiple layers improve security.')">Multiple layers</button>
-      <button onclick="answer(this,false,'Single controls are not enough.')">One password</button>
+      <button onclick="answer(this,true,'Correct.')">Multiple layers of security</button>
+      <button onclick="answer(this,false,'Incorrect.')">One password</button>
     </div>
     <div class="feedback"></div>
   </div>
 
   <div class="question">
-    <p>2. Which is a security control?</p>
+    <p>MFA is an example of?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'MFA protects accounts.')">Multi‑factor authentication</button>
-      <button onclick="answer(this,false,'A monitor is not a control.')">Computer monitor</button>
+      <button onclick="answer(this,true,'Correct.')">Security control</button>
+      <button onclick="answer(this,false,'Incorrect.')">Hardware</button>
     </div>
     <div class="feedback"></div>
   </div>
 
   <div class="question">
-    <p>3. Why use MFA?</p>
+    <p>Why layer defenses?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Adds another layer of protection.')">Adds protection</button>
-      <button onclick="answer(this,false,'Passwords are still needed.')">Replaces passwords</button>
+      <button onclick="answer(this,true,'Correct.')">One failure doesn't end security</button>
+      <button onclick="answer(this,false,'Incorrect.')">Makes logins faster</button>
     </div>
     <div class="feedback"></div>
   </div>
@@ -273,68 +266,60 @@ Build the foundational skills needed to recognize threats, protect systems, and 
 
 <div class="quiz">
   <div class="question">
-    <p>1. First step?</p>
+    <p>First step of incident response?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Identify and analyze the incident.')">Identify incident</button>
-      <button onclick="answer(this,false,'Ignoring worsens damage.')">Ignore it</button>
+      <button onclick="answer(this,true,'Correct.')">Identify incident</button>
+      <button onclick="answer(this,false,'Incorrect.')">Ignore it</button>
     </div>
     <div class="feedback"></div>
   </div>
 
   <div class="question">
-    <p>2. What is containment?</p>
+    <p>Containment means?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Stops spread of the incident.')">Stop spread</button>
-      <button onclick="answer(this,false,'Buying hardware does not help.')">Buy computers</button>
+      <button onclick="answer(this,true,'Correct.')">Stop spread</button>
+      <button onclick="answer(this,false,'Incorrect.')">Buy hardware</button>
     </div>
     <div class="feedback"></div>
   </div>
 
   <div class="question">
-    <p>3. Why review incidents?</p>
+    <p>Why review incidents?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Improves future security.')">Improve security</button>
-      <button onclick="answer(this,false,'Blame does not help.')">Blame someone</button>
+      <button onclick="answer(this,true,'Correct.')">Improve future security</button>
+      <button onclick="answer(this,false,'Incorrect.')">Assign blame</button>
     </div>
     <div class="feedback"></div>
   </div>
 </div>
 </section>
 
-<!-- SIMULATIONS -->
+<!-- GAMES -->
 <section class="section">
 <h2>Cybersecurity Simulations</h2>
 
 <div class="tools-grid">
   <div class="tool-card">
     <h3>Hack a Cat</h3>
-    <a href="https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat" target="_blank" rel="noopener">Open Hack a Cat</a>
+    <a href="https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat" target="_blank">Launch Game</a>
   </div>
+
   <div class="tool-card">
     <h3>Revive Atlantis</h3>
-    <a href="https://www.roblox.com/games/91305848856772/Revive-Atlantis" target="_blank" rel="noopener">Open Revive Atlantis</a>
+    <a href="https://www.roblox.com/games/91305848856772/Revive-Atlantis" target="_blank">Launch Game</a>
   </div>
 </div>
-</section>
-
-<section class="next">
-<h2>Next Steps</h2>
-<ul>
-  <li>Continue into Network+</li>
-  <li>Practice phishing detection</li>
-  <li>Explore Security+ topics</li>
-</ul>
 </section>
 
 </main>
 
 <script>
-function answer(btn, correct, text){
+function answer(btn, correct, msg){
   const q = btn.closest('.question');
   q.querySelectorAll('button').forEach(b=>b.disabled=true);
   const f = q.querySelector('.feedback');
-  f.className='feedback '+(correct?'correct':'incorrect');
-  f.textContent=(correct?'Correct. ':'Incorrect. ')+text;
+  f.className = 'feedback ' + (correct?'correct':'incorrect');
+  f.textContent = msg;
 }
 </script>
 
