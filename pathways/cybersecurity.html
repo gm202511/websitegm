@@ -73,7 +73,6 @@ h1{
 
 .video-wrap{
   position:relative;
-  width:100%;
   padding-bottom:56.25%;
   margin:20px 0;
   border-radius:14px;
@@ -109,6 +108,7 @@ h1{
   background:#1c2541;
   color:white;
   cursor:pointer;
+  text-align:left;
 }
 
 .answers button:hover:not(:disabled){
@@ -126,15 +126,8 @@ h1{
   font-weight:bold;
 }
 
-.feedback.correct{
-  display:block;
-  color:#bbf7d0;
-}
-
-.feedback.incorrect{
-  display:block;
-  color:#fecaca;
-}
+.feedback.correct{display:block;color:#bbf7d0;}
+.feedback.incorrect{display:block;color:#fecaca;}
 
 .lesson-link{
   display:inline-block;
@@ -147,15 +140,12 @@ h1{
   text-decoration:none;
 }
 
-.lesson-link:hover{
-  transform:translateY(-2px);
-}
+.lesson-link:hover{transform:translateY(-2px);}
 
 .tools-grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
   gap:18px;
-  margin-top:20px;
 }
 
 .tool-card{
@@ -164,16 +154,8 @@ h1{
   border-radius:12px;
 }
 
-.tool-card h3{
-  margin-top:0;
-  color:var(--accent);
-}
-
-.tool-card a{
-  color:var(--accent);
-  font-weight:bold;
-  text-decoration:none;
-}
+.tool-card h3{color:var(--accent);}
+.tool-card a{color:var(--accent);font-weight:bold;text-decoration:none;}
 
 .next{
   background:rgba(0,0,0,.35);
@@ -200,15 +182,9 @@ h1{
 Build the foundational skills needed to recognize threats, protect systems, and respond to security incidents.
 </p>
 
-<!-- ✅ CYBERSECURITY FOUNDATIONS -->
+<!-- CYBERSECURITY FOUNDATIONS -->
 <section class="section">
 <h2>Cybersecurity Foundations</h2>
-
-<p>
-Cybersecurity protects computers, networks, and data from unauthorized access.
-Students begin by learning the CIA Triad.
-</p>
-
 <div class="video-wrap">
   <iframe src="https://www.youtube.com/embed/ooJSgsB5fIE" allowfullscreen></iframe>
 </div>
@@ -233,63 +209,92 @@ Students begin by learning the CIA Triad.
 </a>
 </section>
 
-<!-- ✅ THREATS & SOCIAL ENGINEERING -->
+<!-- THREATS -->
 <section class="section">
-<h2>Threats &amp; Social Engineering</h2>
-
+<h2>Threats & Social Engineering</h2>
 <div class="video-wrap">
   <iframe src="https://www.youtube.com/embed/XBkzBrXlle0" allowfullscreen></iframe>
 </div>
 
 <div class="quiz">
   <div class="question">
-    <p>What is phishing?</p>
+    <p>1. What is phishing?</p>
     <div class="answers">
-      <button onclick="answer(this,true,'Phishing uses fake messages to steal information.')">
-        A fake message meant to steal info
-      </button>
-      <button onclick="answer(this,false,'Phishing is not tech support.')">
-        Fixing a computer
-      </button>
+      <button onclick="answer(this,true,'Phishing uses fake messages to steal information.')">Fake message to steal info</button>
+      <button onclick="answer(this,false,'Phishing is not computer repair.')">Fixing a computer</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="question">
+    <p>2. Common phishing sign?</p>
+    <div class="answers">
+      <button onclick="answer(this,true,'Urgency is a common phishing tactic.')">Urgent demand for action</button>
+      <button onclick="answer(this,false,'Normal reminders are not phishing.')">Normal reminder</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+
+  <div class="question">
+    <p>3. Correct response?</p>
+    <div class="answers">
+      <button onclick="answer(this,true,'Report the message and don’t click.')">Report & do not click</button>
+      <button onclick="answer(this,false,'Clicking may install malware.')">Click the link</button>
     </div>
     <div class="feedback"></div>
   </div>
 </div>
 </section>
 
-<!-- ✅ DEFENSE IN DEPTH -->
+<!-- DEFENSE -->
 <section class="section">
 <h2>Defense in Depth</h2>
-
 <div class="video-wrap">
   <iframe src="https://www.youtube.com/embed/1nUXQHr4l9g" allowfullscreen></iframe>
 </div>
-</section>
 
-<!-- ✅ INCIDENT RESPONSE -->
-<section class="section">
-<h2>Incident Response</h2>
-
-<div class="video-wrap">
-  <iframe src="https://www.youtube.com/embed/4MGVTpXAAmo" allowfullscreen></iframe>
+<div class="quiz">
+  <div class="question">
+    <p>Defense in depth means?</p>
+    <div class="answers">
+      <button onclick="answer(this,true,'Multiple layers improve security.')">Multiple layers</button>
+      <button onclick="answer(this,false,'Single controls are not enough.')">One password</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
 </div>
 </section>
 
-<!-- ✅ SIMULATIONS -->
+<!-- INCIDENT RESPONSE -->
+<section class="section">
+<h2>Incident Response</h2>
+<div class="video-wrap">
+  <iframe src="https://www.youtube.com/embed/4MGVTpXAAmo" allowfullscreen></iframe>
+</div>
+
+<div class="quiz">
+  <div class="question">
+    <p>First step?</p>
+    <div class="answers">
+      <button onclick="answer(this,true,'Identify and analyze.')">Identify incident</button>
+      <button onclick="answer(this,false,'Ignoring worsens damage.')">Ignore it</button>
+    </div>
+    <div class="feedback"></div>
+  </div>
+</div>
+</section>
+
+<!-- SIMULATIONS -->
 <section class="section">
 <h2>Cybersecurity Simulations</h2>
-
 <div class="tools-grid">
   <div class="tool-card">
     <h3>Hack a Cat</h3>
-    <p>Learn phishing awareness through interactive scenarios.</p>
-    <a href="https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat" target="_blank">Open Hack a Cat</a>
+    <a href="https://www.roblox.com/discover/?Keyword=Hack%20a%20Cat" target="_blank">Open</a>
   </div>
-
   <div class="tool-card">
     <h3>Revive Atlantis</h3>
-    <p>Practice systems thinking and digital safety decisions.</p>
-    <a href="https://www.roblox.com/games/91305848856772/Revive-Atlantis" target="_blank">Open Revive Atlantis</a>
+    <a href="https://www.roblox.com/games/91305848856772/Revive-Atlantis" target="_blank">Open</a>
   </div>
 </div>
 </section>
@@ -297,9 +302,9 @@ Students begin by learning the CIA Triad.
 <section class="next">
 <h2>Next Steps</h2>
 <ul>
-  <li>Continue into Network+</li>
+  <li>Continue to Network+</li>
   <li>Practice phishing detection</li>
-  <li>Explore Security+ concepts</li>
+  <li>Explore Security+</li>
 </ul>
 </section>
 
