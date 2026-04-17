@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><!DOCTYPE<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,6 +10,8 @@
   --accent: #00eaff;
   --text: #ffffff;
   --muted: #cbd5e1;
+  --correct: #16a34a;
+  --incorrect: #dc2626;
 }
 
 *{box-sizing:border-box;}
@@ -20,24 +21,7 @@ body{
   font-family:Arial,sans-serif;
   background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
   color:var(--text);
-  line-height:1.7;
-}
-
-nav{
-  background:rgba(0,0,0,.7);
-  padding:16px;
-}
-
-nav .links{
-  display:flex;
-  justify-content:center;
-  gap:30px;
-}
-
-nav a{
-  color:var(--accent);
-  font-weight:bold;
-  text-decoration:none;
+  line-height:1.6;
 }
 
 main{
@@ -47,12 +31,7 @@ main{
 }
 
 h1{text-align:center;}
-.subtitle{
-  text-align:center;
-  color:var(--muted);
-  max-width:900px;
-  margin:10px auto 40px;
-}
+.subtitle{text-align:center;color:var(--muted);max-width:900px;margin:10px auto 40px;}
 
 .section{
   background:var(--panel);
@@ -61,22 +40,56 @@ h1{text-align:center;}
   margin-bottom:40px;
 }
 
-.section h2{
-  color:var(--accent);
-  margin-top:0;
+.section h2{color:var(--accent);margin-top:0;}
+
+ul{padding-left:20px;}
+li{margin-bottom:10px;}
+
+.quiz{
+  background:rgba(0,0,0,.35);
+  padding:18px;
+  border-radius:12px;
+  margin-top:20px;
 }
 
-.section p{
-  margin-bottom:16px;
+.answers button{
+  width:100%;
+  margin-top:10px;
+  padding:12px;
+  border:none;
+  border-radius:10px;
+  background:#1c2541;
+  color:white;
+  cursor:pointer;
+  text-align:left;
 }
 
-.threat-list{
-  margin-top:15px;
-  padding-left:20px;
+.answers button:hover:not(:disabled){
+  background:var(--accent);
+  color:#001f2f;
 }
 
-.threat-list li{
-  margin-bottom:10px;
+.answers button:disabled{opacity:.7;}
+
+.feedback{
+  display:none;
+  margin-top:10px;
+  font-weight:bold;
+}
+
+.feedback.correct{display:block;color:#bbf7d0;}
+.feedback.incorrect{display:block;color:#fecaca;}
+
+.match-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:18px;
+}
+
+.card{
+  background:rgba(0,0,0,.35);
+  padding:18px;
+  border-radius:12px;
 }
 
 .nav-buttons{
@@ -107,107 +120,137 @@ h1{text-align:center;}
 
 <body>
 
-<nav>
-  <div class="links">
-    <a href="/pathways/cybersecurity.html">Cybersecurity Pathway</a>
-  </div>
-</nav>
-
 <main>
 
 <h1>⚠️ Cybersecurity Threats</h1>
 <p class="subtitle">
-Cybersecurity threats come in many forms. Some target systems and networks directly,
-while others rely on malicious software or human behavior.
+Cybersecurity threats target systems, networks, and people. In this lesson, you’ll learn
+what different threats look like and how to recognize them.
 </p>
 
 <!-- OVERVIEW -->
 <section class="section">
 <h2>What Is a Cybersecurity Threat?</h2>
 <p>
-A cybersecurity threat is anything that has the potential to damage, disrupt,
-or gain unauthorized access to computers, networks, or data.
-Threats may be intentional (attacks) or unintentional (misconfigurations or user error),
-but in this lesson we focus on **deliberate threats**.
+A cybersecurity threat is anything that can cause harm to a computer system, network, or data.
+Threats may use malicious software, network attacks, or human manipulation.
 </p>
 </section>
 
-<!-- MALWARE -->
+<!-- TYPES -->
 <section class="section">
-<h2>Malware Threats</h2>
-<p>
-Malware is short for <strong>malicious software</strong>. These programs are designed
-to harm systems, steal data, or give attackers control over devices.
-</p>
+<h2>Common Types of Threats</h2>
 
-<ul class="threat-list">
-  <li><strong>Viruses</strong> – Attach to legitimate files and spread when users run infected programs.</li>
-  <li><strong>Worms</strong> – Spread automatically across networks without user interaction.</li>
-  <li><strong>Trojans</strong> – Disguised as legitimate software but perform malicious actions.</li>
-  <li><strong>Ransomware</strong> – Encrypts files and demands payment to restore access.</li>
-  <li><strong>Spyware</strong> – Secretly monitors user activity and collects information.</li>
+<ul>
+  <li><strong>Malware</strong> – Harmful software like viruses, worms, trojans, spyware, and ransomware.</li>
+  <li><strong>Network Attacks</strong> – Attacks that disrupt or intercept network traffic.</li>
+  <li><strong>Credential Attacks</strong> – Target usernames and passwords.</li>
+  <li><strong>Insider Threats</strong> – Misuse of access by someone inside the organization.</li>
+  <li><strong>Social Engineering</strong> – Tricking people rather than hacking systems.</li>
 </ul>
-
-<p>
-Malware often enters systems through phishing emails, malicious downloads,
-or unpatched vulnerabilities.
-</p>
 </section>
 
-<!-- NETWORK THREATS -->
+<!-- QUICK CHECK QUIZ -->
 <section class="section">
-<h2>Network-Based Threats</h2>
-<p>
-Network threats focus on disrupting, intercepting, or abusing network communication.
-These attacks usually target availability, confidentiality, or integrity of data.
-</p>
+<h2>Quick Check</h2>
 
-<ul class="threat-list">
-  <li><strong>Denial-of-Service (DoS)</strong> – Overwhelms systems with traffic to make them unavailable.</li>
-  <li><strong>Distributed DoS (DDoS)</strong> – Multiple systems attack a target at once.</li>
-  <li><strong>Man-in-the-Middle (MITM)</strong> – Intercepts communication between two parties.</li>
-  <li><strong>Packet sniffing</strong> – Captures unencrypted network traffic.</li>
-  <li><strong>Unauthorized access</strong> – Exploiting weak credentials or open ports.</li>
-</ul>
-
-<p>
-Strong passwords, encryption, and firewalls help reduce network-based threats.
-</p>
+<div class="quiz">
+  <p><strong>Question:</strong> Which threat relies on tricking users instead of exploiting software?</p>
+  <div class="answers">
+    <button onclick="answer(this,true,'Correct. Social engineering targets people.')">
+      Social engineering
+    </button>
+    <button onclick="answer(this,false,'Malware is software-based.')">
+      Malware
+    </button>
+    <button onclick="answer(this,false,'DDoS attacks target networks.')">
+      DDoS attacks
+    </button>
+  </div>
+  <div class="feedback"></div>
+</div>
 </section>
 
-<!-- MALICIOUS ACTORS -->
+<!-- MATCH ACTIVITY -->
 <section class="section">
-<h2>Malicious Actors</h2>
-<p>
-Threats don’t happen on their own — they are carried out by people or groups
-called <strong>malicious actors</strong>. These actors have different motivations and skill levels.
-</p>
-
-<ul class="threat-list">
-  <li><strong>Script kiddies</strong> – Use existing tools without fully understanding them.</li>
-  <li><strong>Cybercriminals</strong> – Motivated by financial gain.</li>
-  <li><strong>Insiders</strong> – Employees or students abusing authorized access.</li>
-  <li><strong>Hacktivists</strong> – Attack systems to promote political or social causes.</li>
-  <li><strong>Nation-state attackers</strong> – Highly funded groups targeting governments or infrastructure.</li>
-</ul>
+<h2>Match the Threat (Think Before You Scroll)</h2>
 
 <p>
-Understanding who might attack a system helps organizations choose the right defenses.
+Read each situation. Decide which type of threat it best matches.
 </p>
+
+<div class="match-grid">
+
+  <div class="card">
+    <p><strong>A file encrypts your computer and demands money to unlock it.</strong></p>
+    <div class="quiz">
+      <div class="answers">
+        <button onclick="answer(this,true,'Correct. Ransomware encrypts files.')">
+          Ransomware
+        </button>
+        <button onclick="answer(this,false,'Phishing does not encrypt files.')">
+          Phishing
+        </button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>A website becomes unavailable after being flooded with traffic.</strong></p>
+    <div class="quiz">
+      <div class="answers">
+        <button onclick="answer(this,true,'Correct. This is a denial-of-service attack.')">
+          DDoS attack
+        </button>
+        <button onclick="answer(this,false,'Malware runs on systems, not traffic floods.')">
+          Malware
+        </button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>An employee downloads harmful software using their work account.</strong></p>
+    <div class="quiz">
+      <div class="answers">
+        <button onclick="answer(this,true,'Correct. Insiders can accidentally or intentionally cause harm.')">
+          Insider threat
+        </button>
+        <button onclick="answer(this,false,'This is not a network-level attack.')">
+          Network threat
+        </button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <p><strong>An attacker intercepts data on an unsecured public Wi‑Fi network.</strong></p>
+    <div class="quiz">
+      <div class="answers">
+        <button onclick="answer(this,true,'Correct. This is a man-in-the-middle attack.')">
+          Network attack
+        </button>
+        <button onclick="answer(this,false,'Social engineering involves deception, not interception.')">
+          Social engineering
+        </button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+</div>
 </section>
 
 <!-- WHY IT MATTERS -->
 <section class="section">
 <h2>Why Understanding Threats Matters</h2>
-<p>
-Recognizing different types of threats allows users and organizations to:
-</p>
-
-<ul class="threat-list">
-  <li>Choose appropriate security controls</li>
-  <li>Respond faster to incidents</li>
-  <li>Reduce damage from attacks</li>
-  <li>Protect sensitive data</li>
+<ul>
+  <li>Helps you identify attacks faster</li>
+  <li>Improves decision-making when something feels “off”</li>
+  <li>Prepares you for real‑world cybersecurity roles</li>
 </ul>
 </section>
 
@@ -216,13 +259,28 @@ Recognizing different types of threats allows users and organizations to:
   <a href="/lessons/cybersecurity/phising.html" class="back">
     ← Back to Phishing Practice
   </a>
-
   <a href="/lessons/cybersecurity/social-engineering.html" class="next">
     Next Lesson: Social Engineering →
   </a>
 </div>
 
 </main>
+
+<script>
+function answer(btn, correct, msg){
+  const quiz = btn.closest('.quiz');
+  quiz.querySelectorAll('button').forEach(b => b.disabled = true);
+  const feedback = quiz.querySelector('.feedback');
+
+  if(correct){
+    feedback.textContent = '✅ Correct';
+    feedback.className = 'feedback correct';
+  } else {
+    feedback.textContent = '❌ Incorrect';
+    feedback.className = 'feedback incorrect';
+  }
+}
+</script>
 
 </body>
 </html>
