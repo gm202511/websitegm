@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Incident Response – Cybersecurity</title>
+<title>Incident Response Tabletop Exercise</title>
 
 <style>
 body{
@@ -26,51 +26,33 @@ body{
   box-shadow:0 15px 35px rgba(0,0,0,0.35);
 }
 
-h1{
-  margin-top:0;
-  color:#00eaff;
+h1{ color:#00eaff; margin-top:0; }
+h2{ color:#7dd3fc; }
+
+.timeline{
+  border-left:4px solid #00eaff;
+  padding-left:20px;
 }
 
-h2{
-  color:#7dd3fc;
-}
-
-.phase{
+.update{
   background:rgba(255,255,255,0.06);
-  border-left:6px solid #00eaff;
-  padding:16px;
-  margin-bottom:14px;
-  border-radius:10px;
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:16px;
 }
 
-.sim{
-  background:rgba(255,255,255,0.07);
-  border-radius:16px;
-  padding:22px;
-}
-
-.options button{
-  display:block;
+.decision select{
   width:100%;
-  margin:10px 0;
-  padding:14px;
+  padding:10px;
+  margin-top:10px;
+  border-radius:8px;
   border:none;
-  border-radius:12px;
   font-size:1em;
-  font-weight:bold;
-  cursor:pointer;
-  background:linear-gradient(135deg,#38bdf8,#00eaff);
-  color:#022c22;
-}
-
-.options button.bad{
-  background:linear-gradient(135deg,#ef4444,#f97316);
-  color:#fff;
 }
 
 .feedback{
+  margin-top:12px;
   font-weight:bold;
-  margin-top:14px;
   min-height:40px;
 }
 
@@ -110,105 +92,130 @@ h2{
 
 <!-- INTRO -->
 <div class="card">
-  <h1>Incident Response</h1>
+  <h1>Incident Response Tabletop Exercise</h1>
   <p>
-    <strong>Incident Response (IR)</strong> is the structured process used by security teams
-    to detect, contain, eliminate, and recover from cybersecurity incidents.
+    This activity simulates a real <strong>Security Operations Center (SOC)</strong>
+    tabletop exercise. There are no right answers given immediately —
+    only consequences.
   </p>
   <p>
-    The goal is <strong>not panic, not speed, and not punishment</strong>.
-    The goal is to <strong>limit damage, preserve evidence, restore service, and prevent repeat attacks</strong>.
+    Your goal is to move through the incident using the
+    <strong>correct response process</strong>, not speed or panic.
   </p>
 </div>
 
-<!-- LIFECYCLE -->
+<!-- SCENARIO -->
 <div class="card">
-  <h2>The Incident Response Lifecycle</h2>
-
-  <div class="phase"><strong>1. Preparation</strong><br>
-  Policies, tools, backups, access controls, and training.</div>
-
-  <div class="phase"><strong>2. Identification</strong><br>
-  Detect and confirm an incident is actually occurring.</div>
-
-  <div class="phase"><strong>3. Containment</strong><br>
-  Isolate affected systems to prevent spread.</div>
-
-  <div class="phase"><strong>4. Eradication</strong><br>
-  Remove malware, disable accounts, fix vulnerabilities.</div>
-
-  <div class="phase"><strong>5. Recovery</strong><br>
-  Restore systems, monitor closely, return to normal operation.</div>
-
-  <div class="phase"><strong>6. Lessons Learned</strong><br>
-  Document what happened and improve defenses.</div>
+  <h2>Incident Scenario</h2>
+  <p>
+    It is 10:15 AM on a school day. Multiple staff members report they suddenly cannot
+    access files on a shared drive. File names now include <code>.locked</code>.
+  </p>
+  <p>
+    One teacher reports a ransom note on their screen demanding payment in 48 hours.
+  </p>
 </div>
 
-<!-- SIMULATION -->
+<!-- TABLETOP -->
 <div class="card">
-  <h2>Guided Incident Response Simulation</h2>
+  <h2>Live Incident Timeline</h2>
 
-  <div class="sim">
+  <div class="timeline">
 
-    <p>
-      Employees report files suddenly becoming encrypted.
-      Several computers display a ransom message demanding payment.
-    </p>
+    <!-- PHASE 1 -->
+    <div class="update">
+      <h3>Phase 1 – Identification</h3>
+      <p>
+        Logs show unusual file access patterns. Antivirus alerts appear on two machines.
+      </p>
 
-    <div id="step1">
-      <p><strong>Step 1: Identification</strong><br>
-      What should you do FIRST?</p>
-
-      <div class="options">
-        <button onclick="step1(true)">Confirm incident and gather details</button>
-        <button class="bad" onclick="step1(false)">Immediately shut down every system</button>
-        <button class="bad" onclick="step1(false)">Pay the ransom quietly</button>
+      <div class="decision">
+        <strong>What does the SOC do FIRST?</strong>
+        <select onchange="phase1(this.value)">
+          <option value="">-- choose an action --</option>
+          <option value="investigate">Confirm incident and gather evidence</option>
+          <option value="shutdown">Shut down all servers</option>
+          <option value="pay">Pay the ransom immediately</option>
+        </select>
       </div>
+      <div id="fb1" class="feedback"></div>
     </div>
 
-    <div id="step2" class="hidden">
-      <p><strong>Step 2: Containment</strong><br>
-      How do you stop the damage?</p>
+    <!-- PHASE 2 -->
+    <div id="phase2" class="update hidden">
+      <h3>Phase 2 – Containment</h3>
+      <p>
+        The incident is confirmed: ransomware is spreading laterally.
+      </p>
 
-      <div class="options">
-        <button onclick="step2(true)">Disconnect infected systems from the network</button>
-        <button class="bad" onclick="step2(false)">Delete encrypted files immediately</button>
-        <button class="bad" onclick="step2(false)">Ignore it and wait for IT</button>
+      <div class="decision">
+        <strong>How do you limit further damage?</strong>
+        <select onchange="phase2(this.value)">
+          <option value="">-- choose an action --</option>
+          <option value="isolate">Isolate affected systems from the network</option>
+          <option value="delete">Delete encrypted files</option>
+          <option value="ignore">Wait for more information</option>
+        </select>
       </div>
+      <div id="fb2" class="feedback"></div>
     </div>
 
-    <div id="step3" class="hidden">
-      <p><strong>Step 3: Eradication & Recovery</strong></p>
+    <!-- PHASE 3 -->
+    <div id="phase3" class="update hidden">
+      <h3>Phase 3 – Eradication</h3>
+      <p>
+        Malware analysis identifies the attack vector: a phishing email opened earlier.
+      </p>
 
-      <div class="options">
-        <button onclick="finish()">Remove malware and restore from clean backups</button>
-        <button class="bad" onclick="finish(false)">Reinstall Windows and forget about it</button>
+      <div class="decision">
+        <strong>What action removes the threat?</strong>
+        <select onchange="phase3(this.value)">
+          <option value="">-- choose an action --</option>
+          <option value="remove">Remove malware, disable compromised accounts</option>
+          <option value="format">Wipe everything without investigation</option>
+        </select>
       </div>
+      <div id="fb3" class="feedback"></div>
     </div>
 
-    <div id="result" class="feedback"></div>
+    <!-- PHASE 4 -->
+    <div id="phase4" class="update hidden">
+      <h3>Phase 4 – Recovery & Lessons Learned</h3>
+      <p>
+        Systems are stable. Backups are available from the night before.
+      </p>
+
+      <div class="decision">
+        <strong>How does the organization recover?</strong>
+        <select onchange="phase4(this.value)">
+          <option value="">-- choose an action --</option>
+          <option value="restore">Restore from clean backups and document lessons</option>
+          <option value="resume">Resume work without changes</option>
+        </select>
+      </div>
+      <div id="fb4" class="feedback"></div>
+    </div>
 
   </div>
 </div>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <div class="card">
-  <h2>Continue the Pathway</h2>
-
+  <h2>Finish the Pathway</h2>
   <div class="nav">
-    /lessons/cybersecurity/security-best-practices.html
+    <a href="/lessons/cybersecurity/security-best-practices.html">
       <button class="secondary">⬅ Best Practices</button>
     </a>
 
-    /cybersecurity.html
+    <a href="/cybersecurity.html">
       <button class="dark">🔁 Cybersecurity Lessons</button>
     </a>
 
-    /lessons/cybersecurity/careers.html
+    <a href="/lessons/cybersecurity/careers.html">
       <button>✅ Finish → Cybersecurity Careers</button>
     </a>
 
-    /index.html
+    <a href="/index.html">
       <button>🏠 Home</button>
     </a>
   </div>
@@ -217,29 +224,51 @@ h2{
 </div>
 
 <script>
-function step1(correct){
-  if(correct){
-    document.getElementById("step1").classList.add("hidden");
-    document.getElementById("step2").classList.remove("hidden");
-  }else{
-    alert("Wrong order. Acting too fast can destroy evidence or spread damage.");
+function phase1(choice){
+  const fb = document.getElementById("fb1");
+  if(choice === "investigate"){
+    fb.textContent = "✅ Correct. Confirming the incident preserves evidence.";
+    fb.style.color = "#22c55e";
+    document.getElementById("phase2").classList.remove("hidden");
+  } else {
+    fb.textContent = "❌ This action increases risk or destroys evidence.";
+    fb.style.color = "#ef4444";
   }
 }
 
-function step2(correct){
-  if(correct){
-    document.getElementById("step2").classList.add("hidden");
-    document.getElementById("step3").classList.remove("hidden");
-  }else{
-    alert("Containment comes before eradication or recovery.");
+function phase2(choice){
+  const fb = document.getElementById("fb2");
+  if(choice === "isolate"){
+    fb.textContent = "✅ Correct. Containment stops lateral movement.";
+    fb.style.color = "#22c55e";
+    document.getElementById("phase3").classList.remove("hidden");
+  } else {
+    fb.textContent = "❌ Damage continues if containment is skipped.";
+    fb.style.color = "#ef4444";
   }
 }
 
-function finish(correct=true){
-  const r = document.getElementById("result");
-  r.textContent =
-    "✅ Correct Incident Response. Damage limited, systems restored, lessons learned.";
-  r.style.color = "#22c55e";
+function phase3(choice){
+  const fb = document.getElementById("fb3");
+  if(choice === "remove"){
+    fb.textContent = "✅ Correct. Root cause must be removed before recovery.";
+    fb.style.color = "#22c55e";
+    document.getElementById("phase4").classList.remove("hidden");
+  } else {
+    fb.textContent = "❌ Erasing systems without learning leads to repeat incidents.";
+    fb.style.color = "#ef4444";
+  }
+}
+
+function phase4(choice){
+  const fb = document.getElementById("fb4");
+  if(choice === "restore"){
+    fb.textContent = "✅ Correct. Incident resolved and security improved.";
+    fb.style.color = "#22c55e";
+  } else {
+    fb.textContent = "❌ Failure to learn guarantees future incidents.";
+    fb.style.color = "#ef4444";
+  }
 }
 </script>
 
