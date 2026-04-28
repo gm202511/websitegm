@@ -178,3 +178,70 @@ h2{
     </div>
 
     <div id="step3" class="hidden">
+      <p><strong>Step 3: Eradication & Recovery</strong></p>
+
+      <div class="options">
+        <button onclick="finish()">Remove malware and restore from clean backups</button>
+        <button class="bad" onclick="finish(false)">Reinstall Windows and forget about it</button>
+      </div>
+    </div>
+
+    <div id="result" class="feedback"></div>
+
+  </div>
+</div>
+
+<!-- NAVIGATION -->
+<div class="card">
+  <h2>Continue the Pathway</h2>
+
+  <div class="nav">
+    /lessons/cybersecurity/security-best-practices.html
+      <button class="secondary">⬅ Best Practices</button>
+    </a>
+
+    /cybersecurity.html
+      <button class="dark">🔁 Cybersecurity Lessons</button>
+    </a>
+
+    /lessons/cybersecurity/careers.html
+      <button>✅ Finish → Cybersecurity Careers</button>
+    </a>
+
+    /index.html
+      <button>🏠 Home</button>
+    </a>
+  </div>
+</div>
+
+</div>
+
+<script>
+function step1(correct){
+  if(correct){
+    document.getElementById("step1").classList.add("hidden");
+    document.getElementById("step2").classList.remove("hidden");
+  }else{
+    alert("Wrong order. Acting too fast can destroy evidence or spread damage.");
+  }
+}
+
+function step2(correct){
+  if(correct){
+    document.getElementById("step2").classList.add("hidden");
+    document.getElementById("step3").classList.remove("hidden");
+  }else{
+    alert("Containment comes before eradication or recovery.");
+  }
+}
+
+function finish(correct=true){
+  const r = document.getElementById("result");
+  r.textContent =
+    "✅ Correct Incident Response. Damage limited, systems restored, lessons learned.";
+  r.style.color = "#22c55e";
+}
+</script>
+
+</body>
+</html>
