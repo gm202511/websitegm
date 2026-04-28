@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Security Best Practices</title>
+
+<style>
+:root{
+  --bg:#0b132b;
+  --panel:#1c2541;
+  --accent:#00eaff;
+  --success:#22c55e;
+  --danger:#ef4444;
+  --text:#e5e7eb;
+}
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541);
+  color:var(--text);
+}
+
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:16px;
+  padding:24px;
+  margin-bottom:30px;
+  box-shadow:0 12px 30px rgba(0,0,0,0.25);
+}
+
+h1{
+  margin-top:0;
+  color:var(--accent);
+}
+
+h2{
+  color:#7dd3fc;
+}
+
+ul{
+  padding-left:20px;
+}
+
+.practice{
+  background:rgba(255,255,255,0.07);
+  border-radius:12px;
+  padding:18px;
+  margin-bottom:20px;
+}
+
+.buttons button{
+  margin:8px 8px 0 0;
+  padding:12px 18px;
+  border:none;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:bold;
+  background:linear-gradient(135deg,#00eaff,#38bdf8);
+  color:#001219;
+}
+
+.buttons button.bad{
+  background:linear-gradient(135deg,#ef4444,#f97316);
+  color:white;
+}
+
+.feedback{
+  margin-top:8px;
+  font-weight:bold;
+}
+
+.nav-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:20px;
+}
+
+.nav-buttons a{
+  text-decoration:none;
+}
+
+.nav-buttons button{
+  padding:14px 22px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+  color:#052e16;
+}
+
+.nav-buttons button.secondary{
+  background:linear-gradient(135deg,#38bdf8,#60a5fa);
+}
+
+.nav-buttons button.danger{
+  background:linear-gradient(135deg,#ef4444,#f97316);
+  color:white;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="card">
+    <h1>Security Best Practices</h1>
+    <p>
+      Security best practices are rules and habits used to reduce risk, prevent attacks,
+      and limit damage when something goes wrong.
+    </p>
+    <p>
+      No system is 100% secure — the goal is to make attacks <strong>harder</strong> and
+      <strong>less damaging</strong>.
+    </p>
+  </div>
+
+  <!-- PRACTICES -->
+  <div class="card">
+    <h2>Core Security Best Practices</h2>
+    <ul>
+      <li><strong>Strong Passwords:</strong> Long, unique, never reused</li>
+      <li><strong>Multi‑Factor Authentication (MFA):</strong> Something you know + have</li>
+      <li><strong>Least Privilege:</strong> Users only get access they need</li>
+      <li><strong>Updates & Patching:</strong> Fix known vulnerabilities</li>
+      <li><strong>Backups:</strong> Protect against ransomware and data loss</li>
+      <li><strong>User Training:</strong> Humans are the #1 target</li>
+      <li><strong>Physical Security:</strong> Locks, badges, cameras</li>
+    </ul>
+  </div>
+
+  <!-- ACTIVITY -->
+  <div class="card">
+    <h2>Best Practice Challenge</h2>
+    <p>Choose the MOST correct security response.</p>
+
+    <div class="practice">
+      <p><strong>1.</strong> An employee needs access to only one folder.</p>
+      <div class="buttons">
+        <button onclick="good(this)">Grant folder‑level access</button>
+        <button class="bad" onclick="bad(this)">Make them an admin</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="practice">
+      <p><strong>2.</strong> A computer hasn’t been updated in 2 years.</p>
+      <div class="buttons">
+        <button onclick="good(this)">Apply patches and updates</button>
+        <button class="bad" onclick="bad(this)">Ignore it if it works</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+
+    <div class="practice">
+      <p><strong>3.</strong> A password is reused across websites.</p>
+      <div class="buttons">
+        <button onclick="good(this)">Use unique passwords</button>
+        <button class="bad" onclick="bad(this)">Reuse for convenience</button>
+      </div>
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <div class="card">
+    <h2>Navigation</h2>
+    <div class="nav-buttons">
+      <a href="/lessons/cybersecurity/social-engineering.html">
+        <button class="secondary">⬅ Back</button>
+      </a>
+
+      <a href="/index.html">
+        <button>🏠 Home</button>
+      </a>
+
+      <a href="/lessons/cybersecurity/incident-response.html">
+        <button class="danger">Next Lesson ➜ Incident Response</button>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function good(btn){
+  const area = btn.closest(".practice");
+  const fb = area.querySelector(".feedback");
+  fb.textContent = "✅ Correct – This reduces security risk.";
+  fb.style.color = "#22c55e";
+}
+
+function bad(btn){
+  const area = btn.closest(".practice");
+  const fb = area.querySelector(".feedback");
+  fb.textContent = "❌ Incorrect – This increases risk.";
+  fb.style.color = "#ef4444";
+}
+</script>
+
+</body>
+</html>
