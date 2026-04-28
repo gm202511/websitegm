@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cybersecurity Careers & Pathways</title>
+
+<style>
+:root{
+  --bg:#0b132b;
+  --panel:#1c2541;
+  --accent:#00eaff;
+  --success:#22c55e;
+  --text:#e5e7eb;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541);
+  color:var(--text);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:26px;
+  margin-bottom:30px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.35);
+}
+
+h1{
+  margin-top:0;
+  color:var(--accent);
+}
+
+h2{
+  color:#7dd3fc;
+  margin-top:0;
+}
+
+h3{
+  margin-bottom:6px;
+  color:#a5f3fc;
+}
+
+p, li{
+  line-height:1.55;
+  font-size:1.05em;
+}
+
+ul{
+  padding-left:20px;
+}
+
+.role{
+  background:rgba(255,255,255,0.06);
+  border-radius:14px;
+  padding:20px;
+  margin-bottom:20px;
+}
+
+.resources a{
+  display:inline-block;
+  margin:8px 8px 0 0;
+  padding:12px 18px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#00eaff,#38bdf8);
+  color:#001219;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+.resources a:hover{
+  transform:scale(1.05);
+}
+
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.nav a{
+  text-decoration:none;
+}
+
+.nav button{
+  padding:14px 22px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+  color:#052e16;
+}
+
+.nav button.secondary{
+  background:linear-gradient(135deg,#38bdf8,#60a5fa);
+}
+
+.nav button.dark{
+  background:linear-gradient(135deg,#64748b,#94a3b8);
+  color:#020617;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="card">
+    <h1>Cybersecurity Careers & How to Get Started</h1>
+    <p>
+      Cybersecurity is not one job — it is a field made up of many different roles.
+      Some focus on <strong>defense</strong>, others on <strong>investigation</strong>,
+      <strong>design</strong>, or <strong>policy</strong>.
+    </p>
+    <p>
+      There is no single “right” path. Many professionals start in IT, networking,
+      programming, or help desk roles before moving into cybersecurity.
+    </p>
+  </div>
+
+  <!-- ROLES -->
+  <div class="card">
+    <h2>Common Cybersecurity Roles</h2>
+
+    <div class="role">
+      <h3>🔐 Security Analyst</h3>
+      <p><strong>What they do:</strong> Monitor systems, review security alerts, investigate suspicious activity.</p>
+      <p><strong>Good for:</strong> People who like problem‑solving and investigation.</p>
+      <p><strong>Certifications:</strong> Security+, CySA+</p>
+    </div>
+
+    <div class="role">
+      <h3>🧱 Security Engineer</h3>
+      <p><strong>What they do:</strong> Design, build, and maintain secure systems and networks.</p>
+      <p><strong>Good for:</strong> Strong technical thinkers who enjoy building systems.</p>
+      <p><strong>Certifications:</strong> Network+, Security+, CCNA</p>
+    </div>
+
+    <div class="role">
+      <h3>🕵️ Penetration Tester (Ethical Hacker)</h3>
+      <p><strong>What they do:</strong> Test systems to find vulnerabilities before attackers do.</p>
+      <p><strong>Good for:</strong> Curious, technical problem‑solvers.</p>
+      <p><strong>Certifications:</strong> CEH, PNPT, OSCP (advanced)</p>
+    </div>
+
+    <div class="role">
+      <h3>🚨 Incident Responder</h3>
+      <p><strong>What they do:</strong> Respond to breaches, contain damage, and help systems recover.</p>
+      <p><strong>Good for:</strong> Calm thinkers who work well under pressure.</p>
+      <p><strong>Certifications:</strong> Security+, GCIH (later career)</p>
+    </div>
+
+    <div class="role">
+      <h3>📄 GRC (Governance, Risk & Compliance)</h3>
+      <p><strong>What they do:</strong> Create policies, ensure compliance, manage risk.</p>
+      <p><strong>Good for:</strong> Students who like policy, communication, and structure.</p>
+      <p><strong>Certifications:</strong> Security+, CISM, CISSP (advanced)</p>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="card">
+    <h2>Education Paths</h2>
+    <ul>
+      <li><strong>High School:</strong> IT, networking, cybersecurity fundamentals</li>
+      <li><strong>College:</strong> IT, Computer Science, Cybersecurity degrees</li>
+      <li><strong>No‑Degree Path:</strong> Certifications + labs + experience</li>
+    </ul>
+    <p>
+      Many employers care more about <strong>skills, certifications, and experience</strong>
+      than where you went to school.
+    </p>
+  </div>
+
+  <!-- RESOURCES -->
+  <div class="card">
+    <h2>Trusted Learning & Career Resources</h2>
+
+    <div class="resources">
+      <a href="https://www.comptia.org" target="_blank">CompTIA Certifications</a>
+      <a href="https://tryhackme.com" target="_blank">TryHackMe (Hands‑On Labs)</a>
+      <a href="https://www.hackthebox.com" target="_blank">Hack The Box</a>
+      <a href="https://www.cyberseek.org" target="_blank">CyberSeek Career Explorer</a>
+      <a href="https://www.nist.gov/cyberframework" target="_blank">NIST Cyber Framework</a>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="card">
+    <h2>Navigation</h2>
+    <div class="nav">
+      /cybersecurity.html
+        <button class="secondary">⬅ Cybersecurity Lessons</button>
+      </a>
+
+      /lessons/cybersecurity/security-best-practices.html
+        <button class="dark">🔁 Revisit Best Practices</button>
+      </a>
+
+      /index.html
+        <button>🏠 Home</button>
+      </a>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
