@@ -2,25 +2,14 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Incident Response</title>
+<title>Incident Response – Cybersecurity</title>
 
 <style>
-:root{
-  --bg:#0b132b;
-  --panel:#1c2541;
-  --accent:#00eaff;
-  --success:#22c55e;
-  --danger:#ef4444;
-  --text:#e5e7eb;
-}
-
-*{ box-sizing:border-box; }
-
 body{
   margin:0;
   font-family:Arial, Helvetica, sans-serif;
   background:linear-gradient(135deg,#0b132b,#1c2541);
-  color:var(--text);
+  color:#e5e7eb;
 }
 
 .container{
@@ -32,55 +21,60 @@ body{
 .card{
   background:rgba(255,255,255,0.08);
   border-radius:18px;
-  padding:26px;
+  padding:28px;
   margin-bottom:30px;
-  box-shadow:0 14px 30px rgba(0,0,0,0.35);
+  box-shadow:0 15px 35px rgba(0,0,0,0.35);
 }
 
 h1{
   margin-top:0;
-  color:var(--accent);
+  color:#00eaff;
 }
 
 h2{
   color:#7dd3fc;
 }
 
-.step{
+.phase{
   background:rgba(255,255,255,0.06);
-  border-radius:14px;
-  padding:18px;
-  margin-bottom:16px;
+  border-left:6px solid #00eaff;
+  padding:16px;
+  margin-bottom:14px;
+  border-radius:10px;
 }
 
-.scenario{
+.sim{
   background:rgba(255,255,255,0.07);
   border-radius:16px;
   padding:22px;
 }
 
-.buttons button{
-  margin:10px 10px 0 0;
-  padding:14px 20px;
+.options button{
+  display:block;
+  width:100%;
+  margin:10px 0;
+  padding:14px;
   border:none;
   border-radius:12px;
-  cursor:pointer;
-  font-weight:bold;
   font-size:1em;
-  background:linear-gradient(135deg,#00eaff,#38bdf8);
-  color:#001219;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#38bdf8,#00eaff);
+  color:#022c22;
 }
 
-.buttons button.bad{
+.options button.bad{
   background:linear-gradient(135deg,#ef4444,#f97316);
-  color:white;
+  color:#fff;
 }
 
 .feedback{
-  margin-top:12px;
   font-weight:bold;
-  font-size:1.05em;
+  margin-top:14px;
+  min-height:40px;
 }
+
+.hidden{ display:none; }
 
 .nav{
   display:flex;
@@ -114,119 +108,73 @@ h2{
 <body>
 <div class="container">
 
-  <!-- INTRO -->
-  <div class="card">
-    <h1>Incident Response</h1>
-    <p>
-      An <strong>incident</strong> is any event that threatens the confidentiality,
-      integrity, or availability of a system.
-    </p>
-    <p>
-      <strong>Incident Response</strong> is the structured process used to detect,
-      contain, and recover from security incidents.
-    </p>
-    <p>
-      The goal is <strong>limit damage, restore systems, and prevent it from happening again</strong>.
-    </p>
-  </div>
-
-  <!-- STEPS -->
-  <div class="card">
-    <h2>The Incident Response Lifecycle</h2>
-
-    <div class="step">
-      <strong>1. Preparation</strong><br>
-      Policies, backups, training, tools, and response plans.
-    </div>
-
-    <div class="step">
-      <strong>2. Identification</strong><br>
-      Detect and confirm that an incident has occurred.
-    </div>
-
-    <div class="step">
-      <strong>3. Containment</strong><br>
-      Stop the spread and limit damage.
-    </div>
-
-    <div class="step">
-      <strong>4. Eradication</strong><br>
-      Remove the cause (malware, accounts, vulnerabilities).
-    </div>
-
-    <div class="step">
-      <strong>5. Recovery</strong><br>
-      Restore systems and monitor for re‑infection.
-    </div>
-
-    <div class="step">
-      <strong>6. Lessons Learned</strong><br>
-      Improve security to prevent future incidents.
-    </div>
-  </div>
-
-  <!-- INTERACTIVE SCENARIO -->
-  <div class="card">
-    <h2>Incident Response Scenario</h2>
-
-    <div class="scenario">
-      <p>
-        Multiple employees report their computers are displaying ransomware messages.
-        Files are encrypted and a payment is demanded.
-      </p>
-
-      <p><strong>What should you do FIRST?</strong></p>
-
-      <div class="buttons">
-        <button onclick="correct(this)">Isolate affected computers from the network</button>
-        <button class="bad" onclick="incorrect(this)">Pay the ransom immediately</button>
-        <button class="bad" onclick="incorrect(this)">Ignore it until more computers fail</button>
-      </div>
-
-      <div class="feedback"></div>
-    </div>
-  </div>
-
-  <!-- NAVIGATION -->
-  <div class="card">
-    <h2>Navigation</h2>
-    <div class="nav">
-
-      /lessons/cybersecurity/security-best-practices.html
-        <button class="secondary">⬅ Best Practices</button>
-      </a>
-
-      /cybersecurity.html
-        <button class="dark">🔁 Cybersecurity Lessons</button>
-      </a>
-
-      /lessons/cybersecurity/careers.html
-        <button>✅ Finish → Careers & Pathways</button>
-      </a>
-
-      /index.html
-        <button>🏠 Home</button>
-      </a>
-    </div>
-  </div>
-
+<!-- INTRO -->
+<div class="card">
+  <h1>Incident Response</h1>
+  <p>
+    <strong>Incident Response (IR)</strong> is the structured process used by security teams
+    to detect, contain, eliminate, and recover from cybersecurity incidents.
+  </p>
+  <p>
+    The goal is <strong>not panic, not speed, and not punishment</strong>.
+    The goal is to <strong>limit damage, preserve evidence, restore service, and prevent repeat attacks</strong>.
+  </p>
 </div>
 
-<script>
-function correct(btn){
-  const box = btn.closest(".scenario");
-  const fb = box.querySelector(".feedback");
-  fb.textContent = "✅ Correct. Isolation is part of containment and prevents further damage.";
-  fb.style.color = "#22c55e";
-}
+<!-- LIFECYCLE -->
+<div class="card">
+  <h2>The Incident Response Lifecycle</h2>
 
-function incorrect(btn){
-  const box = btn.closest(".scenario");
-  const fb = box.querySelector(".feedback");
-  fb.textContent = "❌ Incorrect. Always contain the incident before taking other actions.";
-  fb.style.color = "#ef4444";
-}
-</script>
+  <div class="phase"><strong>1. Preparation</strong><br>
+  Policies, tools, backups, access controls, and training.</div>
 
-</body>
-</html>
+  <div class="phase"><strong>2. Identification</strong><br>
+  Detect and confirm an incident is actually occurring.</div>
+
+  <div class="phase"><strong>3. Containment</strong><br>
+  Isolate affected systems to prevent spread.</div>
+
+  <div class="phase"><strong>4. Eradication</strong><br>
+  Remove malware, disable accounts, fix vulnerabilities.</div>
+
+  <div class="phase"><strong>5. Recovery</strong><br>
+  Restore systems, monitor closely, return to normal operation.</div>
+
+  <div class="phase"><strong>6. Lessons Learned</strong><br>
+  Document what happened and improve defenses.</div>
+</div>
+
+<!-- SIMULATION -->
+<div class="card">
+  <h2>Guided Incident Response Simulation</h2>
+
+  <div class="sim">
+
+    <p>
+      Employees report files suddenly becoming encrypted.
+      Several computers display a ransom message demanding payment.
+    </p>
+
+    <div id="step1">
+      <p><strong>Step 1: Identification</strong><br>
+      What should you do FIRST?</p>
+
+      <div class="options">
+        <button onclick="step1(true)">Confirm incident and gather details</button>
+        <button class="bad" onclick="step1(false)">Immediately shut down every system</button>
+        <button class="bad" onclick="step1(false)">Pay the ransom quietly</button>
+      </div>
+    </div>
+
+    <div id="step2" class="hidden">
+      <p><strong>Step 2: Containment</strong><br>
+      How do you stop the damage?</p>
+
+      <div class="options">
+        <button onclick="step2(true)">Disconnect infected systems from the network</button>
+        <button class="bad" onclick="step2(false)">Delete encrypted files immediately</button>
+        <button class="bad" onclick="step2(false)">Ignore it and wait for IT</button>
+      </div>
+    </div>
+
+    <div id="step3" class="hidden">
