@@ -1,115 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Learning Pathways | IT Foundations</title>
-
-<style>
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: #0b132b;
-    color: #ffffff;
-}
-
-/* Navigation */
-nav {
-    background-color: #1c2541;
-    padding: 15px;
-    text-align: center;
-}
-
-nav a {
-    color: #00eaff;
-    margin: 0 20px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* Page content */
-main {
-    max-width: 1000px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-h1 {
-    text-align: center;
-}
-
-.card {
-    background-color: #1c2541;
-    border-radius: 12px;
-    padding: 20px;
-    margin-top: 30px;
-}
-
-.card h2 {
-    color: #00eaff;
-}
-
-.card ul {
-    padding-left: 20px;
-}
-
-.card a {
-    display: inline-block;
-    margin-top: 15px;
-    color: #00eaff;
-    text-decoration: none;
-    font-weight: bold;
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website GM</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+        nav { position: sticky; top: 0; background: rgba(255, 255, 255, 0.9); padding: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
+        nav a { margin: 0 15px; text-decoration: none; color: #333; transition: color 0.3s; }
+        nav a:hover { color: #007BFF; }
+        .gradient-text { background: linear-gradient(45deg, #6a11cb, #2575fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .card { border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s; }
+        .card:hover { transform: scale(1.05); }
+    </style>
 </head>
-
 <body>
-
-<nav>
-    <a href="/">Home</a>
-    <a href="/pathways/">Pathways</a>
-</nav>
-
-<main>
-    <h1>Learning Pathways</h1>
-    <p>Select a structured learning path aligned to industry certifications and careers.</p>
-
-    <div class="card">
-        <h2>Cybersecurity Pathway (Security+)</h2>
-        <p>Learn how systems are protected, monitored, and defended.</p>
-        <strong>Careers:</strong>
-        <ul>
-            <li>Cybersecurity Analyst</li>
-            <li>SOC Analyst</li>
-            <li>Information Security Technician</li>
-        </ul>
-        <a href="/pathways/cybersecurity.html">View Cybersecurity Pathway →</a>
-    </div>
-
-    <div class="card">
-        <h2>IT Fundamentals Pathway (A+)</h2>
-        <p>Build core support and troubleshooting skills.</p>
-        <strong>Careers:</strong>
-        <ul>
-            <li>Help Desk Technician</li>
-            <li>IT Support Specialist</li>
-            <li>Desktop Support</li>
-        </ul>
-        <a href="/pathways/a-plus.html">View A+ Pathway →</a>
-    </div>
-
-    <div class="card">
-        <h2>Networking Pathway (Network+)</h2>
-        <p>Learn how networks are designed, configured, and supported.</p>
-        <strong>Careers:</strong>
-        <ul>
-            <li>Network Technician</li>
-            <li>Junior Network Administrator</li>
-            <li>Network Support Specialist</li>
-        </ul>
-        <a href="/pathways/network-plus.html">View Network+ Pathway →</a>
-    </div>
-</main>
-
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Services</a>
+        <a href="#">Contact</a>
+    </nav>
+    <section>
+        <h1 class="gradient-text">Welcome to Website GM</h1>
+        <div class="card">
+            <h2>Card Title</h2>
+            <p>This is a simple card with modern styling and smooth transitions.</p>
+        </div>
+    </section>
 </body>
 </html>
