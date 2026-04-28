@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Incident Response</title>
+
+<style>
+:root{
+  --bg:#0b132b;
+  --panel:#1c2541;
+  --accent:#00eaff;
+  --success:#22c55e;
+  --danger:#ef4444;
+  --text:#e5e7eb;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541);
+  color:var(--text);
+}
+
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:30px;
+}
+
+.card{
+  background:rgba(255,255,255,0.08);
+  border-radius:18px;
+  padding:26px;
+  margin-bottom:30px;
+  box-shadow:0 14px 30px rgba(0,0,0,0.35);
+}
+
+h1{
+  margin-top:0;
+  color:var(--accent);
+}
+
+h2{
+  color:#7dd3fc;
+}
+
+.step{
+  background:rgba(255,255,255,0.06);
+  border-radius:14px;
+  padding:18px;
+  margin-bottom:16px;
+}
+
+.scenario{
+  background:rgba(255,255,255,0.07);
+  border-radius:16px;
+  padding:22px;
+}
+
+.buttons button{
+  margin:10px 10px 0 0;
+  padding:14px 20px;
+  border:none;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:bold;
+  font-size:1em;
+  background:linear-gradient(135deg,#00eaff,#38bdf8);
+  color:#001219;
+}
+
+.buttons button.bad{
+  background:linear-gradient(135deg,#ef4444,#f97316);
+  color:white;
+}
+
+.feedback{
+  margin-top:12px;
+  font-weight:bold;
+  font-size:1.05em;
+}
+
+.nav{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+
+.nav a{ text-decoration:none; }
+
+.nav button{
+  padding:14px 22px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#22c55e,#4ade80);
+  color:#052e16;
+}
+
+.nav button.secondary{
+  background:linear-gradient(135deg,#38bdf8,#60a5fa);
+}
+
+.nav button.dark{
+  background:linear-gradient(135deg,#64748b,#94a3b8);
+  color:#020617;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <!-- INTRO -->
+  <div class="card">
+    <h1>Incident Response</h1>
+    <p>
+      An <strong>incident</strong> is any event that threatens the confidentiality,
+      integrity, or availability of a system.
+    </p>
+    <p>
+      <strong>Incident Response</strong> is the structured process used to detect,
+      contain, and recover from security incidents.
+    </p>
+    <p>
+      The goal is <strong>limit damage, restore systems, and prevent it from happening again</strong>.
+    </p>
+  </div>
+
+  <!-- STEPS -->
+  <div class="card">
+    <h2>The Incident Response Lifecycle</h2>
+
+    <div class="step">
+      <strong>1. Preparation</strong><br>
+      Policies, backups, training, tools, and response plans.
+    </div>
+
+    <div class="step">
+      <strong>2. Identification</strong><br>
+      Detect and confirm that an incident has occurred.
+    </div>
+
+    <div class="step">
+      <strong>3. Containment</strong><br>
+      Stop the spread and limit damage.
+    </div>
+
+    <div class="step">
+      <strong>4. Eradication</strong><br>
+      Remove the cause (malware, accounts, vulnerabilities).
+    </div>
+
+    <div class="step">
+      <strong>5. Recovery</strong><br>
+      Restore systems and monitor for re‑infection.
+    </div>
+
+    <div class="step">
+      <strong>6. Lessons Learned</strong><br>
+      Improve security to prevent future incidents.
+    </div>
+  </div>
+
+  <!-- INTERACTIVE SCENARIO -->
+  <div class="card">
+    <h2>Incident Response Scenario</h2>
+
+    <div class="scenario">
+      <p>
+        Multiple employees report their computers are displaying ransomware messages.
+        Files are encrypted and a payment is demanded.
+      </p>
+
+      <p><strong>What should you do FIRST?</strong></p>
+
+      <div class="buttons">
+        <button onclick="correct(this)">Isolate affected computers from the network</button>
+        <button class="bad" onclick="incorrect(this)">Pay the ransom immediately</button>
+        <button class="bad" onclick="incorrect(this)">Ignore it until more computers fail</button>
+      </div>
+
+      <div class="feedback"></div>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <div class="card">
+    <h2>Navigation</h2>
+    <div class="nav">
+
+      /lessons/cybersecurity/security-best-practices.html
+        <button class="secondary">⬅ Best Practices</button>
+      </a>
+
+      /cybersecurity.html
+        <button class="dark">🔁 Cybersecurity Lessons</button>
+      </a>
+
+      /lessons/cybersecurity/careers.html
+        <button>✅ Finish → Careers & Pathways</button>
+      </a>
+
+      /index.html
+        <button>🏠 Home</button>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script>
+function correct(btn){
+  const box = btn.closest(".scenario");
+  const fb = box.querySelector(".feedback");
+  fb.textContent = "✅ Correct. Isolation is part of containment and prevents further damage.";
+  fb.style.color = "#22c55e";
+}
+
+function incorrect(btn){
+  const box = btn.closest(".scenario");
+  const fb = box.querySelector(".feedback");
+  fb.textContent = "❌ Incorrect. Always contain the incident before taking other actions.";
+  fb.style.color = "#ef4444";
+}
+</script>
+
+</body>
+</html>
