@@ -31,7 +31,7 @@ h2{ color:#7dd3fc; }
 h3{ color:#a5f3fc; }
 
 p, li{
-  line-height:1.55;
+  line-height:1.6;
   font-size:1.05em;
 }
 
@@ -40,22 +40,13 @@ ul{ padding-left:20px; }
 .role{
   background:rgba(255,255,255,0.06);
   border-radius:14px;
-  padding:20px;
-  margin-bottom:20px;
+  padding:22px;
+  margin-bottom:22px;
 }
 
-.resources a{
-  display:inline-block;
-  margin:8px 8px 0 0;
-  padding:12px 18px;
-  border-radius:10px;
-  background:linear-gradient(135deg,#00eaff,#38bdf8);
-  color:#001219;
-  text-decoration:none;
-  font-weight:bold;
-}
+.role p{ margin:6px 0; }
 
-.resources a:hover{ transform:scale(1.05); }
+.role strong{ color:#ffffff; }
 
 .nav{
   display:flex;
@@ -63,9 +54,7 @@ ul{ padding-left:20px; }
   gap:14px;
 }
 
-.nav a{
-  text-decoration:none;
-}
+.nav a{ text-decoration:none; }
 
 .nav button{
   padding:14px 22px;
@@ -91,53 +80,161 @@ ul{ padding-left:20px; }
 <body>
 <div class="container">
 
+<!-- INTRO -->
 <div class="card">
-  <h1>Cybersecurity Careers & How to Get Started</h1>
+  <h1>Cybersecurity Careers & How People Get Into Them</h1>
   <p>
-    Cybersecurity is not one single job. It is a field made up of many different roles
-    focused on protecting systems, data, and people.
+    Cybersecurity is a broad field with many different roles. Most professionals do
+    <strong>not</strong> start directly in cybersecurity.
+  </p>
+  <p>
+    A common path is:
+    <strong>IT or Networking → Cybersecurity specialization</strong>.
+  </p>
+  <p>
+    Employers care about three things:
+    <strong>skills, certifications, and experience</strong>.
   </p>
 </div>
 
+<!-- ROLE 1 -->
 <div class="card">
-  <h2>Common Cybersecurity Roles</h2>
+  <h2>Core Cybersecurity Roles</h2>
 
   <div class="role">
     <h3>🔐 Security Analyst</h3>
-    <p><strong>Certs:</strong> Security+, CySA+</p>
+    <p><strong>What they do:</strong></p>
+    <p>
+      Security Analysts monitor systems for threats, investigate alerts,
+      analyze logs, and respond to suspicious activity. This is one of the
+      most common entry‑level cybersecurity roles.
+    </p>
+
+    <p><strong>Typical background:</strong></p>
+    <ul>
+      <li>IT support or help desk</li>
+      <li>Networking fundamentals</li>
+      <li>Basic scripting or log analysis</li>
+    </ul>
+
+    <p><strong>Certifications explained:</strong></p>
+    <ul>
+      <li><strong>Security+</strong> – Proves understanding of core security concepts</li>
+      <li><strong>CySA+</strong> – Focuses on detection, monitoring, and analysis</li>
+    </ul>
   </div>
 
   <div class="role">
     <h3>🧱 Security Engineer</h3>
-    <p><strong>Certs:</strong> Network+, Security+, CCNA</p>
+    <p><strong>What they do:</strong></p>
+    <p>
+      Security Engineers design and maintain secure systems. They configure
+      firewalls, access controls, monitoring tools, and network security devices.
+    </p>
+
+    <p><strong>Typical background:</strong></p>
+    <ul>
+      <li>Networking or systems administration</li>
+      <li>Windows/Linux administration</li>
+      <li>Understanding of firewalls and network traffic</li>
+    </ul>
+
+    <p><strong>Certifications explained:</strong></p>
+    <ul>
+      <li><strong>Network+</strong> – Networking fundamentals (very important)</li>
+      <li><strong>Security+</strong> – Security concepts on top of networking</li>
+      <li><strong>CCNA</strong> – Practical networking and infrastructure skills</li>
+    </ul>
   </div>
 
   <div class="role">
-    <h3>🕵️ Penetration Tester</h3>
-    <p><strong>Certs:</strong> CEH, PNPT, OSCP</p>
+    <h3>🕵️ Penetration Tester (Ethical Hacker)</h3>
+    <p><strong>What they do:</strong></p>
+    <p>
+      Penetration Testers legally attempt to break into systems to find vulnerabilities
+      before attackers do. This is <strong>not</strong> an entry‑level role.
+    </p>
+
+    <p><strong>Typical background:</strong></p>
+    <ul>
+      <li>Strong networking knowledge</li>
+      <li>Linux and command‑line experience</li>
+      <li>Scripting (Python, Bash)</li>
+    </ul>
+
+    <p><strong>Certifications explained:</strong></p>
+    <ul>
+      <li><strong>CEH</strong> – Introductory ethical hacking concepts</li>
+      <li><strong>PNPT</strong> – Real‑world penetration testing methodology</li>
+      <li><strong>OSCP</strong> – Advanced, hands‑on hacking certification</li>
+    </ul>
   </div>
 
   <div class="role">
     <h3>🚨 Incident Responder</h3>
-    <p><strong>Certs:</strong> Security+, GCIH</p>
+    <p><strong>What they do:</strong></p>
+    <p>
+      Incident Responders handle active cyber incidents such as ransomware,
+      breaches, or compromised accounts. They contain damage and restore systems.
+    </p>
+
+    <p><strong>Typical background:</strong></p>
+    <ul>
+      <li>Security analyst or SOC experience</li>
+      <li>Understanding of malware and attack techniques</li>
+      <li>Strong documentation and communication skills</li>
+    </ul>
+
+    <p><strong>Certifications explained:</strong></p>
+    <ul>
+      <li><strong>Security+</strong> – Foundation knowledge</li>
+      <li><strong>GCIH</strong> – Incident handling and response</li>
+    </ul>
+  </div>
+
+  <div class="role">
+    <h3>📄 Governance, Risk & Compliance (GRC)</h3>
+    <p><strong>What they do:</strong></p>
+    <p>
+      GRC professionals focus on policies, risk management, audits, and compliance with
+      laws and standards. This role is less technical but very important.
+    </p>
+
+    <p><strong>Typical background:</strong></p>
+    <ul>
+      <li>IT knowledge</li>
+      <li>Strong communication and documentation skills</li>
+      <li>Understanding of regulations and policies</li>
+    </ul>
+
+    <p><strong>Certifications explained:</strong></p>
+    <ul>
+      <li><strong>Security+</strong> – General security understanding</li>
+      <li><strong>CISM</strong> – Security management</li>
+      <li><strong>CISSP</strong> – Senior‑level certification</li>
+    </ul>
   </div>
 </div>
 
+<!-- EDUCATION PATH -->
 <div class="card">
-  <h2>Learning Resources</h2>
-  <div class="resources">
-    <a href="https://www.comptia.org" target="_blank">CompTIA</a>
-    <a href="https://tryhackme.com" target="_blank">TryHackMe</a>
-    <a href="https://www.hackthebox.com" target="_blank">Hack The Box</a>
-    <a href="https://www.cyberseek.org" target="_blank">CyberSeek</a>
-  </div>
+  <h2>Education & Career Path Summary</h2>
+  <ul>
+    <li>Start with <strong>IT & networking fundamentals</strong></li>
+    <li>Earn <strong>entry‑level certifications</strong></li>
+    <li>Gain <strong>hands‑on experience</strong></li>
+    <li>Specialize into a cybersecurity role</li>
+  </ul>
+  <p>
+    There is no shortcut. Cybersecurity professionals are trusted because
+    they understand how systems actually work.
+  </p>
 </div>
 
-<!-- ✅ THESE ARE THE BUTTONS -->
+<!-- NAVIGATION -->
 <div class="card">
   <h2>Continue Exploring</h2>
   <div class="nav">
-
     <a href="/cybersecurity.html">
       <button class="secondary">⬅ Cybersecurity Lessons</button>
     </a>
@@ -153,7 +250,6 @@ ul{ padding-left:20px; }
     <a href="/index.html">
       <button>🏠 Home</button>
     </a>
-
   </div>
 </div>
 
