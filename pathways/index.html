@@ -1,33 +1,182 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Website GM</title>
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
-        nav { position: sticky; top: 0; background: rgba(255, 255, 255, 0.9); padding: 10px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); }
-        nav a { margin: 0 15px; text-decoration: none; color: #333; transition: color 0.3s; }
-        nav a:hover { color: #007BFF; }
-        .gradient-text { background: linear-gradient(45deg, #6a11cb, #2575fc); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .card { border: 1px solid #ddd; border-radius: 5px; padding: 20px; margin: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); transition: transform 0.3s; }
-        .card:hover { transform: scale(1.05); }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learning Pathways | IT Foundations</title>
+
+<style>
+:root{
+  --panel: rgba(255,255,255,0.08);
+  --accent: #00eaff;
+  --text: #ffffff;
+  --muted: #cbd5e1;
+  --beginner: #22c55e;
+  --intermediate: #facc15;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+  color:var(--text);
+}
+
+nav{
+  background:rgba(0,0,0,.7);
+  padding:16px;
+}
+
+nav .links{
+  display:flex;
+  justify-content:center;
+  gap:30px;
+}
+
+nav a{
+  color:var(--accent);
+  font-weight:bold;
+  text-decoration:none;
+}
+
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+h1{text-align:center;}
+.subtitle{
+  text-align:center;
+  color:var(--muted);
+  max-width:850px;
+  margin:10px auto 40px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:24px;
+}
+
+.card{
+  background:var(--panel);
+  padding:24px;
+  border-radius:16px;
+  position:relative;
+  transition:transform .2s, box-shadow .2s;
+}
+
+.card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 10px 30px rgba(0,0,0,.3);
+}
+
+.card h2{
+  color:var(--accent);
+  margin-top:0;
+}
+
+.card p{
+  color:var(--muted);
+}
+
+.tag{
+  position:absolute;
+  top:16px;
+  right:16px;
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.75rem;
+  font-weight:bold;
+}
+
+.beginner{
+  background:var(--beginner);
+  color:#052e16;
+}
+
+.intermediate{
+  background:var(--intermediate);
+  color:#3b2f05;
+}
+
+.card a{
+  display:inline-block;
+  margin-top:16px;
+  padding:12px 18px;
+  background:linear-gradient(135deg,#00eaff,#38bdf8);
+  color:#001f2f;
+  font-weight:bold;
+  border-radius:10px;
+  text-decoration:none;
+}
+</style>
 </head>
+
 <body>
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Contact</a>
-    </nav>
-    <section>
-        <h1 class="gradient-text">Welcome to Website GM</h1>
-        <div class="card">
-            <h2>Card Title</h2>
-            <p>This is a simple card with modern styling and smooth transitions.</p>
-        </div>
-    </section>
+
+<nav>
+  <div class="links">
+    /
+    /pathways/Pathways</a>
+  </div>
+</nav>
+
+<main>
+
+<h1>📚 Learning Pathways</h1>
+<p class="subtitle">
+Choose a pathway to begin building real‑world IT and cybersecurity skills.
+Each pathway is labeled by difficulty.
+</p>
+
+<div class="grid">
+
+  <!-- CYBERSECURITY -->
+  <div class="card">
+    <span class="tag beginner">Beginner</span>
+    <h2>🛡️ Cybersecurity</h2>
+    <p>
+      Learn how systems are attacked, defended, and protected.
+      Start with phishing awareness and build foundational security skills.
+    </p>
+    /pathways/cybersecurity.html
+      View Cybersecurity Pathway
+    </a>
+  </div>
+
+  <!-- NETWORK+ -->
+  <div class="card">
+    <span class="tag beginner">Beginner</span>
+    <h2>🌐 Network+</h2>
+    <p>
+      Understand how networks work, how data moves, and why networking
+      knowledge is critical for cybersecurity.
+    </p>
+    /pathways/network-plus.html
+      View Network+ Pathway
+    </a>
+  </div>
+
+  <!-- SECURITY+ -->
+  <div class="card">
+    <span class="tag intermediate">Intermediate</span>
+    <h2>🔐 Security+</h2>
+    <p>
+      Dive deeper into security controls, threat types, and incident response
+      aligned with Security+ concepts.
+    </p>
+    /pathways/security-plus.html
+      View Security+ Pathway
+    </a>
+  </div>
+
+</div>
+
+</main>
+
 </body>
 </html>
