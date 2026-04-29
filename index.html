@@ -6,276 +6,235 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:"Segoe UI",Roboto,Arial,sans-serif;
+  background:linear-gradient(135deg,#0b132b 0%,#1c2541 50%,#3a506b 100%);
+  color:#ffffff;
+  line-height:1.6;
+  min-height:100vh;
 }
 
-body {
-    font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-    background: linear-gradient(135deg, #0b132b 0%, #1c2541 50%, #3a506b 100%);
-    color: #ffffff;
-    line-height: 1.6;
-    min-height: 100vh;
+/* NAV */
+nav{
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:20px;
+  background:rgba(0,0,0,0.6);
+  backdrop-filter:blur(10px);
+  position:sticky;
+  top:0;
+  z-index:100;
 }
 
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    padding: 20px 25px;
-    background: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    border-bottom: 2px solid rgba(0, 234, 255, 0.2);
+nav a{
+  color:#00eaff;
+  text-decoration:none;
+  font-weight:600;
+  font-size:1.1em;
 }
 
-nav a {
-    color: #00eaff;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1em;
-    transition: all 0.3s ease;
-    position: relative;
+/* HERO */
+header{
+  text-align:center;
+  padding:120px 25px 90px;
 }
 
-nav a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: #00eaff;
-    transition: width 0.3s ease;
+header h1{
+  font-size:3.6em;
+  margin-bottom:20px;
+  background:linear-gradient(135deg,#00eaff,#00ffd5);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-nav a:hover::after {
-    width: 100%;
+header p{
+  max-width:850px;
+  margin:0 auto 35px;
+  font-size:1.25em;
+  opacity:0.95;
 }
 
-nav a:hover {
-    color: #00ffd5;
+.hero-cta a{
+  display:inline-block;
+  padding:18px 48px;
+  background:linear-gradient(135deg,#00eaff,#00ffd5);
+  color:#001f2f;
+  font-weight:800;
+  border-radius:60px;
+  text-decoration:none;
+  font-size:1.15em;
 }
 
-/* Hero Section */
-header {
-    text-align: center;
-    padding: 120px 25px 80px;
-    background: linear-gradient(180deg, rgba(0, 234, 255, 0.1) 0%, transparent 100%);
-    position: relative;
-    overflow: hidden;
+/* SECTIONS */
+section{
+  max-width:1400px;
+  margin:auto;
+  padding:80px 25px;
 }
 
-header h1 {
-    font-size: 3.5em;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, #00eaff, #00ffd5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+section h2{
+  text-align:center;
+  font-size:2.5em;
+  margin-bottom:55px;
+  background:linear-gradient(135deg,#00eaff,#00ffd5);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-header p {
-    font-size: 1.25em;
-    opacity: 0.95;
-    max-width: 800px;
-    margin: 0 auto;
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:35px;
 }
 
-/* Section layout */
-section {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 80px 25px;
+.card{
+  background:linear-gradient(135deg,rgba(28,37,65,.85),rgba(58,80,107,.65));
+  border:1px solid rgba(0,234,255,0.3);
+  border-radius:22px;
+  padding:40px 32px;
+  transition:.35s ease;
 }
 
-section h2 {
-    text-align: center;
-    font-size: 2.5em;
-    margin-bottom: 60px;
-    background: linear-gradient(135deg, #00eaff, #00ffd5);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 20px 50px rgba(0,234,255,0.2);
 }
 
-/* Cards */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 35px;
-    margin-bottom: 40px;
+.icon{
+  font-size:2.8em;
+  margin-bottom:15px;
 }
 
-.card {
-    background: linear-gradient(135deg, rgba(28, 37, 65, 0.8), rgba(58, 80, 107, 0.6));
-    border: 1px solid rgba(0, 234, 255, 0.3);
-    border-radius: 20px;
-    padding: 40px 30px;
-    transition: all 0.4s ease;
-    position: relative;
+.card h3{
+  color:#00eaff;
+  margin-bottom:15px;
 }
 
-.card:hover {
-    transform: translateY(-8px) scale(1.02);
-    border-color: rgba(0, 234, 255, 0.6);
-    box-shadow: 0 20px 50px rgba(0, 234, 255, 0.2);
+.card a{
+  display:inline-block;
+  margin-top:18px;
+  padding:14px 28px;
+  background:linear-gradient(135deg,#00eaff,#00ffd5);
+  color:#001f2f;
+  font-weight:700;
+  border-radius:50px;
+  text-decoration:none;
 }
 
-.card h2 {
-    color: #00eaff;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.card p {
-    margin-bottom: 12px;
-    line-height: 1.8;
-}
-
-.card ul {
-    padding-left: 20px;
-}
-
-.card ul li {
-    margin-bottom: 8px;
-}
-
-.icon {
-    font-size: 2.8em;
-    margin-bottom: 15px;
-}
-
-/* CTA */
-.cta {
-    text-align: center;
-    margin: 80px 0 40px;
-}
-
-.cta a {
-    display: inline-block;
-    padding: 18px 45px;
-    background: linear-gradient(135deg, #00eaff, #00ffd5);
-    color: #001f2f;
-    font-size: 1.15em;
-    font-weight: 700;
-    border-radius: 50px;
-    text-decoration: none;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 40px 25px;
-    border-top: 1px solid rgba(0, 234, 255, 0.2);
-    font-size: 0.95em;
-    opacity: 0.8;
-    background: rgba(0, 0, 0, 0.3);
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:40px 25px;
+  background:rgba(0,0,0,0.3);
+  border-top:1px solid rgba(0,234,255,0.2);
+  opacity:.8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navigation -->
 <nav>
-    <a href="/">Home</a>
-    <a href="/pathways/">Pathways</a>
-    <a href="/apps/">Apps</a>
+  <a href="/">Home</a>
+  <a href="/pathways/">Pathways</a>
+  <a href="/apps/">Apps</a>
 </nav>
 
-<!-- Hero -->
 <header>
-    <h1>💻 IT Foundations</h1>
-    <p>
-        Real‑world information technology education built by an industry professional,
-        licensed Massachusetts educator, and coach — focused on understanding,
-        not memorization.
-    </p>
+  <h1>💻 IT Foundations</h1>
+  <p>
+    Real‑world IT education built by an industry professional and licensed
+    Massachusetts educator — focused on understanding systems, not memorization.
+  </p>
+
+  <!-- ✅ PRIMARY ENTRY POINT -->
+  <div class="hero-cta">
+    <a href="/pathways/">🎯 Start With a Learning Pathway</a>
+  </div>
 </header>
 
-<!-- Mission -->
+<!-- ✅ HOW TO USE THIS SITE -->
 <section>
-    <h2>Our Mission</h2>
+  <h2>How This Site Works</h2>
 
-    <div class="grid">
-        <div class="card">
-            <div class="icon">🎓</div>
-            <h2>About the Creator</h2>
-            <p>
-                This platform was created by a licensed teacher in Massachusetts currently
-                teaching Information Systems, Services, and Networking (ISSN).
-            </p>
-            <p>
-                Prior to teaching, I worked in the IT industry as a Help Desk Manager,
-                Project Manager, and Cybersecurity Analyst.
-            </p>
-        </div>
+  <div class="grid">
 
-        <div class="card">
-            <div class="icon">🤼</div>
-            <h2>The Coaching Influence</h2>
-            <p>
-                With over 15 years of wrestling coaching experience,
-                my approach to IT education emphasizes fundamentals,
-                discipline, repetition, and mindset.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">🧠</div>
-            <h2>Why This Site Exists</h2>
-            <p>
-                Too many people are taught to memorize answers.
-                This site teaches how systems actually work.
-            </p>
-        </div>
-
-        <div class="card">
-            <div class="icon">📚</div>
-            <h2>What You'll Learn</h2>
-            <ul>
-                <li>CompTIA A+</li>
-                <li>CompTIA Network+</li>
-                <li>CompTIA Security+</li>
-            </ul>
-        </div>
+    <div class="card">
+      <div class="icon">🧭</div>
+      <h3>1. Choose a Pathway</h3>
+      <p>
+        Start with a structured learning path for A+, Network+, or Security+.
+        Pathways guide what to learn and in what order.
+      </p>
+      <a href="/pathways/">View Pathways</a>
     </div>
 
-    <div class="cta">
-        <a href="/pathways/">🎯 View Learning Pathways</a>
+    <div class="card">
+      <div class="icon">📖</div>
+      <h3>2. Learn the Concepts</h3>
+      <p>
+        Lessons explain how systems actually work — focused on understanding,
+        not memorizing definitions.
+      </p>
     </div>
+
+    <div class="card">
+      <div class="icon">🧪</div>
+      <h3>3. Practice & Apply</h3>
+      <p>
+        Use question apps and scenario trainers to apply knowledge
+        and identify weak areas.
+      </p>
+    </div>
+
+  </div>
 </section>
 
 <!-- ✅ PRACTICE APPS -->
 <section>
-    <h2>Practice Apps</h2>
+  <h2>Practice Apps</h2>
 
-    <div class="grid">
-        <div class="card">
-            <div class="icon">🎱</div>
-            <h2>Cybersecurity Question App</h2>
-            <p>
-                Practice Security+‑aligned concepts using random,
-                multiple‑choice questions covering threats,
-                incident response, identity, and defense.
-            </p>
-            <p>
-                Ideal for review, bell ringers, or post‑pathway reinforcement.
-            </p>
-            <a href="/apps/cyber-magic-question.html">Launch Cybersecurity Question App</a>
-        </div>
+  <div class="grid">
+
+    <div class="card">
+      <div class="icon">🎱</div>
+      <h3>Security+ Questions</h3>
+      <p>Exam‑style questions with feedback and performance breakdowns.</p>
+      <a href="/apps/securityplus-questions.html">Launch</a>
     </div>
+
+    <div class="card">
+      <div class="icon">🖥️</div>
+      <h3>A+ Questions</h3>
+      <p>Core 1 & Core 2 practice aligned to real technician tasks.</p>
+      <a href="/apps/aplus-questions.html">Launch</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🌐</div>
+      <h3>Network+ Questions</h3>
+      <p>Networking concepts, troubleshooting, and operations.</p>
+      <a href="/apps/networkplus-questions.html">Launch</a>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧠</div>
+      <h3>A+ Scenario Trainer</h3>
+      <p>Decision‑based troubleshooting scenarios.</p>
+      <a href="/apps/aplus-scenario-trainer.html">Launch</a>
+    </div>
+
+  </div>
 </section>
 
 <footer>
-    © 2026 IT Foundations • Built by an Educator • Informed by Industry
+  © 2026 IT Foundations • Built by an Educator • Informed by Industry
 </footer>
 
 </body>
 </html>
+``
