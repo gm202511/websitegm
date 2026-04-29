@@ -9,24 +9,25 @@
 *{margin:0;padding:0;box-sizing:border-box}
 
 body{
-  font-family:"Segoe UI",Roboto,Arial,sans-serif;
+  font-family:"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
   background:linear-gradient(135deg,#0b132b 0%,#1c2541 50%,#3a506b 100%);
   color:#ffffff;
   line-height:1.6;
   min-height:100vh;
 }
 
-/* NAV */
+/* NAVIGATION */
 nav{
   display:flex;
   justify-content:center;
   gap:40px;
-  padding:20px;
+  padding:20px 25px;
   background:rgba(0,0,0,0.6);
   backdrop-filter:blur(10px);
   position:sticky;
   top:0;
   z-index:100;
+  border-bottom:2px solid rgba(0,234,255,0.2);
 }
 
 nav a{
@@ -34,16 +35,33 @@ nav a{
   text-decoration:none;
   font-weight:600;
   font-size:1.1em;
+  position:relative;
+}
+
+nav a::after{
+  content:'';
+  position:absolute;
+  bottom:-5px;
+  left:0;
+  width:0;
+  height:2px;
+  background:#00eaff;
+  transition:width .3s ease;
+}
+
+nav a:hover::after{
+  width:100%;
 }
 
 /* HERO */
 header{
   text-align:center;
   padding:120px 25px 90px;
+  background:linear-gradient(180deg,rgba(0,234,255,.1),transparent);
 }
 
 header h1{
-  font-size:3.6em;
+  font-size:3.5em;
   margin-bottom:20px;
   background:linear-gradient(135deg,#00eaff,#00ffd5);
   -webkit-background-clip:text;
@@ -51,21 +69,22 @@ header h1{
 }
 
 header p{
-  max-width:850px;
-  margin:0 auto 35px;
   font-size:1.25em;
-  opacity:0.95;
+  opacity:.95;
+  max-width:800px;
+  margin:0 auto 40px;
 }
 
+/* PRIMARY CTA */
 .hero-cta a{
   display:inline-block;
   padding:18px 48px;
   background:linear-gradient(135deg,#00eaff,#00ffd5);
   color:#001f2f;
+  font-size:1.15em;
   font-weight:800;
   border-radius:60px;
   text-decoration:none;
-  font-size:1.15em;
 }
 
 /* SECTIONS */
@@ -78,7 +97,7 @@ section{
 section h2{
   text-align:center;
   font-size:2.5em;
-  margin-bottom:55px;
+  margin-bottom:60px;
   background:linear-gradient(135deg,#00eaff,#00ffd5);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -101,12 +120,7 @@ section h2{
 
 .card:hover{
   transform:translateY(-8px);
-  box-shadow:0 20px 50px rgba(0,234,255,0.2);
-}
-
-.icon{
-  font-size:2.8em;
-  margin-bottom:15px;
+  box-shadow:0 20px 50px rgba(0,234,255,.2);
 }
 
 .card h3{
@@ -114,6 +128,16 @@ section h2{
   margin-bottom:15px;
 }
 
+.card p{
+  margin-bottom:12px;
+}
+
+.icon{
+  font-size:2.8em;
+  margin-bottom:15px;
+}
+
+/* BUTTON LINKS */
 .card a{
   display:inline-block;
   margin-top:18px;
@@ -129,8 +153,9 @@ section h2{
 footer{
   text-align:center;
   padding:40px 25px;
-  background:rgba(0,0,0,0.3);
-  border-top:1px solid rgba(0,234,255,0.2);
+  border-top:1px solid rgba(0,234,255,.2);
+  font-size:.95em;
+  background:rgba(0,0,0,.3);
   opacity:.8;
 }
 </style>
@@ -138,96 +163,112 @@ footer{
 
 <body>
 
+<!-- NAV -->
 <nav>
   <a href="/">Home</a>
   <a href="/pathways/">Pathways</a>
   <a href="/apps/">Apps</a>
 </nav>
 
+<!-- HERO -->
 <header>
   <h1>💻 IT Foundations</h1>
   <p>
-    Real‑world IT education built by an industry professional and licensed
-    Massachusetts educator — focused on understanding systems, not memorization.
+    Real‑world information technology education built by an industry professional,
+    licensed Massachusetts educator, and coach — focused on understanding,
+    not memorization.
   </p>
 
-  <!-- ✅ PRIMARY ENTRY POINT -->
+  <!-- ✅ EMPHASIZED BUT SAME LINK -->
   <div class="hero-cta">
     <a href="/pathways/">🎯 Start With a Learning Pathway</a>
   </div>
 </header>
 
-<!-- ✅ HOW TO USE THIS SITE -->
+<!-- MISSION -->
 <section>
-  <h2>How This Site Works</h2>
+  <h2>Our Mission</h2>
 
   <div class="grid">
+    <div class="card">
+      <div class="icon">🎓</div>
+      <h3>About the Creator</h3>
+      <p>
+        Created by a licensed Massachusetts ISSN instructor with real‑world
+        experience as a Help Desk Manager, Project Manager, and Cybersecurity Analyst.
+      </p>
+    </div>
 
     <div class="card">
-      <div class="icon">🧭</div>
-      <h3>1. Choose a Pathway</h3>
+      <div class="icon">🤼</div>
+      <h3>The Coaching Influence</h3>
       <p>
-        Start with a structured learning path for A+, Network+, or Security+.
-        Pathways guide what to learn and in what order.
+        Inspired by over 15 years of coaching — emphasizing fundamentals,
+        discipline, mindset, and repetition.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">🧠</div>
+      <h3>Why This Site Exists</h3>
+      <p>
+        Too many people are taught to memorize answers.
+        This site teaches how systems actually work.
+      </p>
+    </div>
+
+    <div class="card">
+      <div class="icon">📚</div>
+      <h3>What You'll Learn</h3>
+      <p>
+        CompTIA A+, Network+, and Security+ pathways built around
+        real technician thinking.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ HOW TO USE (NO LINK CHANGES) -->
+<section>
+  <h2>How to Use This Site</h2>
+
+  <div class="grid">
+    <div class="card">
+      <div class="icon">🧭</div>
+      <h3>Start With Pathways</h3>
+      <p>
+        Use the Pathways section to follow guided learning sequences
+        aligned to A+, Network+, and Security+.
       </p>
       <a href="/pathways/">View Pathways</a>
     </div>
 
     <div class="card">
-      <div class="icon">📖</div>
-      <h3>2. Learn the Concepts</h3>
-      <p>
-        Lessons explain how systems actually work — focused on understanding,
-        not memorizing definitions.
-      </p>
-    </div>
-
-    <div class="card">
       <div class="icon">🧪</div>
-      <h3>3. Practice & Apply</h3>
+      <h3>Practice With Apps</h3>
       <p>
-        Use question apps and scenario trainers to apply knowledge
-        and identify weak areas.
+        Reinforce concepts using question apps and scenario trainers
+        designed for application, not memorization.
       </p>
+      <a href="/apps/">View Apps</a>
     </div>
-
   </div>
 </section>
 
-<!-- ✅ PRACTICE APPS -->
+<!-- PRACTICE APPS (UNCHANGED ROUTE) -->
 <section>
   <h2>Practice Apps</h2>
 
   <div class="grid">
-
     <div class="card">
       <div class="icon">🎱</div>
-      <h3>Security+ Questions</h3>
-      <p>Exam‑style questions with feedback and performance breakdowns.</p>
-      <a href="/apps/securityplus-questions.html">Launch</a>
+      <h3>Cybersecurity Question App</h3>
+      <p>
+        Practice Security+‑aligned concepts using randomized
+        multiple‑choice questions covering threats, IAM, and defense.
+      </p>
+      <a href="/apps/cyber-magic-question.html">Launch Cybersecurity Question App</a>
     </div>
-
-    <div class="card">
-      <div class="icon">🖥️</div>
-      <h3>A+ Questions</h3>
-      <p>Core 1 & Core 2 practice aligned to real technician tasks.</p>
-      <a href="/apps/aplus-questions.html">Launch</a>
-    </div>
-
-    <div class="card">
-      <div class="icon">🌐</div>
-      <h3>Network+ Questions</h3>
-      <p>Networking concepts, troubleshooting, and operations.</p>
-      <a href="/apps/networkplus-questions.html">Launch</a>
-    </div>
-
-    <div class="card">
-      <div class="icon">🧠</div>
-      <h3>A+ Scenario Trainer</h3>
-      <p>Decision‑based troubleshooting scenarios.</p>
-      <a href="/apps/aplus-scenario-trainer.html">Launch</a>
-    </div>
-
   </div>
 </section>
 
@@ -237,4 +278,3 @@ footer{
 
 </body>
 </html>
-``
