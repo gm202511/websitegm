@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CompTIA Network+ Practice Questions</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+  color:#ffffff;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.app{
+  width:95%;
+  max-width:1000px;
+  background:rgba(255,255,255,0.08);
+  padding:30px;
+  border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,0.45);
+}
+
+h1{
+  text-align:center;
+  background:linear-gradient(135deg,#00eaff,#00ffd5);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+.top{
+  display:flex;
+  justify-content:space-between;
+  margin:15px 0;
+  font-weight:bold;
+}
+
+.tags{
+  display:flex;
+  gap:10px;
+  margin-bottom:10px;
+  flex-wrap:wrap;
+}
+
+.tag{
+  padding:6px 12px;
+  border-radius:999px;
+  font-size:.75em;
+  font-weight:bold;
+}
+
+.beginner{background:#22c55e;color:#052e16}
+.intermediate{background:#facc15;color:#3b2f05}
+.advanced{background:#f97316;color:#431407}
+
+.concepts{background:#38bdf8;color:#020617}
+.infrastructure{background:#818cf8;color:#020617}
+.operations{background:#a78bfa;color:#020617}
+.security{background:#fca5a5;color:#450a0a}
+.troubleshooting{background:#fb7185;color:#4c0519}
+
+.question{
+  background:rgba(0,0,0,0.35);
+  padding:22px;
+  border-radius:16px;
+  margin-bottom:15px;
+  font-size:1.05em;
+}
+
+.answers button{
+  width:100%;
+  padding:14px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#38bdf8,#00eaff);
+  color:#001219;
+}
+
+.answers button.correct{background:#22c55e}
+.answers button.incorrect{background:#ef4444;color:white}
+
+.feedback{
+  min-height:40px;
+  font-weight:bold;
+  margin-top:10px;
+}
+
+.summary{
+  background:rgba(0,0,0,0.4);
+  padding:22px;
+  border-radius:16px;
+}
+
+.summary h2{color:#00eaff}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<h1>🌐 Network+ Practice Questions</h1>
+
+<div class="top hidden" id="status">
+  <div id="progress"></div>
+  <div>Score: <span id="score">0</span></div>
+</div>
+
+<div id="questionBox" class="hidden">
+  <div id="tags" class="tags"></div>
+  <div id="questionText" class="question"></div>
+  <div id="answers" class="answers"></div>
+  <div id="feedback" class="feedback"></div>
+</div>
+
+<div id="summaryBox" class="summary hidden"></div>
+
+</div>
+
+<script>
+/* ---------- UTIL ---------- */
+function shuffle(array){
+  for(let i=array.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [array[i],array[j]]=[array[j],array[i]];
+  }
+}
+
+/* ---------- QUESTIONS ---------- */
+const questions = [
+{d:"Beginner",cat:"concepts",q:"Which OSI layer is responsible for logical addressing and routing?",a:["Network","Transport","Data Link","Session"],c:0,e:"The Network layer (Layer 3) handles IP addressing and routing."},
+
+{d:"Beginner",cat:"concepts",q:"Which protocol is used to resolve an IP address to a MAC address?",a:["ARP","DNS","DHCP","ICMP"],c:0,e:"ARP maps IP addresses to MAC addresses on a local network."},
+
+{d:"Beginner",cat:"infrastructure",q:"Which cable type is BEST for minimizing electromagnetic interference?",a:["Fiber optic","Cat5e","Coaxial","UTP"],c:0,e:"Fiber optic cabling is immune to EMI."},
+
+{d:"Beginner",cat:"operations",q:"Which device operates primarily at OSI Layer 2?",a:["Switch","Router","Firewall","Hub"],c:0,e:"Switches forward traffic using MAC addresses."},
+
+{d:"Intermediate",cat:"concepts",q:"What does a subnet mask determine?",a:["Network and host portions","Default gateway","MAC address","DNS server"],c:0,e:"Subnet masks define which bits belong to the network vs host."},
+
+{d:"Intermediate",cat:"infrastructure",q:"Which protocol uses UDP port 67 and 68?",a:["DHCP","DNS","SNMP","TFTP"],c:0,e:"DHCP uses ports 67/68 for IP assignment."},
+
+{d:"Intermediate",cat:"security",q:"Which attack involves sending excessive traffic to exhaust resources?",a:["DoS","Phishing","Spoofing","Man‑in‑the‑middle"],c:0,e:"Denial‑of‑Service attacks flood systems."},
+
+{d:"Intermediate",cat:"operations",q:"Which command is used to test connectivity to another host?",a:["ping","ipconfig","netstat","arp"],c:0,e:"Ping uses ICMP to test reachability."},
+
+{d:"Intermediate",cat:"troubleshooting",q:"A user has APIPA address 169.254.x.x. What failed?",a:["DHCP","DNS","ARP","NAT"],c:0,e:"APIPA means DHCP failed."},
+
+{d:"Advanced",cat:"concepts",q:"Which routing protocol uses hop count as its metric?",a:["RIP","OSPF","BGP","EIGRP"],c:0,e:"RIP selects routes by lowest hop count."},
+
+{d:"Advanced",cat:"security",q:"Which technology encrypts traffic between two networks over the internet?",a:["VPN","VLAN","NAT","SNMP"],c:0,e:"VPNs provide encrypted tunnels."},
+
+{d:"Advanced",cat:"troubleshooting",q:"Users can access internal resources but not the internet. What should be checked FIRST?",a:["Default gateway","DNS suffix","Switch port","MAC filtering"],c:0,e:"The gateway enables external connectivity."}
+];
+
+/* ---------- STATE ---------- */
+let index=0, score=0;
+let stats={difficulty:{},category:{}};
+
+/* ---------- START ---------- */
+start();
+
+function start(){
+  shuffle(questions);
+  index=0; score=0;
+  stats={difficulty:{},category:{}};
+  document.getElementById("score").textContent=0;
+  document.getElementById("summaryBox").classList.add("hidden");
+  document.getElementById("questionBox").classList.remove("hidden");
+  document.getElementById("status").classList.remove("hidden");
+  load();
+}
+
+function load(){
+  const q=questions[index];
+  document.getElementById("progress").textContent=
+    `Question ${index+1} of ${questions.length}`;
+
+  document.getElementById("tags").innerHTML=
+    `<span class="tag ${q.d.toLowerCase()}">${q.d}</span>
+     <span class="tag ${q.cat}">${q.cat.toUpperCase()}</span>`;
+
+  document.getElementById("questionText").textContent=q.q;
+
+  let answers=q.a.map((t,i)=>({t,correct:i===q.c}));
+  shuffle(answers);
+
+  const box=document.getElementById("answers");
+  box.innerHTML="";
+  answers.forEach(ans=>{
+    const b=document.createElement("button");
+    b.textContent=ans.t;
+    b.onclick=()=>check(ans.correct,q);
+    box.appendChild(b);
+  });
+
+  document.getElementById("feedback").textContent="";
+}
+
+function check(correct,q){
+  document.querySelectorAll(".answers button").forEach(b=>b.disabled=true);
+
+  stats.difficulty[q.d] ??= {c:0,t:0};
+  stats.category[q.cat] ??= {c:0,t:0};
+  stats.difficulty[q.d].t++;
+  stats.category[q.cat].t++;
+
+  if(correct){
+    score++;
+    stats.difficulty[q.d].c++;
+    stats.category[q.cat].c++;
+    document.getElementById("score").textContent=score;
+    document.getElementById("feedback").textContent="✅ Correct. "+q.e;
+  }else{
+    document.getElementById("feedback").textContent="❌ "+q.e;
+  }
+
+  setTimeout(()=>{
+    index++;
+    index<questions.length?load():summary();
+  },2000);
+}
+
+/* ---------- SUMMARY ---------- */
+function summary(){
+  document.getElementById("questionBox").classList.add("hidden");
+
+  let html=`<h2>Results</h2>
+  <p><strong>Final Score:</strong> ${score}/${questions.length}</p>
+  <h3>Performance by Difficulty</h3><ul>`;
+
+  for(const d in stats.difficulty){
+    const s=stats.difficulty[d];
+    html+=`<li>${d}: ${s.c}/${s.t}</li>`;
+  }
+
+  html+=`</ul><h3>Performance by Domain</h3><ul>`;
+
+  for(const c in stats.category){
+    const s=stats.category[c];
+    html+=`<li>${c.toUpperCase()}: ${s.c}/${s.t}</li>`;
+  }
+
+  html+=`</ul>
+  <h3>Where to Improve</h3>
+  <p>Focus review time on domains with the lowest correct percentage.</p>
+  <button onclick="start()">Restart Quiz</button>`;
+
+  const box=document.getElementById("summaryBox");
+  box.innerHTML=html;
+  box.classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
