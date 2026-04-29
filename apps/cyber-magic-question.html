@@ -160,6 +160,202 @@ const questions = [
 {d:"Advanced",cat:"architecture",q:"Which control limits attacker movement inside a network?",a:["Segmentation","Encryption","NAT","Monitoring"],c:0,e:"Segmentation restricts lateral movement."},
 {d:"Advanced",cat:"iam",q:"Which control enforces separation of duties?",a:["RBAC","Strong passwords","Firewalls","IDS"],c:0,e:"RBAC assigns permissions by role."},
 
+{
+  d:"Beginner",
+  cat:"threats",
+  q:"Which type of malware encrypts files and demands payment?",
+  a:["Ransomware","Spyware","Rootkit","Worm"],
+  c:0,
+  e:"Ransomware encrypts data and demands payment for decryption."
+},
+{
+  d:"Beginner",
+  cat:"architecture",
+  q:"Which device detects suspicious activity but does NOT block traffic?",
+  a:["IDS","Firewall","Proxy","WAF"],
+  c:0,
+  e:"Intrusion Detection Systems monitor and alert but do not block."
+},
+{
+  d:"Beginner",
+  cat:"iam",
+  q:"Which authentication factor is something you HAVE?",
+  a:["Smart card","Password","Fingerprint","PIN"],
+  c:0,
+  e:"Smart cards and tokens are possession factors."
+},
+{
+  d:"Beginner",
+  cat:"cryptography",
+  q:"Which term describes converting plaintext into unreadable text?",
+  a:["Encryption","Hashing","Salting","Tokenization"],
+  c:0,
+  e:"Encryption transforms plaintext into ciphertext."
+},
+{
+  d:"Beginner",
+  cat:"operations",
+  q:"Which document defines how security incidents are reported?",
+  a:["Incident response plan","Acceptable use policy","SLAs","Change control"],
+  c:0,
+  e:"Incident response plans define reporting and response procedures."
+},
+
+{
+  d:"Intermediate",
+  cat:"threats",
+  q:"Which attack uses previously captured authentication data?",
+  a:["Replay attack","Phishing","Brute force","Spoofing"],
+  c:0,
+  e:"Replay attacks reuse captured credentials or packets."
+},
+{
+  d:"Intermediate",
+  cat:"architecture",
+  q:"Which solution filters web traffic at the application layer?",
+  a:["Web application firewall","Layer 3 firewall","Router","Switch"],
+  c:0,
+  e:"WAFs protect against application‑layer attacks."
+},
+{
+  d:"Intermediate",
+  cat:"iam",
+  q:"Which solution allows users to authenticate once and access multiple systems?",
+  a:["Single sign-on","MFA","RBAC","Federation only"],
+  c:0,
+  e:"SSO reduces repeated authentication prompts."
+},
+{
+  d:"Intermediate",
+  cat:"operations",
+  q:"Which practice reduces the attack surface of systems?",
+  a:["System hardening","Logging","Monitoring","Auditing"],
+  c:0,
+  e:"Hardening removes unnecessary services and configurations."
+},
+{
+  d:"Intermediate",
+  cat:"cryptography",
+  q:"Which encryption is MOST commonly used for data at rest?",
+  a:["AES","RSA","SHA-256","ECC"],
+  c:0,
+  e:"AES is efficient and widely used for stored data."
+},
+
+{
+  d:"Intermediate",
+  cat:"response",
+  q:"Which phase focuses on returning systems to normal operation?",
+  a:["Recovery","Identification","Containment","Eradication"],
+  c:0,
+  e:"Recovery restores services after an incident."
+},
+{
+  d:"Intermediate",
+  cat:"threats",
+  q:"Which malware can spread without user interaction?",
+  a:["Worm","Trojan","Spyware","Logic bomb"],
+  c:0,
+  e:"Worms self‑propagate across systems."
+},
+{
+  d:"Intermediate",
+  cat:"architecture",
+  q:"Which concept ensures no single point of failure exists?",
+  a:["Redundancy","Segmentation","Hardening","Least privilege"],
+  c:0,
+  e:"Redundancy improves availability."
+},
+{
+  d:"Intermediate",
+  cat:"iam",
+  q:"Which access model assigns permissions based on job function?",
+  a:["RBAC","DAC","MAC","ABAC"],
+  c:0,
+  e:"Role‑Based Access Control ties access to job roles."
+},
+
+{
+  d:"Advanced",
+  cat:"threats",
+  q:"Which attack embeds malicious code into a trusted website?",
+  a:["Cross‑site scripting","DDoS","Spoofing","Brute force"],
+  c:0,
+  e:"XSS injects malicious scripts into trusted sites."
+},
+{
+  d:"Advanced",
+  cat:"cryptography",
+  q:"Which concept ensures encrypted data cannot be altered undetected?",
+  a:["Integrity","Availability","Non‑repudiation","Confidentiality"],
+  c:0,
+  e:"Integrity detects unauthorized changes."
+},
+{
+  d:"Advanced",
+  cat:"architecture",
+  q:"Which control protects against distributed attacks by spreading traffic?",
+  a:["Load balancer","Firewall","IDS","NAT"],
+  c:0,
+  e:"Load balancers distribute traffic to reduce impact."
+},
+{
+  d:"Advanced",
+  cat:"operations",
+  q:"Which testing validates disaster recovery plans?",
+  a:["Tabletop exercises","Penetration tests","Code reviews","Vulnerability scans"],
+  c:0,
+  e:"Tabletop exercises simulate incidents without disruption."
+},
+{
+  d:"Advanced",
+  cat:"iam",
+  q:"Which model enforces access rules based on data sensitivity labels?",
+  a:["MAC","DAC","RBAC","ABAC"],
+  c:0,
+  e:"Mandatory Access Control uses classification labels."
+},
+{
+  d:"Advanced",
+  cat:"response",
+  q:"Which step documents lessons learned after an incident?",
+  a:["Post‑incident review","Identification","Containment","Eradication"],
+  c:0,
+  e:"Lessons learned improve future response."
+},
+
+{
+  d:"Advanced",
+  cat:"threats",
+  q:"Which attack escalates privileges after initial access?",
+  a:["Privilege escalation","Brute force","DDoS","Sniffing"],
+  c:0,
+  e:"Privilege escalation increases attacker permissions."
+},
+{
+  d:"Advanced",
+  cat:"cryptography",
+  q:"Which practice adds randomness to passwords before hashing?",
+  a:["Salting","Tokenization","Encryption","Signing"],
+  c:0,
+  e:"Salting protects against rainbow table attacks."
+},
+{
+  d:"Advanced",
+  cat:"architecture",
+  q:"Which solution provides inspection of encrypted traffic?",
+  a:["SSL inspection","NAT","VPN passthrough","Port forwarding"],
+  c:0,
+  e:"SSL inspection decrypts, inspects, and re‑encrypts traffic."
+},
+{
+  d:"Advanced",
+  cat:"operations",
+  q:"Which metric BEST indicates risk exposure?",
+  a:["Risk likelihood and impact","Number of users","System uptime","Patch frequency"],
+  c:0,
+  e:"Risk is measured by likelihood and impact."
+},
 /* additional questions to reach 40 */
 {d:"Advanced",cat:"operations",q:"Which process ensures vulnerabilities are addressed?",a:["Patch management","Change control","Auditing","Logging"],c:0,e:"Patching fixes known issues."},
 {d:"Beginner",cat:"cryptography",q:"What does encryption primarily provide?",a:["Confidentiality","Integrity","Availability","Authentication"],c:0,e:"Encryption protects data from unauthorized viewing."},
