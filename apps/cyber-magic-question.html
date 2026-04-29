@@ -166,6 +166,169 @@ const questions = [
 {d:"Beginner",q:"What is malware?",a:["Malicious software","Backup software","Security policy","Firewall"],c:0,e:"Malware is software designed to cause harm."},
 {d:"Beginner",q:"Why are backups critical?",a:["They prevent attacks","They allow recovery","They block malware","They encrypt data"],c:1,e:"Backups allow systems to be restored."},
 
+{
+  d:"Beginner",
+  cat:"threats",
+  q:"Which type of attack tricks users into revealing sensitive information?",
+  a:["Phishing","DDoS","Brute force","SQL injection"],
+  c:0,
+  e:"Phishing uses deceptive messages to steal credentials or data."
+},
+{
+  d:"Beginner",
+  cat:"IAM",
+  q:"What is the PRIMARY benefit of multi-factor authentication (MFA)?",
+  a:["Added verification beyond passwords","Faster login times","Easier password resets","Anonymous access"],
+  c:0,
+  e:"MFA requires multiple factors, reducing the impact of stolen passwords."
+},
+{
+  d:"Beginner",
+  cat:"architecture",
+  q:"Which security device filters traffic based on rules?",
+  a:["Firewall","Switch","Router","Access point"],
+  c:0,
+  e:"Firewalls inspect and control traffic using configured rules."
+},
+{
+  d:"Beginner",
+  cat:"operations",
+  q:"Which policy defines acceptable employee behavior when using company systems?",
+  a:["Acceptable Use Policy","Incident Response Plan","Disaster Recovery Plan","Change Management Policy"],
+  c:0,
+  e:"Acceptable Use Policies define how systems may be used."
+},
+{
+  d:"Beginner",
+  cat:"cryptography",
+  q:"Which encryption type uses the same key for encryption and decryption?",
+  a:["Symmetric","Asymmetric","Hashing","Tokenization"],
+  c:0,
+  e:"Symmetric encryption uses one shared secret key."
+},
+
+{
+  d:"Intermediate",
+  cat:"threats",
+  q:"Which malware type disguises itself as legitimate software?",
+  a:["Trojan","Worm","Rootkit","Spyware"],
+  c:0,
+  e:"Trojans rely on deception to gain access."
+},
+{
+  d:"Intermediate",
+  cat:"IAM",
+  q:"Which access control principle grants only the permissions required to perform a job?",
+  a:["Least privilege","Role-based access","Single sign-on","Federation"],
+  c:0,
+  e:"Least privilege limits access to only what is necessary."
+},
+{
+  d:"Intermediate",
+  cat:"architecture",
+  q:"Which network design places public-facing servers in an isolated zone?",
+  a:["DMZ","VLAN","Trusted zone","Intranet"],
+  c:0,
+  e:"A DMZ separates public services from internal networks."
+},
+{
+  d:"Intermediate",
+  cat:"operations",
+  q:"Which document outlines steps to take after a security breach?",
+  a:["Incident response plan","Acceptable use policy","Onboarding checklist","Risk register"],
+  c:0,
+  e:"Incident response plans guide actions after an incident."
+},
+{
+  d:"Intermediate",
+  cat:"cryptography",
+  q:"What is the PRIMARY purpose of hashing?",
+  a:["Data integrity","Confidentiality","Access control","Encryption"],
+  c:0,
+  e:"Hashes verify that data has not been altered."
+},
+
+{
+  d:"Intermediate",
+  cat:"response",
+  q:"What is the FIRST step in incident response?",
+  a:["Identification","Containment","Recovery","Eradication"],
+  c:0,
+  e:"Incidents must be identified before actions can be taken."
+},
+{
+  d:"Intermediate",
+  cat:"threats",
+  q:"Which attack attempts to overload a system to make it unavailable?",
+  a:["DDoS","Phishing","Spoofing","Privilege escalation"],
+  c:0,
+  e:"Distributed Denial-of-Service attacks flood systems with traffic."
+},
+
+{
+  d:"Advanced",
+  cat:"architecture",
+  q:"Which security model focuses on never trusting devices by default?",
+  a:["Zero Trust","Defense in Depth","Bell-LaPadula","Ring model"],
+  c:0,
+  e:"Zero Trust verifies every request regardless of network location."
+},
+{
+  d:"Advanced",
+  cat:"IAM",
+  q:"Which authentication factor represents something you ARE?",
+  a:["Biometric","Password","Smart card","PIN"],
+  c:0,
+  e:"Biometrics include fingerprints, retina scans, and facial recognition."
+},
+{
+  d:"Advanced",
+  cat:"cryptography",
+  q:"Which algorithm is commonly used for digital signatures?",
+  a:["RSA","AES","DES","SHA-1"],
+  c:0,
+  e:"RSA supports asymmetric encryption and digital signatures."
+},
+{
+  d:"Advanced",
+  cat:"response",
+  q:"After containment, what is the NEXT incident response phase?",
+  a:["Eradication","Identification","Preparation","Lessons learned"],
+  c:0,
+  e:"Eradication removes malicious artifacts from systems."
+},
+{
+  d:"Advanced",
+  cat:"operations",
+  q:"Which activity ensures systems can be restored after a major failure?",
+  a:["Disaster recovery","Change management","Hardening","Logging"],
+  c:0,
+  e:"Disaster recovery focuses on restoring services."
+},
+{
+  d:"Advanced",
+  cat:"threats",
+  q:"Which attack exploits trust between systems or users?",
+  a:["Man-in-the-middle","Brute force","Ransomware","Logic bomb"],
+  c:0,
+  e:"MITM attacks intercept communications between trusted parties."
+},
+{
+  d:"Advanced",
+  cat:"IAM",
+  q:"Which control BEST enforces separation of duties?",
+  a:["Role-based access control","Strong passwords","Encryption","Firewalls"],
+  c:0,
+  e:"RBAC restricts access based on job roles."
+},
+{
+  d:"Advanced",
+  cat:"cryptography",
+  q:"Which hashing function is considered insecure and deprecated?",
+  a:["MD5","SHA-256","SHA-3","bcrypt"],
+  c:0,
+  e:"MD5 is vulnerable to collisions and should not be used."
+},
 /* INTERMEDIATE */
 {d:"Intermediate",q:"What is the FIRST step in incident response?",a:["Containment","Identification","Recovery","Eradication"],c:1,e:"An incident must be identified before action."},
 {d:"Intermediate",q:"What does least privilege mean?",a:["Everyone is admin","Users get only required access","Privileges reset weekly","Access is temporary"],c:1,e:"Least privilege limits damage."},
