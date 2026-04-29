@@ -138,6 +138,227 @@ function shuffle(array){
 const questions = [
 {d:"Beginner",cat:"concepts",q:"Which OSI layer is responsible for logical addressing and routing?",a:["Network","Transport","Data Link","Session"],c:0,e:"The Network layer (Layer 3) handles IP addressing and routing."},
 
+{
+  d:"Beginner",
+  cat:"concepts",
+  q:"Which OSI layer is responsible for encryption and compression?",
+  a:["Presentation","Session","Application","Transport"],
+  c:0,
+  e:"The Presentation layer formats, encrypts, and compresses data."
+},
+{
+  d:"Beginner",
+  cat:"infrastructure",
+  q:"Which device is used to segment broadcast domains?",
+  a:["Router","Switch","Hub","Repeater"],
+  c:0,
+  e:"Routers separate broadcast domains."
+},
+{
+  d:"Beginner",
+  cat:"concepts",
+  q:"Which protocol uses TCP port 80 by default?",
+  a:["HTTP","HTTPS","FTP","SMTP"],
+  c:0,
+  e:"HTTP uses TCP port 80."
+},
+{
+  d:"Beginner",
+  cat:"operations",
+  q:"What is the primary purpose of a default gateway?",
+  a:["Enable access to external networks","Assign IP addresses","Resolve hostnames","Encrypt traffic"],
+  c:0,
+  e:"The default gateway routes traffic outside the local network."
+},
+{
+  d:"Beginner",
+  cat:"security",
+  q:"Which technology protects a network by filtering traffic based on rules?",
+  a:["Firewall","Switch","Access point","Load balancer"],
+  c:0,
+  e:"Firewalls allow or block traffic using defined rules."
+},
+
+{
+  d:"Intermediate",
+  cat:"concepts",
+  q:"Which addressing method automatically assigns an IP address when DHCP fails?",
+  a:["APIPA","NAT","Static IP","DNS"],
+  c:0,
+  e:"APIPA assigns addresses in the 169.254.0.0/16 range."
+},
+{
+  d:"Intermediate",
+  cat:"infrastructure",
+  q:"Which wireless standard operates exclusively in the 5 GHz band?",
+  a:["802.11a","802.11b","802.11g","802.11n"],
+  c:0,
+  e:"802.11a operates only at 5 GHz."
+},
+{
+  d:"Intermediate",
+  cat:"operations",
+  q:"Which protocol is commonly used to securely manage network devices?",
+  a:["SSH","Telnet","HTTP","FTP"],
+  c:0,
+  e:"SSH provides encrypted remote management."
+},
+{
+  d:"Intermediate",
+  cat:"security",
+  q:"Which attack disguises traffic to appear as if it came from a trusted source?",
+  a:["Spoofing","Phishing","DoS","Replay"],
+  c:0,
+  e:"Spoofing forges source information to appear legitimate."
+},
+{
+  d:"Intermediate",
+  cat:"troubleshooting",
+  q:"A user can resolve hostnames but cannot connect to external IPs. What should be checked FIRST?",
+  a:["Default gateway","DNS server","Ethernet cable","Switch port"],
+  c:0,
+  e:"Without a working gateway, external connectivity fails."
+},
+
+{
+  d:"Intermediate",
+  cat:"infrastructure",
+  q:"Which type of antenna radiates signal equally in all directions?",
+  a:["Omnidirectional","Directional","Yagi","Parabolic"],
+  c:0,
+  e:"Omnidirectional antennas spread signal 360 degrees."
+},
+{
+  d:"Intermediate",
+  cat:"operations",
+  q:"Which log would BEST show repeated failed login attempts?",
+  a:["Security log","System log","Application log","Traffic log"],
+  c:0,
+  e:"Security logs track authentication events."
+},
+{
+  d:"Intermediate",
+  cat:"concepts",
+  q:"Which protocol dynamically exchanges routing information between routers?",
+  a:["OSPF","ARP","ICMP","DNS"],
+  c:0,
+  e:"OSPF is a link‑state dynamic routing protocol."
+},
+
+{
+  d:"Advanced",
+  cat:"security",
+  q:"Which technology prevents unauthorized changes to packets during transmission?",
+  a:["Integrity controls","Encryption","NAT","Load balancing"],
+  c:0,
+  e:"Integrity ensures data is not altered in transit."
+},
+{
+  d:"Advanced",
+  cat:"infrastructure",
+  q:"Which routing protocol is considered an EGP?",
+  a:["BGP","OSPF","RIP","EIGRP"],
+  c:0,
+  e:"BGP is the primary exterior gateway protocol."
+},
+{
+  d:"Advanced",
+  cat:"troubleshooting",
+  q:"A switch shows high CRC errors on a port. What is the MOST likely cause?",
+  a:["Bad cable","Incorrect IP address","DNS failure","Routing loop"],
+  c:0,
+  e:"CRC errors commonly indicate cabling issues."
+},
+{
+  d:"Advanced",
+  cat:"concepts",
+  q:"Which subnet mask provides the maximum number of usable hosts?",
+  a:["/16","/30","/27","/29"],
+  c:0,
+  e:"A /16 network allows for over 65,000 hosts."
+},
+{
+  d:"Advanced",
+  cat:"security",
+  q:"Which technology isolates internal IP addresses from the public internet?",
+  a:["NAT","VLAN","VPN","DMZ"],
+  c:0,
+  e:"NAT hides private IP addresses behind a public address."
+},
+{
+  d:"Advanced",
+  cat:"operations",
+  q:"Which metric does OSPF use to determine the best path?",
+  a:["Cost","Hop count","Bandwidth only","Latency"],
+  c:0,
+  e:"OSPF uses cost based on bandwidth."
+},
+
+{
+  d:"Advanced",
+  cat:"troubleshooting",
+  q:"Users report intermittent network connectivity throughout the day. What should be reviewed FIRST?",
+  a:["Network utilization","DNS records","User permissions","IP addressing scheme"],
+  c:0,
+  e:"High utilization can cause intermittent failures."
+},
+{
+  d:"Advanced",
+  cat:"infrastructure",
+  q:"Which cable type supports the longest transmission distances?",
+  a:["Single‑mode fiber","Multimode fiber","Cat 6","Coaxial"],
+  c:0,
+  e:"Single‑mode fiber supports distances measured in kilometers."
+},
+{
+  d:"Intermediate",
+  cat:"concepts",
+  q:"Which protocol uses ICMP type 8 messages?",
+  a:["Ping","Traceroute","ARP","SNMP"],
+  c:0,
+  e:"Ping uses ICMP Echo Request (type 8)."
+},
+{
+  d:"Beginner",
+  cat:"operations",
+  q:"Which process ensures devices receive the same IP address consistently?",
+  a:["DHCP reservation","Static routing","NAT","VLAN tagging"],
+  c:0,
+  e:"DHCP reservations assign consistent IPs."
+},
+{
+  d:"Intermediate",
+  cat:"security",
+  q:"Which security control BEST prevents unauthorized physical access?",
+  a:["Mantrap","Firewall","IDS","Encryption"],
+  c:0,
+  e:"Mantraps control physical access to secure areas."
+},
+{
+  d:"Advanced",
+  cat:"troubleshooting",
+  q:"A host can ping the gateway but not other subnets. What is MOST likely misconfigured?",
+  a:["Routing table","DNS server","Switch port","MAC address"],
+  c:0,
+  e:"Improper routing prevents cross‑subnet communication."
+},
+{
+  d:"Intermediate",
+  cat:"infrastructure",
+  q:"Which technology allows multiple VLANs to traverse a single link?",
+  a:["Trunking","NAT","Bonding","Spanning Tree"],
+  c:0,
+  e:"Trunk ports carry traffic for multiple VLANs."
+},
+{
+  d:"Advanced",
+  cat:"security",
+  q:"Which attack captures traffic for later analysis?",
+  a:["Packet sniffing","Phishing","DoS","Brute force"],
+  c:0,
+  e:"Packet sniffing captures network traffic."
+},
+
 {d:"Beginner",cat:"concepts",q:"Which protocol is used to resolve an IP address to a MAC address?",a:["ARP","DNS","DHCP","ICMP"],c:0,e:"ARP maps IP addresses to MAC addresses on a local network."},
 
 {d:"Beginner",cat:"infrastructure",q:"Which cable type is BEST for minimizing electromagnetic interference?",a:["Fiber optic","Cat5e","Coaxial","UTP"],c:0,e:"Fiber optic cabling is immune to EMI."},
@@ -157,6 +378,8 @@ const questions = [
 {d:"Advanced",cat:"concepts",q:"Which routing protocol uses hop count as its metric?",a:["RIP","OSPF","BGP","EIGRP"],c:0,e:"RIP selects routes by lowest hop count."},
 
 {d:"Advanced",cat:"security",q:"Which technology encrypts traffic between two networks over the internet?",a:["VPN","VLAN","NAT","SNMP"],c:0,e:"VPNs provide encrypted tunnels."},
+
+
 
 {d:"Advanced",cat:"troubleshooting",q:"Users can access internal resources but not the internet. What should be checked FIRST?",a:["Default gateway","DNS suffix","Switch port","MAC filtering"],c:0,e:"The gateway enables external connectivity."}
 ];
