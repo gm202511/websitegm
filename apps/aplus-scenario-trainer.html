@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CompTIA A+ Scenario Trainer</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Segoe UI, Arial, sans-serif;
+  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+.app{
+  width:95%;
+  max-width:1100px;
+  background:rgba(255,255,255,0.08);
+  padding:32px;
+  border-radius:20px;
+  box-shadow:0 20px 45px rgba(0,0,0,.45);
+}
+h1{
+  text-align:center;
+  background:linear-gradient(135deg,#00eaff,#00ffd5);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+.selector{text-align:center;margin:20px 0;}
+.selector button{
+  padding:14px 26px;
+  margin:0 8px;
+  border:none;
+  border-radius:999px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#00eaff,#38bdf8);
+  color:#001f2f;
+}
+.top{
+  display:flex;
+  justify-content:space-between;
+  margin:10px 0;
+  font-weight:bold;
+}
+.scenario{
+  background:rgba(0,0,0,.35);
+  padding:22px;
+  border-radius:16px;
+  margin-bottom:12px;
+}
+.tags{display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+.tag{padding:6px 12px;border-radius:999px;font-size:.75em;font-weight:bold;}
+
+.beginner{background:#22c55e;color:#052e16}
+.intermediate{background:#facc15;color:#3b2f05}
+.advanced{background:#f97316;color:#431407}
+.hardware{background:#38bdf8;color:#020617}
+.os{background:#a78bfa;color:#020617}
+.networking{background:#818cf8;color:#020617}
+.security{background:#fca5a5;color:#450a0a}
+.mobile{background:#34d399;color:#022c22}
+.printer{background:#fb7185;color:#4c0519}
+
+.answers button{
+  width:100%;
+  padding:14px;
+  margin-bottom:10px;
+  border:none;
+  border-radius:12px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#38bdf8,#00eaff);
+}
+.answers button.correct{background:#22c55e}
+.answers button.incorrect{background:#ef4444;color:white}
+
+.feedback{min-height:36px;font-weight:bold;margin-top:10px}
+
+.summary{
+  background:rgba(0,0,0,.4);
+  padding:22px;
+  border-radius:16px;
+}
+.summary button{
+  margin-top:14px;
+  padding:12px 20px;
+  border:none;
+  border-radius:999px;
+  font-weight:bold;
+  cursor:pointer;
+  background:linear-gradient(135deg,#00eaff,#38bdf8);
+  color:#001f2f;
+}
+.hidden{display:none}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<h1>🖥️ CompTIA A+ Scenario Trainer</h1>
+
+<div class="selector">
+  <button onclick="start(core1)">A+ Core 1 (220‑1101)</button>
+  <button onclick="start(core2)">A+ Core 2 (220‑1102)</button>
+</div>
+
+<div id="status" class="top hidden">
+  <div id="progress"></div>
+  <div>Score: <span id="score">0</span></div>
+</div>
+
+<div id="scenarioBox" class="hidden">
+  <div id="tags" class="tags"></div>
+  <div id="scenarioText" class="scenario"></div>
+  <div id="answers" class="answers"></div>
+  <div id="feedback" class="feedback"></div>
+</div>
+
+<div id="summaryBox" class="summary hidden"></div>
+
+</div>
+
+<script>
+function shuffle(a){
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+}
+
+let set=[],index=0,score=0;
+let stats={difficulty:{},category:{}};
+
+function start(selected){
+  set=selected;
+  index=0;
+  score=0;
+  stats={difficulty:{},category:{}};
+  document.getElementById("score").textContent=0;
+  document.getElementById("summaryBox").classList.add("hidden");
+  document.getElementById("scenarioBox").classList.remove("hidden");
+  document.getElementById("status").classList.remove("hidden");
+  load();
+}
+
+function load(){
+  const q=set[index];
+  document.getElementById("progress").textContent=`Scenario ${index+1} of ${set.length}`;
+  document.getElementById("tags").innerHTML=
+    `<span class="tag ${q.d.toLowerCase()}">${q.d}</span>
+     <span class="tag ${q.cat}">${q.cat.toUpperCase()}</span>`;
+  document.getElementById("scenarioText").textContent=q.s;
+
+  let ans=q.a.map((t,i)=>({t,correct:i===q.c}));
+  shuffle(ans);
+  const box=document.getElementById("answers");
+  box.innerHTML="";
+  ans.forEach(o=>{
+    const b=document.createElement("button");
+    b.textContent=o.t;
+    b.onclick=()=>check(o.correct,q);
+    box.appendChild(b);
+  });
+  document.getElementById("feedback").textContent="";
+}
+
+function check(correct,q){
+  document.querySelectorAll(".answers button").forEach(b=>b.disabled=true);
+  stats.difficulty[q.d]??={c:0,t:0};
+  stats.category[q.cat]??={c:0,t:0};
+  stats.difficulty[q.d].t++;
+  stats.category[q.cat].t++;
+  if(correct){
+    score++;
+    stats.difficulty[q.d].c++;
+    stats.category[q.cat].c++;
+    document.getElementById("score").textContent=score;
+    document.getElementById("feedback").textContent="✅ "+q.e;
+  }else{
+    document.getElementById("feedback").textContent="❌ "+q.e;
+  }
+  setTimeout(()=>{index<set.length-1?(++index,load()):showSummary()},2000);
+}
+
+function showSummary(){
+  document.getElementById("scenarioBox").classList.add("hidden");
+  let html=`<h2>Run Summary</h2>
+  <p><strong>Final Score:</strong> ${score}/${set.length}</p>
+  <h3>By Difficulty</h3><ul>`;
+  for(const d in stats.difficulty){
+    html+=`<li>${d}: ${stats.difficulty[d].c}/${stats.difficulty[d].t}</li>`;
+  }
+  html+=`</ul><h3>By Category</h3><ul>`;
+  for(const c in stats.category){
+    html+=`<li>${c.toUpperCase()}: ${stats.category[c].c}/${stats.category[c].t}</li>`;
+  }
+  html+=`</ul><button onclick="start(set)">Restart</button>`;
+  const box=document.getElementById("summaryBox");
+  box.innerHTML=html;
+  box.classList.remove("hidden");
+}
+</script>
+
+<script>
+/* ================= CORE 1 – 25 ================= */
+const core1 = [
+  {d:"Beginner",cat:"hardware",s:"PC will not power on. No lights or fans.",a:["Check power cable","Replace motherboard","Reinstall OS","Update BIOS"],c:0,e:"Start with power checks."},
+  {d:"Beginner",cat:"hardware",s:"Monitor shows No Signal.",a:["Check video cable","Replace CPU","Reset BIOS","Reinstall OS"],c:0,e:"Verify display connections."},
+  {d:"Beginner",cat:"printer",s:"Printer output is faded.",a:["Replace toner","Replace printer","Update OS","Check firewall"],c:0,e:"Consumables first."},
+  {d:"Beginner",cat:"mobile",s:"Laptop battery not charging.",a:["Check power adapter","Replace motherboard","Reinstall OS","Update BIOS"],c:0,e:"Verify charging source."},
+  {d:"Beginner",cat:"hardware",s:"Keyboard types wrong characters.",a:["Check language settings","Replace keyboard","Update BIOS","Run antivirus"],c:0,e:"Layout problem."},
+  {d:"Beginner",cat:"hardware",s:"Mouse stops responding intermittently.",a:["Change USB port","Replace motherboard","Reinstall OS","Update BIOS"],c:0,e:"Test simple hardware."},
+  {d:"Beginner",cat:"hardware",s:"External drive not detected.",a:["Try another port","Replace drive","Format disk","Update BIOS"],c:0,e:"Try different port."},
+  {d:"Beginner",cat:"hardware",s:"PC emits beeping at startup.",a:["Check RAM","Replace HDD","Update OS","Install drivers"],c:0,e:"Beep codes indicate RAM."},
+
+  {d:"Intermediate",cat:"hardware",s:"PC randomly reboots under load.",a:["Check PSU","Replace GPU","Scan malware","Clear cache"],c:0,e:"PSU instability."},
+  {d:"Intermediate",cat:"hardware",s:"Laptop overheats and shuts down.",a:["Clean cooling system","Replace SSD","Reinstall OS","Run antivirus"],c:0,e:"Thermal protection."},
+  {d:"Intermediate",cat:"hardware",s:"System boots only in Safe Mode.",a:["Check drivers","Replace RAM","Update BIOS","Change CPU"],c:0,e:"Driver issues."},
+  {d:"Intermediate",cat:"mobile",s:"Touchpad suddenly disabled.",a:["Use function key","Replace RAM","Scan malware","Reset BIOS"],c:0,e:"Often user‑disabled."},
+  {d:"Intermediate",cat:"hardware",s:"PC loud fan noise constantly.",a:["Check dust and airflow","Reinstall OS","Update BIOS","Replace GPU"],c:0,e:"Airflow issue."},
+  {d:"Intermediate",cat:"hardware",s:"System slow after upgrade.",a:["Check requirements","Replace keyboard","Disable firewall","Update BIOS"],c:0,e:"Hardware insufficient."},
+  {d:"Intermediate",cat:"hardware",s:"PC freezes randomly.",a:["Test RAM","Replace HDD","Update OS","Disable firewall"],c:0,e:"Memory instability."},
+  {d:"Intermediate",cat:"hardware",s:"Disk grinding noise.",a:["Power off immediately","Defrag disk","Update OS","Clear cache"],c:0,e:"Mechanical failure."},
+  {d:"Intermediate",cat:"hardware",s:"System clock resets.",a:["Replace CMOS battery","Update OS","Reset BIOS","Clear cache"],c:0,e:"CMOS battery."},
+
+  {d:"Advanced",cat:"hardware",s:"Overheating after fan replacement.",a:["Check thermal paste","Replace motherboard","Reinstall OS","Change PSU"],c:0,e:"Thermal contact issue."},
+  {d:"Advanced",cat:"hardware",s:"Burning smell from case.",a:["Shut down immediately","Run diagnostics","Disable antivirus","Check updates"],c:0,e:"Safety first."},
+  {d:"Advanced",cat:"hardware",s:"New RAM prevents POST.",a:["Verify compatibility","Replace CPU","Reinstall OS","Update drivers"],c:0,e:"RAM compatibility."},
+  {d:"Advanced",cat:"hardware",s:"Front power button does nothing.",a:["Check front panel cable","Replace CPU","Flash BIOS","Install drivers"],c:0,e:"Header connection."},
+  {d:"Advanced",cat:"hardware",s:"Laptop fan never spins.",a:["Check fan connection","Replace motherboard","Update OS","Reset BIOS"],c:0,e:"Hardware connection."},
+  {d:"Advanced",cat:"hardware",s:"PC shuts off instantly.",a:["Check PSU protection","Replace GPU","Reinstall OS","Clear CMOS"],c:0,e:"PSU safety trigger."},
+  {d:"Advanced",cat:"hardware",s:"Random USB disconnects.",a:["Disable USB power saving","Replace RAM","Update BIOS","Reinstall OS"],c:0,e:"Power management."}
+];
+
+/* ================= CORE 2 – 25 ================= */
+const core2 = [
+  {d:"Beginner",cat:"os",s:"User cannot log in after password reset.",a:["Check lockout policy","Reimage PC","Replace keyboard","Reset BIOS"],c:0,e:"Policy lockout."},
+  {d:"Beginner",cat:"security",s:"User reports phishing email.",a:["Delete and report","Reply","Forward externally","Ignore"],c:0,e:"Report phishing."},
+  {d:"Beginner",cat:"os",s:"PC slow after software install.",a:["Uninstall app","Add RAM","Reset BIOS","Disable firewall"],c:0,e:"Recent change."},
+  {d:"Beginner",cat:"security",s:"Pop‑ups appear constantly.",a:["Scan malware","Ignore","Disable AV","Reset router"],c:0,e:"Likely malware."},
+  {d:"Beginner",cat:"os",s:"Cannot print.",a:["Check default printer","Replace printer","Clear DNS","Reinstall OS"],c:0,e:"Logical check first."},
+  {d:"Beginner",cat:"os",s:"Wrong OS boots.",a:["Change boot order","Replace drive","Reset password","Update BIOS"],c:0,e:"Boot config."},
+  {d:"Beginner",cat:"security",s:"Unknown startup programs.",a:["Check startup items","Ignore","Reimage PC","Disable firewall"],c:0,e:"Startup review."},
+  {d:"Beginner",cat:"os",s:"User lost files.",a:["Restore backup","Ignore","Replace RAM","Scan malware"],c:0,e:"Use backups."},
+
+  {d:"Intermediate",cat:"security",s:"Malware detected.",a:["Isolate and scan","Disable AV","Ignore","Format disk"],c:0,e:"Containment."},
+  {d:"Intermediate",cat:"os",s:"Blue screen after driver update.",a:["Roll back driver","Replace CPU","Reinstall OS","Disable firewall"],c:0,e:"Driver rollback."},
+  {d:"Intermediate",cat:"networking",s:"Cannot reach server.",a:["Check IP config","Replace CPU","Disable firewall","Reimage PC"],c:0,e:"Network config."},
+  {d:"Intermediate",cat:"security",s:"USB storage blocked.",a:["Check GPO","Replace motherboard","Reinstall OS","Disable firewall"],c:0,e:"Policy enforcement."},
+  {d:"Intermediate",cat:"os",s:"User cannot install apps.",a:["Check permissions","Replace RAM","Update BIOS","Scan malware"],c:0,e:"Admin rights."},
+  {d:"Intermediate",cat:"networking",s:"VPN fails to connect.",a:["Verify credentials","Replace router","Update BIOS","Disable AV"],c:0,e:"Auth issue."},
+  {d:"Intermediate",cat:"os",s:"Profile corrupted.",a:["Create new profile","Reimage PC","Replace drive","Reset BIOS"],c:0,e:"Profiles rebuildable."},
+  {d:"Intermediate",cat:"security",s:"Antivirus disabled itself.",a:["Scan malware","Ignore","Reimage","Disable firewall"],c:0,e:"Malware interference."},
+  {d:"Intermediate",cat:"os",s:"PC won’t shut down.",a:["Finish updates","Replace RAM","Update BIOS","Clear CMOS"],c:0,e:"Updates pending."},
+
+  {d:"Advanced",cat:"security",s:"Ransomware suspected.",a:["Disconnect network","Ignore","Disable firewall","Email users"],c:0,e:"Isolation."},
+  {d:"Advanced",cat:"security",s:"BitLocker recovery appears.",a:["Find recovery key","Reimage PC","Replace motherboard","Reset BIOS"],c:0,e:"Requires key."},
+  {d:"Advanced",cat:"networking",s:"Time resets on reboot.",a:["Replace CMOS battery","Replace CPU","Update OS","Clear cache"],c:0,e:"CMOS issue."},
+  {d:"Advanced",cat:"security",s:"Folder access denied.",a:["Check NTFS permissions","Reinstall OS","Replace drive","Disable firewall"],c:0,e:"Permissions."},
+  {d:"Advanced",cat:"networking",s:"DNS lookup fails.",a:["Check DNS settings","Replace router","Update BIOS","Disable AV"],c:0,e:"DNS misconfigured."},
+  {d:"Advanced",cat:"security",s:"Activation error.",a:["Verify license","Replace drive","Reset BIOS","Reimage PC"],c:0,e:"Licensing."},
+  {d:"Advanced",cat:"security",s:"Repeated account lockouts.",a:["Check brute‑force attempts","Ignore","Disable logging","Reimage"],c:0,e:"Security investigation."},
+  {d:"Advanced",cat:"os",s:"Boot loop after update.",a:["Rollback update","Replace RAM","Update BIOS","Disable firewall"],c:0,e:"Update rollback."}
+];
+</script>
+
+</body>
+</html>
