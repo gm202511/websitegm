@@ -6,15 +6,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
   font-family:"Segoe UI", Roboto, Arial, sans-serif;
-  background:linear-gradient(135deg,#0b132b 0%,#1c2541 50%,#3a506b 100%);
+  background:linear-gradient(135deg,#0b132b,#1c2541,#3a506b);
   color:#ffffff;
   min-height:100vh;
 }
@@ -25,12 +21,9 @@ nav{
   justify-content:center;
   gap:40px;
   padding:20px 25px;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,.6);
   backdrop-filter:blur(10px);
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:2px solid rgba(0,234,255,0.2);
+  border-bottom:2px solid rgba(0,234,255,.2);
 }
 
 nav a{
@@ -38,22 +31,6 @@ nav a{
   text-decoration:none;
   font-weight:600;
   font-size:1.1em;
-  position:relative;
-}
-
-nav a::after{
-  content:'';
-  position:absolute;
-  bottom:-5px;
-  left:0;
-  width:0;
-  height:2px;
-  background:#00eaff;
-  transition:width 0.3s ease;
-}
-
-nav a:hover::after{
-  width:100%;
 }
 
 /* Header */
@@ -73,7 +50,7 @@ header p{
   max-width:850px;
   margin:20px auto 0;
   font-size:1.2em;
-  opacity:0.95;
+  opacity:.95;
 }
 
 /* Section */
@@ -100,34 +77,31 @@ section h2{
 }
 
 .card{
-  background:linear-gradient(135deg,rgba(28,37,65,0.8),rgba(58,80,107,0.6));
-  border:1px solid rgba(0,234,255,0.3);
+  background:linear-gradient(135deg,rgba(28,37,65,.85),rgba(58,80,107,.65));
+  border:1px solid rgba(0,234,255,.3);
   border-radius:20px;
   padding:40px 30px;
-  transition:all 0.4s ease;
+  transition:.3s;
 }
 
 .card:hover{
-  transform:translateY(-8px);
-  border-color:rgba(0,234,255,0.6);
-  box-shadow:0 20px 50px rgba(0,234,255,0.2);
+  transform:translateY(-6px);
+  box-shadow:0 20px 50px rgba(0,234,255,.2);
 }
 
 .icon{
-  font-size:2.8em;
+  font-size:2.6em;
   margin-bottom:15px;
 }
 
 .card h3{
   color:#00eaff;
-  font-size:1.45em;
   margin-bottom:15px;
 }
 
 .card p{
   line-height:1.7;
   margin-bottom:12px;
-  opacity:0.95;
 }
 
 /* Buttons */
@@ -142,14 +116,14 @@ section h2{
   text-decoration:none;
 }
 
-/* Disabled cards */
+/* Disabled */
 .card.disabled{
-  opacity:0.55;
+  opacity:.55;
 }
 
 .card.disabled a{
   pointer-events:none;
-  background:linear-gradient(135deg,#64748b,#94a3b8);
+  background:#64748b;
   color:#020617;
 }
 
@@ -157,95 +131,67 @@ section h2{
 footer{
   text-align:center;
   padding:40px 25px;
-  border-top:1px solid rgba(0,234,255,0.2);
-  background:rgba(0,0,0,0.3);
-  font-size:0.95em;
-  opacity:0.8;
+  border-top:1px solid rgba(0,234,255,.2);
+  background:rgba(0,0,0,.3);
+  font-size:.95em;
+  opacity:.85;
 }
 </style>
 </head>
 
 <body>
 
-<!-- Navigation -->
 <nav>
   <a href="/index.html">Home</a>
   <a href="/pathways/">Pathways</a>
   <a href="/apps/">Apps</a>
 </nav>
 
-<!-- Header -->
 <header>
   <h1>🧪 Practice Apps</h1>
   <p>
-    Interactive tools designed to reinforce learning, build technician thinking,
-    and support certification‑aligned practice across IT pathways.
+    Interactive tools for certification prep, technician thinking,
+    and real‑world IT practice.
   </p>
 </header>
 
-<!-- Apps -->
 <section>
   <h2>Available Apps</h2>
 
   <div class="grid">
 
-    <!-- Cybersecurity Question App -->
     <div class="card">
       <div class="icon">🎱</div>
       <h3>Cybersecurity Question App</h3>
-      <p>
-        Security+‑aligned multiple‑choice questions covering threats,
-        incident response, IAM, and defensive best practices.
-      </p>
-      <p>Best for review and exam‑style practice.</p>
+      <p>Security+ aligned multiple‑choice practice.</p>
       <a href="/apps/cyber-magic-question.html">Launch Cybersecurity Questions</a>
     </div>
 
-    <!-- Password Strength Meter -->
     <div class="card">
       <div class="icon">🔐</div>
       <h3>Password Strength Meter</h3>
-      <p>
-        Test password strength, estimate crack time, and explore why
-        length, uniqueness, and MFA matter.
-      </p>
-      <p>Includes classroom discussion prompts.</p>
+      <p>Visual password analysis with crack‑time estimates.</p>
       <a href="/apps/password-strength-meter.html">Launch Password Strength Meter</a>
     </div>
 
-    <!-- A+ Scenario Trainer -->
     <div class="card">
       <div class="icon">🖥️</div>
       <h3>CompTIA A+ Scenario Trainer</h3>
-      <p>
-        Scenario‑based troubleshooting for A+ Core 1 and Core 2 focused on
-        technician decision‑making.
-      </p>
-      <p>Includes difficulty levels and end‑of‑run analysis.</p>
+      <p>Scenario‑based troubleshooting for Core 1 & Core 2.</p>
       <a href="/apps/aplus-scenario-trainer.html">Launch A+ Scenario Trainer</a>
     </div>
 
-    <!-- Network+ Question App ✅ NEW -->
     <div class="card">
       <div class="icon">🌐</div>
-      <h3>CompTIA Network+ Practice Questions</h3>
-      <p>
-        Network+‑aligned multiple‑choice questions covering networking concepts,
-        protocols, ports, topologies, and troubleshooting.
-      </p>
-      <p>Designed for exam prep and concept reinforcement.</p>
+      <h3>Network+ Practice Questions</h3>
+      <p>Network+ exam‑style multiple‑choice practice.</p>
       <a href="/apps/networkplus-questions.html">Launch Network+ Questions</a>
     </div>
 
-    <!-- Network+ Scenario Trainer (future) -->
     <div class="card disabled">
       <div class="icon">🧠</div>
       <h3>Network+ Scenario Trainer</h3>
-      <p>
-        Scenario‑based network troubleshooting focused on connectivity,
-        fault isolation, and real‑world diagnostics.
-      </p>
-      <p>Complements Network+ question practice.</p>
+      <p>Network troubleshooting scenarios.</p>
       <a href="#">Coming Soon</a>
     </div>
 
@@ -258,3 +204,4 @@ footer{
 
 </body>
 </html>
+``
